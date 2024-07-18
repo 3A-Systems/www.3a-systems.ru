@@ -1,15 +1,43 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="0; url=https://github.com/3A-Systems">
-        <script type="text/javascript">
-            window.location.href = "https://github.com/3A-Systems"
-        </script>
-        <title>Page Redirection</title>
-    </head>
-    <body>
-        <!-- Note: don't tell people to `click` the link, just tell them that it is a link. -->
-        If you are not redirected automatically, follow this <a href='https://github.com/3A-Systems'>link to example</a>.
-    </body>
-</html>
+---
+layout: main
+---
+ <!-- Masthead-->
+ <header class="masthead">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end"><img class="logo mb-2" src="assets/img/logo-oip-lg-vert.png" alt="3A Systems Logo" /></div>
+            <div class="col-lg-8 align-self-baseline">
+                <p class="text-primary mb-2">
+                    Участник сообщества
+                    <a class="text-primary" href="https://github.com/OpenIdentityPlatform" target="_blank">@OpenIdentityPlatform</a>
+                    c 2008 года:
+                    <br />
+                    разработка, внедрение и поддержка
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+<!--products short-->
+<section class="page-section py-2" id="products-brief">
+    <div class="container px-4 px-lg-5">
+        <div class="row justify-content-center">
+            <div class="col text-center">
+                <h2 class="text-center">Экосистема</h2>
+                <hr class="divider" />
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% for product in site.data.products %}
+            <div class="col-md-5 col-sm-12 mx-2 d-flex align-items-stretch">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <div class="h3 text-uppercase"><a href="{{product.url}}">{{product.sname}}</a></div>
+                    </div>
+                    <div class="card-body"><div class="p">{{product.desc}}</div></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
