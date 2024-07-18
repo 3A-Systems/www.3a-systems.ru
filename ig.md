@@ -6,7 +6,7 @@ permalink: /ig
     <div class="container px-4 px-lg-5 py-5">
         <div class="row justify-content-center">
             <div class="col text-center">
-                <h2 class="text-center"><img class="logo" src="assets/img/logo-ig-lg-long.png" alt="Identity Gateway"/></h2>
+                <h2 class="text-center"><img class="logo" src="/assets/img/logo-ig-lg-long.png" alt="Identity Gateway"/></h2>
             </div>
         </div>
         <div class="row">
