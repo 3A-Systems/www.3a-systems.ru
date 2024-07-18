@@ -1,6 +1,5 @@
 ---
 layout: main
-permalink: /ds
 ---
  <section class="page-section" id="product">
     <div class="container px-4 px-lg-5 py-5">

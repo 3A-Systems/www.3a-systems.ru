@@ -29,7 +29,7 @@ url: "https://www.3a-systems.ru" # the base hostname & protocol for your site, e
 
 # Build settings
 # theme: minima
-# plugins:
+plugins:
 #   - jekyll-feed
 
 # Exclude from processing.
@@ -40,14 +40,14 @@ url: "https://www.3a-systems.ru" # the base hostname & protocol for your site, e
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

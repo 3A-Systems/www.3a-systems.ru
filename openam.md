@@ -1,6 +1,5 @@
 ---
 layout: main
-permalink: /am
 ---
  <section class="page-section" id="product">
     <div class="container px-4 px-lg-5 py-5">
@@ -15,6 +14,16 @@ permalink: /am
             <p>Поддерживает открытые стандарты аутентификации, федерации и защиты веб сервисов: CDSSO, SAML,OpenID Connect, Web Services Security.</p>
             <p>Интегрируется с внутренними каталогами компании Active Directory, LDAP, поддерживает NTLMv2, Kerberos, x509 аутентификацию.</p>
             <p>Эволюция: Sun Access Manager, Oracle OpenSSO, Forgerock/Open Identity Platform OpenAM</p>
+        </div>
+        <div class="row">
+            <h2>Материалы для дальнейшего ознакомления</h2>
+            <ul>
+                {% for article in site.data.articles.openam%}   
+                <li>
+                    <a href="{{article.url}}">{{article.title}}</a>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </section>
