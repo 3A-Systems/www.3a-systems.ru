@@ -5,16 +5,17 @@ layout: main
  <header class="masthead">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 align-items-center justify-content-center text-center">
-            <div class="col-lg-8 align-self-end"><img class="logo mb-2" src="assets/img/logo-oip-lg-vert.png" alt="3A Systems Logo" /></div>
-            <div class="col-lg-8 align-self-baseline">
-                <p class="text-primary mb-2">
-                    Участник сообщества
-                    <a class="text-primary" href="https://github.com/OpenIdentityPlatform" target="_blank">Open Identity Platform</a>
-                    c 2008 года:
-                    <br />
-                    разработка, внедрение и поддержка
-                </p>
+            <div class="col-lg-8 align-self-end">
+                <h1 class="text-uppercase">3A Systems</h1>
+                <hr class="divider" />
             </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 px-5 mx-lg-5 justify-content-center">
+            <ul>
+            {% for item in site.data.about %}
+                <li>{{item.desc}}</p>   
+            {% endfor %}
+            </ul>
         </div>
     </div>
 </header>
@@ -23,7 +24,6 @@ layout: main
     <div class="container px-4 px-lg-5">
         <div class="row justify-content-center">
             <div class="col text-center">
-                <h2 class="text-center">Экосистема</h2>
                 <hr class="divider" />
             </div>
         </div>

@@ -21,10 +21,15 @@ header.masthead {
 
     h1 {
         font-size: 2.25rem;
+        color: $primary;
+        font-weight: 800;
     }
     img.logo {
         max-height: 18rem;
         max-width: 100%;
+    }
+    ul {
+        line-height: normal;
     }
 
     @include media-breakpoint-up(lg) {
