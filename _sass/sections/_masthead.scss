@@ -20,16 +20,12 @@ header.masthead {
     background-size: cover;
 
     h1 {
-        font-size: 2.25rem;
+        font-size: 2rem;
         color: $primary;
-        font-weight: 800;
     }
     img.logo {
         max-height: 18rem;
         max-width: 100%;
-    }
-    ul {
-        line-height: normal;
     }
 
     @include media-breakpoint-up(lg) {
@@ -40,17 +36,6 @@ header.masthead {
 
         p {
             font-size: 1.15rem;
-        }
-
-        h1 {
-            font-size: 3rem;
-        }
-
-    }
-
-    @include media-breakpoint-up(xl) {
-        h1 {
-            font-size: 3.5rem;
         }
     }
 }

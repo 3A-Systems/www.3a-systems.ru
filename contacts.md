@@ -4,10 +4,8 @@ layout: main
 <section class="page-section">
     <div class="container px-4 px-lg-5 py-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-lg-8 col-xl-6 text-center">
-                <h2 class="mt-0">Контакты</h2>
-                <hr class="divider" />
-            </div>
+            <h2 class="mt-0">Контакты</h2>
+            <hr class="divider" />
         </div>
          <div class="row">
             <p><b>ООО “ТриА Системз” ОГРН 1137746725951 ИНН 7723880303 КПП 772301001</b></p>

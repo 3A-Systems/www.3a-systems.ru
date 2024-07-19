@@ -5,8 +5,8 @@ layout: main
 <section class="page-section">
     <div class="container px-4 px-lg-5 py-5">
         <div class="row justify-content-center">
-            <div class="col text-center">
-                <h2 class="text-center mt-0">Опыт</h2>
+            <div class="col">
+                <h1>Опыт</h1>
                 <hr class="divider" />
             </div>
         </div>
