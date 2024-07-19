@@ -1,5 +1,12 @@
 ---
 layout: main
+
+title: 'OpenIDM: Identity Management'
+description: 'Управление учетными данными в различных источниках. Позволяет
+    синхронизировать, трансформировать, согласовывать учетные данные
+    пользователей, прав доступа, устройств, сертификатов и прочих объектов из
+    различных источников (Active Directory, LDAP, SQL, SSH, 1C и т.д.)'
+
 product:
     logo: logo-idm-lg-long.png
     features:
