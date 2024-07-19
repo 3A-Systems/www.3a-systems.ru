@@ -1,7 +1,7 @@
 - name: 'Банк ВТБ (ПАО)'
   link: 'https://www.vtb.ru/'
   logo: 'https://www.vtb.ru/media-files/vtb.ru/shared/logogeneral/Main_ic_LogoVTBlight.svg'
-  category: 'банковское обслуживание'
+  category: 'дистанционное банковское обслуживание'
 
 - name: 'ООО «Яндекс.Облако»'
   link: 'https://yandex.cloud/'
@@ -11,7 +11,7 @@
 - name: '«Газпромбанк» (Акционерное общество)'
   link: 'https://www.gazprombank.ru/'
   logo: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Gazprombank.svg'
-  category: 'банковское обслуживание'
+  category: 'дистанционное банковское обслуживание'
   
 - name: 'АО "МаксимаТелеком" (WiFI в Метро)'
   link: 'https://wi-fi.ru'
@@ -21,7 +21,7 @@
 - name: 'АО «Связной Банк»'
   link: 'https://login.qbank.ru'
   logo: 'https://static3.banki.ru/upload/iblock/547/svyaznoi_135x85.gif'
-  category: 'банковское обслуживание'
+  category: 'дистанционное банковское обслуживание'
   
 - name: 'АО Автоассистанс (Российское Автомобильное Товарищество)'
   logo: 'https://www.0560.ru//static/images/general/logo.svg'
@@ -45,7 +45,7 @@
   
 - name: 'ПАО МТС Банк'
   link: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/MTSBank_Logo_800px.png'
-  category: 'банковское обслуживание'
+  category: 'дистанционное банковское обслуживание'
   
 - name: 'ЗАО «Диджитал Грасс Групп»'
   logo: 'https://hh.ru/employer-logo/990810.png'
