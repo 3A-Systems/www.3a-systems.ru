@@ -1,18 +1,22 @@
 ---
 layout: main
+
+product:
+    logo: logo-ig-lg-long.png
+    features:
+        - 'Интернет шлюз (реверсивный прокси) контроля доступа к UI и API.'
+        - 'Позволяет организовывать защищенный доступ к веб приложениям и API путем решения задач маршрутизации, аутентификации, авторизации, федерации и расширения профиля.'
+        - 'Поддерживает открытые стандарты аутентификации и федерации: OAuth, OpenID Connect, SAML. Позволяет безопасно настроить функцию Replay password для унаследованных систем и производить изменение контента “на лету”.'
+        - 'Эволюция: Forgerock/Open Identity Platform OpenIG'   
+    
+    articles:     
+        - title: 'Как защитить веб сервисы при помощи шлюза OpenIG'
+          url: 'https://habr.com/ru/articles/823212/'
+        - title: 'Настройка сервиса аутентификации OpenAM и шлюза авторизации OpenIG для защиты приложений'
+          url: 'https://habr.com/ru/articles/808431/'
+        - title: 'Контроль пропускной способности (троттлинг) API c помощью шлюза авторизации OpenIG'
+          url: 'https://habr.com/ru/articles/828826/'
+        - title: 'Как защитить WebSocket соединение при помощи OpenAM и OpenIG'
+          url: 'https://habr.com/ru/articles/823872/'
 ---
-<section class="page-section" id="product">
-    <div class="container px-4 px-lg-5 py-5">
-        <div class="row justify-content-center">
-            <div class="col text-center">
-                <h2 class="text-center"><img class="logo" src="/assets/img/logo-ig-lg-long.png" alt="Identity Gateway"/></h2>
-            </div>
-        </div>
-        <div class="row">
-            <p>Интернет шлюз (реверсивный прокси) контроля доступа к UI и API.</p>
-            <p>Позволяет организовывать защищенный доступ к веб приложениям и API путем решения задач маршрутизации, аутентификации, авторизации, федерации и расширения профиля.</p>
-            <p>Поддерживает открытые стандарты аутентификации и федерации: OAuth, OpenID Connect, SAML. Позволяет безопасно настроить функцию Replay password для унаследованных систем и производить изменение контента “на лету”.</p>
-            <p>Эволюция: Forgerock/Open Identity Platform OpenIG</p>
-        </div>
-    </div>
-</section>
+{% include product.html %}

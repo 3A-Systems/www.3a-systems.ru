@@ -10,7 +10,7 @@ section#products-brief {
 
 section.page-section {
     h2 {
-        color: $primary;
+        color: $primary;        
     }
 }
 
@@ -19,5 +19,8 @@ section#product {
         max-height: 90px;
         max-width: 100%;
         margin-bottom: 1rem;        
+    }
+    h2 {
+        font-size: larger;
     }
 }
