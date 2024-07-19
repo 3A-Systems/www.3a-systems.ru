@@ -11,23 +11,10 @@ section#products-brief {
 section.page-section {
     h1 {
         color: $primary;
-        font-weight: 800;
-        font-size: 2.25rem;
+        font-size: 2rem;
     }
     h2 {
         color: $primary;        
-    }
-    @include media-breakpoint-up(lg) {
-        h1 {
-            font-size: 3rem;
-        }
-
-    }
-
-    @include media-breakpoint-up(xl) {
-        h1 {
-            font-size: 3.5rem;
-        }
     }
 }
 
@@ -36,8 +23,5 @@ section#product {
         max-height: 90px;
         max-width: 100%;
         margin-bottom: 1rem;        
-    }
-    h2 {
-        font-size: larger;
     }
 }
