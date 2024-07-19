@@ -1,3 +1,58 @@
-- val1: ''
-  val2: ''
-  val3: ''
+- name: 'Банк ВТБ (ПАО)'
+  link: 'https://www.vtb.ru/'
+  logo: 'https://www.vtb.ru/media-files/vtb.ru/shared/logogeneral/Main_ic_LogoVTBlight.svg'
+  category: 'банковское обслуживание'
+
+- name: 'ООО «Яндекс.Облако»'
+  link: 'https://yandex.cloud/'
+  logo: 'https://storage.yandexcloud.net/cloud-www-assets/region-assets/ru/light/desktop/logo.svg'
+  category: 'облачные решения'
+
+- name: '«Газпромбанк» (Акционерное общество)'
+  link: 'https://www.gazprombank.ru/'
+  logo: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Gazprombank.svg'
+  category: 'банковское обслуживание'
+  
+- name: 'АО "МаксимаТелеком" (WiFI в Метро)'
+  link: 'https://wi-fi.ru'
+  logo: 'https://maximatelecom.ru/img/logo-maxima-new@2x.png'
+  category: 'телекоммуникации'
+  
+- name: 'АО «Связной Банк»'
+  link: 'https://login.qbank.ru'
+  logo: 'https://static3.banki.ru/upload/iblock/547/svyaznoi_135x85.gif'
+  category: 'банковское обслуживание'
+  
+- name: 'АО Автоассистанс (Российское Автомобильное Товарищество)'
+  logo: 'https://www.0560.ru//static/images/general/logo.svg'
+  link: 'https://www.0560.ru//'
+  category: 'дистанционное обслуживание'
+  
+- name: 'АО Авилон АГ'
+  logo: 'https://s1.avilon.ru/local/templates/main_avilon/assets/img/logo.png'
+  link: 'https://avilon.ru'
+  category: 'дистанционное обслуживание'
+  
+- name: 'ПАО Московская городская телефонная сеть'
+  logo: 'https://mgts.ru/bitrix/templates/ab3/img/logo_red.svg'
+  link: 'https://login.mgts.ru/'
+  category: 'телекоммуникации'
+  
+- name: 'ЗАО «КРОК инкорпорейтед»"
+  link: 'https://www.croc.ru/'
+  logo: 'https://filearchive.cnews.ru/img/market/company/logo/5e441a6feba3f.png'
+  category: 'облачные решения'
+  
+- name: 'ПАО МТС Банк'
+  link: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/MTSBank_Logo_800px.png'
+  category: 'банковское обслуживание'
+  
+- name: 'ЗАО «Диджитал Грасс Групп»'
+  logo: 'https://hh.ru/employer-logo/990810.png'
+  link: 'http://www.digital-grass.com'
+  category: 'дистанционное обслуживание'
+  
+- name: 'ПАО Мобильные Телесистемы'
+  logo: 'https://static.mts.ru/mts_rf/images/logo-eco.svg'
+  link: 'https://login.mts.ru/'
+  category: 'телекоммуникации'
