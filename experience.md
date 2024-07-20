@@ -23,8 +23,12 @@ layout: main
                     <tbody>
                         {% for exp in site.data.experience %}
                         <tr>
-                            <td scope="row"><img class="company-logo" src="{{exp.logo}}" alt="{{exp.name}}"/></td>
-                            <td scope="row">{{exp.name}}</td>
+                            <td scope="row">
+                                <a href="{{exp.link}}" target="_blank">
+                                    <img class="company-logo" src="{{exp.logo}}" alt="{{exp.name}}"/>
+                                </a>
+                            </td>
+                            <td scope="row"><a href="{{exp.link}}" target="_blank">{{exp.name}}</a></td>
                             <td scope="row">{{exp.category}}</td>
                         </tr>
                         {% endfor %}                        
