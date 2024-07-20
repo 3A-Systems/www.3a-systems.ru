@@ -2,7 +2,7 @@
 layout: main
 ---
 
-<section class="page-section">
+<section id="experience" class="page-section">
     <div class="container px-4 px-lg-5 py-5">
         <div class="row justify-content-center">
             <div class="col">
@@ -15,17 +15,17 @@ layout: main
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Колонка 1</th>
-                            <th scope="col">Колонка 2</th>
-                            <th scope="col">Колонка 3</th>
+                            <th scope="col">Компания</th>
+                            <th scope="col">Наименование</th>
+                            <th scope="col">Категория</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for exp in site.data.experience %}
                         <tr>
-                            <td scope="row">{{exp.val1}}</td>
-                            <td scope="row">{{exp.val2}}</td>
-                            <td scope="row">{{exp.val2}}</td>
+                            <td scope="row"><img class="company-logo" src="{{exp.logo}}" alt="{{exp.name}}"/></td>
+                            <td scope="row">{{exp.name}}</td>
+                            <td scope="row">{{exp.category}}</td>
                         </tr>
                         {% endfor %}                        
                     </tbody>
