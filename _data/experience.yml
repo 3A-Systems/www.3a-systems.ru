@@ -13,7 +13,7 @@
   logo: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Gazprombank.svg'
   category: 'дистанционное банковское обслуживание'
   
-- name: 'АО "МаксимаТелеком" (WiFI в Метро)'
+- name: 'АО «МаксимаТелеком» (WiFI в Метро)'
   link: 'https://wi-fi.ru'
   logo: 'https://maximatelecom.ru/img/logo-maxima-new@2x.png'
   category: 'телекоммуникации'
@@ -38,13 +38,14 @@
   link: 'https://login.mgts.ru/'
   category: 'телекоммуникации'
   
-- name: 'ЗАО «КРОК инкорпорейтед»"
+- name: 'ЗАО «КРОК инкорпорейтед»'
   link: 'https://www.croc.ru/'
   logo: 'https://filearchive.cnews.ru/img/market/company/logo/5e441a6feba3f.png'
   category: 'облачные решения'
   
 - name: 'ПАО МТС Банк'
-  link: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/MTSBank_Logo_800px.png'
+  link: 'https://www.mtsbank.ru/'
+  logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/MTSBank_Logo_800px.png'
   category: 'дистанционное банковское обслуживание'
   
 - name: 'ЗАО «Диджитал Грасс Групп»'
