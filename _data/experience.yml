@@ -32,6 +32,7 @@
   logo: 'https://s1.avilon.ru/local/templates/main_avilon/assets/img/logo.png'
   link: 'https://avilon.ru'
   category: 'дистанционное обслуживание'
+  class: 'avilon'
   
 - name: 'ПАО Московская городская телефонная сеть'
   logo: 'https://mgts.ru/bitrix/templates/ab3/img/logo_red.svg'

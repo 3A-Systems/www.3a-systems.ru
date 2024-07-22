@@ -17,15 +17,15 @@ layout: main
                         <tr>
                             <th scope="col">Компания</th>
                             <th scope="col">Наименование</th>
-                            <th scope="col">Категория</th>
+                            <th scope="col">Деятельность</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for exp in site.data.experience %}
                         <tr>
-                            <td scope="row">
+                            <td scope="row" class="logo">
                                 <a href="{{exp.link}}" target="_blank">
-                                    <img class="company-logo" src="{{exp.logo}}" alt="{{exp.name}}"/>
+                                    <img class="company-logo {{exp.class}}" src="{{exp.logo}}" alt="{{exp.name}}"/>
                                 </a>
                             </td>
                             <td scope="row"><a href="{{exp.link}}" target="_blank">{{exp.name}}</a></td>
