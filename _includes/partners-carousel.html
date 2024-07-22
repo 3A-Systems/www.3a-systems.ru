@@ -1,0 +1,14 @@
+<section id="partners" class="page-section">
+    <div class="container px-4 px-lg-5 py-5">
+        <div class="slider responsive">
+            {% for exp in site.data.experience %}
+                <div>
+                    <a href="/experience">
+                        <img class="company-logo {{exp.class}}" src="{{exp.logo}}" alt="{{exp.name}}"/>
+                    </a>
+                </div>
+            {% endfor %} 
+        </div>
+    </div>
+</section>
+
