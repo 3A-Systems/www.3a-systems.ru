@@ -24,9 +24,10 @@
   category: 'дистанционное банковское обслуживание'
   
 - name: 'АО Автоассистанс (Российское Автомобильное Товарищество)'
-  logo: 'https://www.0560.ru//static/images/general/logo.svg'
-  link: 'https://www.0560.ru//'
+  logo: 'https://www.0560.ru/static/images/general/logo.svg'
+  link: 'https://www.0560.ru/'
   category: 'дистанционное обслуживание'
+  class: autoassiatance
   
 - name: 'АО Авилон АГ'
   logo: 'https://s1.avilon.ru/local/templates/main_avilon/assets/img/logo.png'
@@ -43,6 +44,7 @@
   link: 'https://www.croc.ru/'
   logo: 'https://filearchive.cnews.ru/img/market/company/logo/5e441a6feba3f.png'
   category: 'облачные решения'
+  class: croc
   
 - name: 'ПАО МТС Банк'
   link: 'https://www.mtsbank.ru/'
@@ -58,3 +60,4 @@
   logo: 'https://static.mts.ru/mts_rf/images/logo-eco.svg'
   link: 'https://login.mts.ru/'
   category: 'телекоммуникации'
+  class: mts
