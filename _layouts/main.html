@@ -28,6 +28,9 @@
             </div>
         </nav>
         {{content}}
+        {%if page.skipcarousel != true %}
+            {% include partners-carousel.html %}
+        {% endif %}
         <!-- Footer-->
         <footer class="bg-light py-3">
             <div class="container px-4 px-lg-5">

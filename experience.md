@@ -1,5 +1,6 @@
 ---
 layout: main
+skipcarousel: true
 ---
 
 <section id="experience" class="page-section">

@@ -29,6 +29,7 @@ window.addEventListener('DOMContentLoaded', event => {
 $('#partners .slider').slick({
   infinite: true,
   speed: 7000,
+  //speed: 1000,
   autoplay: true,
   autoplaySpeed: 0,
   slidesToShow: 1,
