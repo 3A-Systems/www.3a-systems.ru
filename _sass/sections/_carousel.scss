@@ -1,4 +1,4 @@
-$slider-height: 68px;
+$slider-height: 55px;
 $width: $slider-height * 2 + 40px;
 $container-margin: -2rem;
 
@@ -16,6 +16,7 @@ $container-margin: -2rem;
     .slider-container {
         height: $slider-height;
         width: $slider-height * 3;
+        filter: grayscale(1);
     }
     .slider {
         a {
