@@ -1,63 +1,63 @@
 - name: 'Банк ВТБ (ПАО)'
   link: 'https://www.vtb.ru/'
-  logo: 'https://www.vtb.ru/media-files/vtb.ru/shared/logogeneral/Main_ic_LogoVTBlight.svg'
+  logo: '/assets/img/partners/vtb.svg'
   category: 'дистанционное банковское обслуживание'
 
 - name: 'ООО «Яндекс.Облако»'
   link: 'https://yandex.cloud/'
-  logo: 'https://storage.yandexcloud.net/cloud-www-assets/region-assets/ru/light/desktop/logo.svg'
+  logo: '/assets/img/partners/yandex-cloud.svg'
   category: 'облачные решения'
 
 - name: '«Газпромбанк» (Акционерное общество)'
   link: 'https://www.gazprombank.ru/'
-  logo: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Gazprombank.svg'
+  logo: '/assets/img/partners/gazprombank.svg'
   category: 'дистанционное банковское обслуживание'
   
 - name: 'АО «МаксимаТелеком» (WiFI в Метро)'
   link: 'https://wi-fi.ru'
-  logo: 'https://maximatelecom.ru/img/logo-maxima-new@2x.png'
+  logo: '/assets/img/partners/maxima-telecom.png'
   category: 'телекоммуникации'
   
 - name: 'АО «Связной Банк»'
   link: 'https://login.qbank.ru'
-  logo: 'https://static3.banki.ru/upload/iblock/547/svyaznoi_135x85.gif'
+  logo: '/assets/img/partners/svyaznoy-bank.jpg'
   category: 'дистанционное банковское обслуживание'
   
 - name: 'АО Автоассистанс (Российское Автомобильное Товарищество)'
-  logo: 'https://www.0560.ru/static/images/general/logo.svg'
+  logo: '/assets/img/partners/autoassiatance.svg'
   link: 'https://www.0560.ru/'
   category: 'дистанционное обслуживание'
   class: autoassiatance
   
 - name: 'АО Авилон АГ'
-  logo: 'https://s1.avilon.ru/local/templates/main_avilon/assets/img/logo.png'
+  logo: '/assets/img/partners/avilon.webp'
   link: 'https://avilon.ru'
   category: 'дистанционное обслуживание'
   class: 'avilon'
   
 - name: 'ПАО Московская городская телефонная сеть'
-  logo: 'https://mgts.ru/bitrix/templates/ab3/img/logo_red.svg'
+  logo: '/assets/img/partners/mgts.svg'
   link: 'https://login.mgts.ru/'
   category: 'телекоммуникации'
   
 - name: 'ЗАО «КРОК инкорпорейтед»'
   link: 'https://www.croc.ru/'
-  logo: 'https://filearchive.cnews.ru/img/market/company/logo/5e441a6feba3f.png'
+  logo: '/assets/img/partners/croc.png'
   category: 'облачные решения'
   class: croc
   
 - name: 'ПАО МТС Банк'
   link: 'https://www.mtsbank.ru/'
-  logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/MTSBank_Logo_800px.png'
+  logo: '/assets/img/partners/mts-bank.png'
   category: 'дистанционное банковское обслуживание'
   
 - name: 'ЗАО «Диджитал Грасс Групп»'
-  logo: 'https://hh.ru/employer-logo/990810.png'
+  logo: '/assets/img/partners/digital-grass.png'
   link: 'http://www.digital-grass.com'
   category: 'дистанционное обслуживание'
   
 - name: 'ПАО Мобильные Телесистемы'
-  logo: 'https://static.mts.ru/mts_rf/images/logo-eco.svg'
+  logo: '/assets/img/partners/mts.svg'
   link: 'https://login.mts.ru/'
   category: 'телекоммуникации'
   class: mts
