@@ -37,5 +37,8 @@ $('#partners .slider').slick({
   cssEase: 'linear',
   arrows: false,
   variableWidth: true,
-  pauseOnHover:false
+  pauseOnHover:false,
+  pauseOnFocus: false,
+  swipe: false,
+  touchMove: false,
 });
