@@ -3,6 +3,8 @@
 {% capture page_title %} {%- if page.title -%} {{ page.title | smartify }} · {{ site.title | smartify }}{%- else -%}{{ site.title | smartify }} · {{ site.description | smartify }}{%- endif -%}{% endcapture %}
 {% capture page_description %}{{ page.description | default: site.description | smartify }}{% endcapture %}
 
+{% include ga.html %}
+
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <title>{{page_title}}</title>
