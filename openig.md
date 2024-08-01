@@ -24,5 +24,7 @@ product:
           url: 'https://habr.com/ru/articles/828826/'
         - title: 'Как защитить WebSocket соединение при помощи OpenAM и OpenIG'
           url: 'https://habr.com/ru/articles/823872/'
+        - title: 'Интеграция REST и MQ брокеров сообщений через шлюз OpenIG'
+          url: 'https://habr.com/ru/articles/828832/'
 ---
 {% include product.html %}
