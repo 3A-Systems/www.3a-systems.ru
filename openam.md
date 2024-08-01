@@ -33,5 +33,7 @@ product:
           url: 'https://habr.com/ru/articles/773302/'
         - title: 'Настройка аутентификации по протоколу WebAuthn в OpenAM'
           url: 'https://habr.com/ru/articles/816475/'         
+        - title: 'Аутентификация в SPA приложении через OpenAM используя OAuth2/OIDC'
+          url: 'https://habr.com/ru/articles/796511/'         
 ---
 {% include product.html %}
