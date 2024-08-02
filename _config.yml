@@ -10,7 +10,6 @@ keywords: openam, opendj, openidm, openig, open identity platform, identity mana
 # theme: minima
 plugins:
   - jekyll-feed
-  - jekyll-remote-include
   - jekyll-paginate
 
 permalink: /blog/:year-:month-:day-:title
