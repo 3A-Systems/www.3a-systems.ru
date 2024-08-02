@@ -1,0 +1,14 @@
+section#blog {
+    .paginator {
+        display: flex;
+        justify-content: center;
+    }
+    
+    a.blogpost {
+        text-decoration: none;
+    }
+
+    a.blogpost:hover {
+        text-decoration: underline;
+    }
+}
