@@ -1,9 +1,10 @@
 ---
 layout: blog
-title: 'Аутентификация по протоколу SAML с помощью OpenAM на примере Yandex Cloud'
-description: 'В данной статье описывается, как настроить вход по технологии единого входа (SSO) по протоколу SAML в Yandex Cloud через Access Management платформу с открытым исходным кодом OpenAM.'
+title: 'Настройка SAMLv2 федерации в OpenAM'
+description: 'В данном руководстве мы настроим федерацию между двумя инстансами OpenAM. Один инстанс будет Identity Provider (IdP), другой - Service Provider (SP). Таким образом вы можете аутентифицироваться в инстансе OpenAM (SP) используя учетные данные другого инстанса - OpenAM (IdP).'
 tags: 
   - openam
+
 ---
 
 ## Введение
