@@ -8,6 +8,7 @@ description: 'Управление учетными данными в разли
 
 
 product:
+    name: openig
     logo: logo-ig-lg-long.png
     features:
         - 'Интернет шлюз (реверсивный прокси) контроля доступа к UI и API.'

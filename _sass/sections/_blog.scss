@@ -11,4 +11,11 @@ section#blog {
     a.blogpost:hover {
         text-decoration: underline;
     }
+
+    table td, table th {
+        border: 1px solid;
+        line-height: 1.5;
+        padding: 6px 12px 9px;
+        vertical-align: top
+    }
 }

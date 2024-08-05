@@ -8,6 +8,7 @@ description: 'Управление учетными данными в разли
     различных источников (Active Directory, LDAP, SQL, SSH, 1C и т.д.)'
 
 product:
+    name: openidm
     logo: logo-idm-lg-long.png
     features:
         - 'Управление учетными данными в различных источниках.'

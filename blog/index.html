@@ -1,7 +1,7 @@
 ---
 layout: blog
-title: 'Блог'
-description: 'Стати по Access и Identity Management, конфигурация OpenAM, OpenDJ, OpenIG, OpenIDM'
+title: 'Новости и статьи'
+description: 'Новости компании и статьи по Access и Identity Management, конфигурация OpenAM, OpenDJ, OpenIG, OpenIDM'
 ---
 
 {% for post in paginator.posts %}
@@ -12,6 +12,7 @@ description: 'Стати по Access и Identity Management, конфигура�
       <h4>
         {{post.title}}
       </h4>
+      <p>{{post.date |  date: "%d.%m.%Y" }}</p>
       <p>{{post.description}}</p>
     </div>
   </div>
@@ -22,11 +23,11 @@ description: 'Стати по Access и Identity Management, конфигура�
   <ul class="pagination">
     {% if paginator.previous_page %}
       <li class="page-item">
-        <a href="{{ paginator.previous_page_path }}" class="page-link">Previous</a>
+        <a href="{{ paginator.previous_page_path }}" class="page-link">Назад</a>
       </li>
     {% else %} 
       <li class="page-item disabled">
-        <a class="page-link">Previous</a>
+        <a class="page-link">Назад</a>
       </li>
     {% endif %}
     {% for page in (1..paginator.total_pages) %}
@@ -42,11 +43,11 @@ description: 'Стати по Access и Identity Management, конфигура�
     {% endfor %}
     {% if paginator.next_page %}
       <li class="page-item">
-        <a href="{{ paginator.next_page_path }}" class="page-link">Next</a>
+        <a href="{{ paginator.next_page_path }}" class="page-link">Далее</a>
       </li>
     {% else %}
       <li class="page-item disabled">
-        <a class="page-link">Next</a>
+        <a class="page-link">Далее</a>
       </li>
     {% endif %}    
   </ul>
