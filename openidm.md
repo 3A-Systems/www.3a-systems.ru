@@ -9,6 +9,7 @@ description: 'Управление учетными данными в разли
 
 product:
     name: openidm
+    reponame: OpenIDM
     logo: logo-idm-lg-long.png
     features:
         - 'Управление учетными данными в различных источниках.'
