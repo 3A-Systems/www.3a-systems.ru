@@ -273,6 +273,7 @@ curl 'http://localhost:8080/openidm/managed/user?_queryFilter=true' \
 Проверьте наличие учетной записи в Active Directory командой:
 
 ```
+
 ldapsearch -H ldap://ad.example.org.ru -x -W -D "admin@example.org" -b "dc=example,dc=org" "(sAMAccountName=idmUser)" | grep dn | wc -l
 Enter LDAP Password: 
 0
