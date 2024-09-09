@@ -92,7 +92,7 @@ Trust store находится в каталоге дистрибутива Open
 
 | Источник | Приемник | Trasnformation script | Conditional updates |
 | --- | --- | --- | --- |
-| userName | dn | `'CN=' + source + ',CN=Users,DC=ds,DC=gazprombank,DC=ru'` |  |
+| userName | dn | `'CN=' + source + ',CN=Users,DC=example,DC=org'` |  |
 | givenName | givenName |  |  |
 | sn | sn |  |  |
 |  | cn | `source.displayName || (source.givenName + ' ' + [source.sn](http://source.sn/));` |  |
