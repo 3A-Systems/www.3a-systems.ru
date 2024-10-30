@@ -6,17 +6,19 @@ description: 'Новости компании и статьи по Access и Ide
 
 {% for post in paginator.posts %}
 
-<a class="blogpost" href="{{post.url}}">
-  <div class="card mb-3">
-    <div class="card-body">
-      <h4>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h4>
+      <a class="blogpost" href="{{post.url}}">
         {{post.title}}
-      </h4>
-      <p>{{post.date |  date: "%d.%m.%Y" }}</p>
-      <p>{{post.description}}</p>
-    </div>
+      </a>
+    </h4>
+    <p>{{post.date |  date: "%d.%m.%Y" }}</p>
+    <p>{{post.description}}</p>
   </div>
-</a>
+</div>
+
 {% endfor %}
 
 <nav class="paginator">
