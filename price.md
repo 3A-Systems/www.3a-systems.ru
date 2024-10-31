@@ -53,18 +53,18 @@ layout: main
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">Свободная</th>
+                            <td scope="row">Свободная</td>
                             <td scope="row" colspan="4" align="center">бесплатно</td>
                         </tr>
                         <tr>
-                            <th scope="row">Стандартная</th>
+                            <td scope="row">Стандартная</td>
                             <td scope="row">64 000 рублей</td>
                             <td scope="row">128 000 рублей</td>
                             <td scope="row">32 000 рублей</td>
                             <td scope="row">256 000 рублей</td>
                         </tr>
                         <tr>
-                            <th scope="row">Расширенная</th>
+                            <td scope="row">Расширенная</td>
                             <td scope="row" colspan="4"  style="text-align: center;"><a href="/contacts">по запросу</a> (на основании соглашения об уровне обслуживания)</td>
                         </tr>
                     </tbody>
@@ -91,28 +91,28 @@ layout: main
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">Введение в продукт</th>
+                            <td scope="row">Введение в продукт</td>
                             <td scope="row">32 000 рублей</td>
                             <td scope="row">64 000 рублей</td>
                             <td scope="row">32 000 рублей</td>
                             <td scope="row">64 000 рублей</td>
                         </tr>
                         <tr>
-                            <th scope="row">Администрирование</th>
+                            <td scope="row">Администрирование</td>
                             <td scope="row">128 000 рублей</td>
                             <td scope="row">256 000 рублей</td>
                             <td scope="row">128 000 рублей</td>
                             <td scope="row">256 000 рублей</td>
                         </tr>
                         <tr>
-                            <th scope="row">Кастомизация и разработка</th>
+                            <td scope="row">Кастомизация и разработка</td>
                             <td scope="row">128 000 рублей</td>
                             <td scope="row">256 000 рублей</td>
                             <td scope="row">128 000 рублей</td>
                             <td scope="row">256 000 рублей</td>
                         </tr>
                         <tr>
-                            <th scope="row">Персональный</th>
+                            <td scope="row">Персональный</td>
                             <td scope="row" colspan="4"  style="text-align: center;"><a href="/contacts">по запросу</a> (на основании требований заказчика)</td>
                         </tr>
                     </tbody>
@@ -138,14 +138,14 @@ layout: main
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">Консалтинг</th>
+                            <td scope="row">Консалтинг</td>
                             <td scope="row" colspan="4" rowspan="3" style="vertical-align: middle;text-align: center;"><a href="/contacts">по запросу</a> (на основании требований заказчика)</td>
                         </tr>
                         <tr>
-                            <th scope="row">Внедрение</th>
+                            <td scope="row">Внедрение</td>
                         </tr>
                         <tr>
-                            <th scope="row">Разработка</th>
+                            <td scope="row">Разработка</td>
                         </tr>
                     </tbody>
                 </table>
