@@ -34,7 +34,7 @@ layout: main
                         <tr>
                             <td scope="row">Консалтинг</td>
                             <td scope="row">Консультирование: обследование, экспертиза, проектирование, поиск вариантов решения проблем</td>
-                            <td scope="row" rowspan="3" valign="center">на основании требований заказчика</td>
+                            <td scope="row" rowspan="3" style="vertical-align: middle;">на основании требований заказчика</td>
                         </tr>
                         <tr>
                             <td scope="row">Внедрение</td>
