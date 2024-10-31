@@ -11,7 +11,7 @@ layout: main
         </div>
         <div class="row">
             <div class="col">
-                Мы предлагаем воспользоваться услугами профессионального обучения нашим продуктам:
+                <p>Предлагаем воспользоваться услугами профессионального обучения нашим продуктам:</p>
                 <table class="table">
                     <thead>
                         <tr>
@@ -31,7 +31,7 @@ layout: main
                                 <li>Практические аспекты применения для решения задач</li>
                             </td>
                             <td scope="row">1 день</td>
-                            <td scope="row" rowspan="3"><a href="/price#education">прайс-лист</a></td>
+                            <td scope="row" rowspan="3" style="vertical-align: middle;"><a href="/price#education">прайс-лист</a></td>
                         </tr>
                         <tr>
                             <td scope="row">Администрирование</td>
@@ -61,11 +61,11 @@ layout: main
                         </tr>
                         <tr>
                             <td scope="row">Персональный</td>
-                            <td scope="row" colspan="3">на основании требований заказчика</td>
+                            <td scope="row" colspan="3" style="text-align: center;"><a href="/contacts">по запросу</a> на основании требований заказчика</td>
                         </tr>
                     </tbody>
                 </table>
-                По вопросам заказа и организации профессионального обучения и сертификации сотрудников <a href="/contacts">свяжитесь с нами</a>.
+                <p>По вопросам заказа и организации профессионального обучения и сертификации сотрудников <a href="/contacts">свяжитесь с нами</a>.</p>
             </div>
         </div>
     </div>
