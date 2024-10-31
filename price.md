@@ -44,7 +44,7 @@ layout: main
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col" style="width:100%">Тип/Продукт</th>
+                            <th scope="col" style="width:50%">Тип/Продукт</th>
                             <th scope="col"><a href="/opendj">OpenDJ</a></th>
                             <th scope="col"><a href="/openam">OpenAM</a></th>
                             <th scope="col"><a href="/openig">OpenIG</a></th>
@@ -82,7 +82,7 @@ layout: main
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col" style="width:100%">Курс/Продукт</th>
+                            <th scope="col" style="width:50%">Курс/Продукт</th>
                             <th scope="col"><a href="/opendj">OpenDJ</a></th>
                             <th scope="col"><a href="/openam">OpenAM</a></th>
                             <th scope="col"><a href="/openig">OpenIG</a></th>
@@ -129,7 +129,7 @@ layout: main
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col" style="width:100%">Услуга/Продукт</th>
+                            <th scope="col" style="width:50%">Услуга/Продукт</th>
                             <th scope="col"><a href="/opendj">OpenDJ</a></th>
                             <th scope="col"><a href="/openam">OpenAM</a></th>
                             <th scope="col"><a href="/openig">OpenIG</a></th>
