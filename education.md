@@ -30,7 +30,7 @@ layout: main
                                 <li>Варианты развертывания</li>
                                 <li>Практические аспекты применения для решения задач</li>
                             </td>
-                            <td scope="row">1 день</td>
+                            <td scope="row" style="text-align: center;">1 день</td>
                             <td scope="row" rowspan="3" style="vertical-align: middle;"><a href="/price#education">прайс-лист</a></td>
                         </tr>
                         <tr>
@@ -43,7 +43,7 @@ layout: main
                                 <li>Интеграция в корпоративной среде</li>
                                 <li>Варианты и особенности технической поддержки</li>
                             </td>
-                            <td scope="row">2 дня</td>
+                            <td scope="row" style="text-align: center;">2 дня</td>
                         </tr>
                         <tr>
                             <td scope="row">Кастомизация и разработка</td>
@@ -57,7 +57,7 @@ layout: main
                                 <li>Кастомизация продукта</li>
                                 <li>Взаимосвязь с публичным сообществом</li>
                             </td>
-                            <td scope="row">1 день</td>
+                            <td scope="row" style="text-align: center;">1 день</td>
                         </tr>
                         <tr>
                             <td scope="row">Персональный</td>

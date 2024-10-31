@@ -12,7 +12,6 @@ layout: main
         <div class="row">
             <div class="col">
                 <h2>Лицензии</h2>
-                Неисключительное право использования продукта сроком на 1 календарный год на один рабочий экземпляр (включает стандартную <a href="/support">техническую поддержку</a>):
                 <table class="table">
                     <thead>
                         <tr>
@@ -32,14 +31,20 @@ layout: main
                     </tbody>
                 </table>
                 <ul>
+                    <li>Неисключительное право использования продукта сроком на 1 календарный год (подписка)</li>
+                    <li>Стоимость на один рабочий экземпляр (инстанс)</li>
+                    <li>Стандартная <a href="/support">техническая поддержка</a> включена в стоимость</li>
                     <li>НДС не облагается на основании пп. 26 п. 2 ст. 149 НК РФ</li>
                 </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
                 <h2><a href="/support">Техническая поддержка</a></h2>
-                Стоимость указана за один рабочий экземпляр, сроком на 1 календарный год
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Тип/Продукт</th>
+                            <th scope="col" style="width:100%">Тип/Продукт</th>
                             <th scope="col"><a href="/opendj">OpenDJ</a></th>
                             <th scope="col"><a href="/openam">OpenAM</a></th>
                             <th scope="col"><a href="/openig">OpenIG</a></th>
@@ -48,31 +53,36 @@ layout: main
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="col">Свободная</th>
+                            <th scope="row">Свободная</th>
                             <td scope="row" colspan="4" align="center">бесплатно</td>
                         </tr>
                         <tr>
-                            <th scope="col">Стандартная</th>
+                            <th scope="row">Стандартная</th>
                             <td scope="row">64 000 рублей</td>
                             <td scope="row">128 000 рублей</td>
                             <td scope="row">32 000 рублей</td>
                             <td scope="row">256 000 рублей</td>
                         </tr>
                         <tr>
-                            <th scope="col">Расширенная</th>
-                            <td scope="row" colspan="4" align="center"><a href="/contacts">по запросу</a> (на основании соглашения об уровне обслуживания)</td>
+                            <th scope="row">Расширенная</th>
+                            <td scope="row" colspan="4"  style="text-align: center;"><a href="/contacts">по запросу</a> (на основании соглашения об уровне обслуживания)</td>
                         </tr>
                     </tbody>
                 </table>
                 <ul>
+                    <li>Срок действия: 1 календарный год (подписка)</li>
+                    <li>Стоимость на один рабочий экземпляр (инстанс)</li>
                     <li>НДС не облагается в соответствии со статьей 346.11 НK РФ</li>
                 </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
                 <h2><a href="/education">Обучение и сертификация</a></h2>
-                Стоимость указана за одного обучаемого
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Курс/Продукт</th>
+                            <th scope="col" style="width:100%">Курс/Продукт</th>
                             <th scope="col"><a href="/opendj">OpenDJ</a></th>
                             <th scope="col"><a href="/openam">OpenAM</a></th>
                             <th scope="col"><a href="/openig">OpenIG</a></th>
@@ -81,40 +91,45 @@ layout: main
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="col">Введение в продукт</th>
+                            <th scope="row">Введение в продукт</th>
                             <td scope="row">32 000 рублей</td>
                             <td scope="row">64 000 рублей</td>
                             <td scope="row">32 000 рублей</td>
                             <td scope="row">64 000 рублей</td>
                         </tr>
                         <tr>
-                            <th scope="col">Администрирование</th>
+                            <th scope="row">Администрирование</th>
                             <td scope="row">128 000 рублей</td>
                             <td scope="row">256 000 рублей</td>
                             <td scope="row">128 000 рублей</td>
                             <td scope="row">256 000 рублей</td>
                         </tr>
                         <tr>
-                            <th scope="col">Кастомизация и разработка</th>
+                            <th scope="row">Кастомизация и разработка</th>
                             <td scope="row">128 000 рублей</td>
                             <td scope="row">256 000 рублей</td>
                             <td scope="row">128 000 рублей</td>
                             <td scope="row">256 000 рублей</td>
                         </tr>
                         <tr>
-                            <th scope="col">Персональный</th>
-                            <td scope="row" colspan="4" align="center"><a href="/contacts">по запросу</a> (на основании требований заказчика)</td>
+                            <th scope="row">Персональный</th>
+                            <td scope="row" colspan="4"  style="text-align: center;"><a href="/contacts">по запросу</a> (на основании требований заказчика)</td>
                         </tr>
                     </tbody>
                 </table>
                 <ul>
+                    <li>Стоимость указана за одного обучаемого:</li>
                     <li>НДС не облагается в соответствии со статьей 346.11 НK РФ</li>
                 </ul>
-                <h2><a href="/services">Услуги</a></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2><a href="/services">Профессиональные услуги</a></h2>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Услуга/Продукт</th>
+                            <th scope="col" style="width:100%">Услуга/Продукт</th>
                             <th scope="col"><a href="/opendj">OpenDJ</a></th>
                             <th scope="col"><a href="/openam">OpenAM</a></th>
                             <th scope="col"><a href="/openig">OpenIG</a></th>
@@ -123,14 +138,14 @@ layout: main
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="col">Консалтинг</th>
-                            <td scope="row" colspan="4" align="center" rowspan="3"><a href="/contacts">по запросу</a> (на основании требований заказчика)</td>
+                            <th scope="row">Консалтинг</th>
+                            <td scope="row" colspan="4" rowspan="3" style="vertical-align: middle;text-align: center;"><a href="/contacts">по запросу</a> (на основании требований заказчика)</td>
                         </tr>
                         <tr>
-                            <th scope="col">Внедрение</th>
+                            <th scope="row">Внедрение</th>
                         </tr>
                         <tr>
-                            <th scope="col">Разработка</th>
+                            <th scope="row">Разработка</th>
                         </tr>
                     </tbody>
                 </table>

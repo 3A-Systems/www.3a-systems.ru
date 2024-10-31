@@ -15,7 +15,7 @@ layout: main
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Сервис: </th>
+                            <th scope="col" style="width: 100%">Сервис: </th>
                             <th scope="col" style="text-align: center;">Свободная</th>
                             <th scope="col" style="text-align: center;">Стандартная</th>
                             <th scope="col" style="text-align: center;">Расширенная</th>
