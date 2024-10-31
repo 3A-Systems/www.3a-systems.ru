@@ -19,8 +19,8 @@
         {% endfor %}    
         <div class="row">
             <p>
-                <a class="icon-link" href="https://github.com/3A-Systems/{{page.product.reponame}}">
-                    На страницу сообщества
+                <a class="icon-link" href="{{page.product.documentation_link}}">
+                    Документация
                 </a>
             </p>
         </div>
@@ -44,6 +44,13 @@
             <a href="https://github.com/3A-Systems/{{page.product.reponame}}/graphs/contributors">
                 <img src="https://contributors-img.web.app/image?repo=3A-Systems/{{page.product.reponame}}" />
             </a>
+        </div>
+        <div class="row pt-3">
+            <p>
+                <a class="icon-link" href="https://github.com/3A-Systems/{{page.product.reponame}}">
+                    На страницу сообщества
+                </a>
+            </p>
         </div>
     </div>
     

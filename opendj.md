@@ -16,6 +16,8 @@ product:
         - 'Поддерживает мульти-мастер репликацию произвольной топологии.'
         - 'Предоставляет REST/JSON API для легкой интеграции с корпоративными системами, мобильными приложениями и системами аудио и видеоконференцсвязи.'
         - 'Эволюция: Sun DS, Oracle OpenDS, Forgerock/Open Identity Platform OpenDJ'
+    
+    documentation_link: https://doc.openidentityplatform.org/opendj
 
 ---
 {% include product.html %}
