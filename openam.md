@@ -16,6 +16,8 @@ product:
         - 'Поддерживает открытые стандарты аутентификации, федерации и защиты веб сервисов: CDSSO, SAML,OpenID Connect, Web Services Security.'
         - 'Интегрируется с внутренними каталогами компании Active Directory, LDAP, поддерживает NTLMv2, Kerberos, x509 аутентификацию.'
         - 'Эволюция: Sun Access Manager, Oracle OpenSSO, Forgerock/Open Identity Platform OpenAM'
+    
+    documentation_link: https://doc.openidentityplatform.org/openam
   
 ---
 {% include product.html %}
