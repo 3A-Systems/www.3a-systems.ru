@@ -15,10 +15,10 @@ layout: main
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col"><a href="/opendj">OpenDJ КОРП</a></th>
-                            <th scope="col"><a href="/openam">OpenAM КОРП</a></th>
-                            <th scope="col"><a href="/openig">OpenIG КОРП</a></th>
-                            <th scope="col"><a href="/openidm">OpenIDM КОРП</a></th>
+                            <th scope="col"><a href="/opendj">OpenDJ PRO</a></th>
+                            <th scope="col"><a href="/openam">OpenAM PRO</a></th>
+                            <th scope="col"><a href="/openig">OpenIG PRO</a></th>
+                            <th scope="col"><a href="/openidm">OpenIDM PRO</a></th>
                         </tr>
                     </thead>
                     <tbody>
