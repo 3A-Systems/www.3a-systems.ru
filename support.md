@@ -86,7 +86,7 @@ layout: main
                             <td scope="row">Стоимость</td>
                             <td scope="row" style="text-align: center;">бесплатно</td>
                             <td scope="row" style="text-align: center;"><a href="/price#support">прайс-лист</a></td>
-                            <td scope="row" style="text-align: center;"><a href="/contacts">по запросу</a> (на основании соглашения об уровне обслуживания)</td>
+                            <td scope="row" style="text-align: center;"><a href="/contacts">по запросу</a> (соглашение об уровне обслуживания)</td>
                         </tr>
                     </tbody>
                 </table>

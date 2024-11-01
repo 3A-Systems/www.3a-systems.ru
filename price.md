@@ -23,16 +23,16 @@ layout: main
                     </thead>
                     <tbody>
                         <tr>
-                            <td scope="row">64 000 рублей</td>
-                            <td scope="row">128 000 рублей</td>
-                            <td scope="row">32 000 рублей</td>
-                            <td scope="row">256 000 рублей</td>
+                            <td scope="row"><nobr>64 000 ₽</nobr></td>
+                            <td scope="row"><nobr>128 000 ₽</nobr></td>
+                            <td scope="row"><nobr>32 000 ₽</nobr></td>
+                            <td scope="row"><nobr>256 000 ₽</nobr></td>
                         </tr>
                     </tbody>
                 </table>
                 <ul>
                     <li>Неисключительное право использования продукта сроком на 1 календарный год (подписка)</li>
-                    <li>Стоимость на один рабочий экземпляр (инстанс)</li>
+                    <li>Стоимость за один рабочий экземпляр (инстанс)</li>
                     <li>Стандартная <a href="/support">техническая поддержка</a> включена в стоимость</li>
                     <li>НДС не облагается на основании пп. 26 п. 2 ст. 149 НК РФ</li>
                 </ul>
@@ -58,20 +58,20 @@ layout: main
                         </tr>
                         <tr>
                             <td scope="row">Стандартная</td>
-                            <td scope="row">64 000 рублей</td>
-                            <td scope="row">128 000 рублей</td>
-                            <td scope="row">32 000 рублей</td>
-                            <td scope="row">256 000 рублей</td>
+                            <td scope="row"><nobr>64 000 ₽</nobr></td>
+                            <td scope="row"><nobr>128 000 ₽</nobr></td>
+                            <td scope="row"><nobr>32 000 ₽</nobr></td>
+                            <td scope="row"><nobr>256 000 ₽</nobr></td>
                         </tr>
                         <tr>
                             <td scope="row">Расширенная</td>
-                            <td scope="row" colspan="4"  style="text-align: center;"><a href="/contacts">по запросу</a> (на основании соглашения об уровне обслуживания)</td>
+                            <td scope="row" colspan="4"  style="text-align: center;"><a href="/contacts">по запросу</a> (соглашение об уровне обслуживания)</td>
                         </tr>
                     </tbody>
                 </table>
                 <ul>
                     <li>Срок действия: 1 календарный год (подписка)</li>
-                    <li>Стоимость на один рабочий экземпляр (инстанс)</li>
+                    <li>Стоимость за один рабочий экземпляр (инстанс)</li>
                     <li>НДС не облагается в соответствии со статьей 346.11 НK РФ</li>
                 </ul>
             </div>
@@ -92,24 +92,24 @@ layout: main
                     <tbody>
                         <tr>
                             <td scope="row">Введение в продукт</td>
-                            <td scope="row">32 000 рублей</td>
-                            <td scope="row">64 000 рублей</td>
-                            <td scope="row">32 000 рублей</td>
-                            <td scope="row">64 000 рублей</td>
+                            <td scope="row"><nobr>32 000 ₽</nobr></td>
+                            <td scope="row"><nobr>64 000 ₽</nobr></td>
+                            <td scope="row"><nobr>32 000 ₽</nobr></td>
+                            <td scope="row"><nobr>64 000 ₽</nobr></td>
                         </tr>
                         <tr>
                             <td scope="row">Администрирование</td>
-                            <td scope="row">128 000 рублей</td>
-                            <td scope="row">256 000 рублей</td>
-                            <td scope="row">128 000 рублей</td>
-                            <td scope="row">256 000 рублей</td>
+                            <td scope="row"><nobr>128 000 ₽</nobr></td>
+                            <td scope="row"><nobr>256 000 ₽</nobr></td>
+                            <td scope="row"><nobr>128 000 ₽</nobr></td>
+                            <td scope="row"><nobr>256 000 ₽</nobr></td>
                         </tr>
                         <tr>
                             <td scope="row">Кастомизация и разработка</td>
-                            <td scope="row">128 000 рублей</td>
-                            <td scope="row">256 000 рублей</td>
-                            <td scope="row">128 000 рублей</td>
-                            <td scope="row">256 000 рублей</td>
+                            <td scope="row"><nobr>128 000 ₽</nobr></td>
+                            <td scope="row"><nobr>256 000 ₽</nobr></td>
+                            <td scope="row"><nobr>128 000 ₽</nobr></td>
+                            <td scope="row"><nobr>256 000 ₽</nobr></td>
                         </tr>
                         <tr>
                             <td scope="row">Персональный</td>
