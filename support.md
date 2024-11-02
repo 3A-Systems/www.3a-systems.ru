@@ -23,7 +23,7 @@ layout: main
                     </thead>
                     <tbody>
                         <tr>
-                            <td scope="row">Публичный форум и база знаний</td>
+                            <td scope="row">Публичная поддержка и база знаний</td>
                             <td scope="row" style="text-align: center;">да</td>
                             <td scope="row" style="text-align: center;">да</td>
                             <td scope="row" style="text-align: center;">да</td>
@@ -32,13 +32,13 @@ layout: main
                             <td scope="row">Выпуск функциональных исправлений</td>
                             <td scope="row" style="text-align: center;">да</td>
                             <td scope="row" style="text-align: center;">да</td>
-                            <td scope="row" style="text-align: center;">приоритет</td>
+                            <td scope="row" style="text-align: center;"><b>приоритет</b></td>
                         </tr>
                         <tr>
                             <td scope="row">Выпуск исправлений безопасности</td>
                             <td scope="row" style="text-align: center;">да</td>
-                            <td scope="row" style="text-align: center;">приоритет</td>
-                            <td scope="row" style="text-align: center;">приоритет</td>
+                            <td scope="row" style="text-align: center;"><b>приоритет</b></td>
+                            <td scope="row" style="text-align: center;"><b>приоритет</b></td>
                         </tr>
                         <tr>
                             <td scope="row">Режим обслуживания</td>
@@ -50,7 +50,7 @@ layout: main
                             <td scope="row">Время реакции</td>
                             <td scope="row" style="text-align: center;">-</td>
                             <td scope="row" style="text-align: center;">1 рабочий день</td>
-                            <td scope="row" style="text-align: center;">до 2х часов</td>
+                            <td scope="row" style="text-align: center;">до 3х часов</td>
                         </tr>
                         <tr>
                             <td scope="row">Консультация EMail</td>
@@ -59,7 +59,7 @@ layout: main
                             <td scope="row" style="text-align: center;">да</td>
                         </tr>
                         <tr>
-                            <td scope="row">Консультация в <a href="https://support.3a-systems.ru/">системе учета проблем</a></td>
+                            <td scope="row">Конфиденциальная консультация в <a href="https://support.3a-systems.ru/">системе учета проблем</a></td>
                             <td scope="row" style="text-align: center;">-</td>
                             <td scope="row" style="text-align: center;">да</td>
                             <td scope="row" style="text-align: center;">да</td>
