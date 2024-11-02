@@ -14,8 +14,7 @@
   --#{$prefix}table-hover-color: #{$table-hover-color};
   --#{$prefix}table-hover-bg: #{$table-hover-bg};
 
-  width: 70%;
-  margin-top: $spacer;
+  width: 100%;
   margin-bottom: $spacer;
   color: var(--#{$prefix}table-color);
   vertical-align: $table-cell-vertical-align;
