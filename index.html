@@ -20,21 +20,25 @@ layout: main
     </div>
 </section>
 
-<h2>Продукты</h2>
-<!--products short-->
-<section class="page-section pt-2 pb-4" id="products-brief">
-    <div class="container px-4">
-        <div class="row justify-content-center">
-            {% for product in site.data.products %}
-            <div class="col-md-5 col-sm-12 mx-2 d-flex align-items-stretch">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <div class="h3"><a href="{{product.url}}">{{product.sname}}</a></div>
+<div class="row">
+    <div class="col">
+        <h2>Продукты</h2>
+        <!--products short-->
+        <section class="page-section pt-2 pb-4" id="products-brief">
+            <div class="container px-4">
+                <div class="row justify-content-center">
+                    {% for product in site.data.products %}
+                    <div class="col-md-5 col-sm-12 mx-2 d-flex align-items-stretch">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <div class="h3"><a href="{{product.url}}">{{product.sname}}</a></div>
+                            </div>
+                            <div class="card-body"><div class="p">{{product.desc}}</div></div>
+                        </div>
                     </div>
-                    <div class="card-body"><div class="p">{{product.desc}}</div></div>
+                    {% endfor %}
                 </div>
             </div>
-            {% endfor %}
-        </div>
+        </section>
     </div>
-</section>
+</div>
