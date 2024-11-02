@@ -24,11 +24,11 @@ layout: main
                     </thead>
                     <tbody>
                         <tr>
-                            <td scope="row" style="text-align: center;">Свободная CDDL</td>
-                            <td scope="row" colspan="4">бесплатно</td>
+                            <td scope="row">Свободная CDDL</td>
+                            <td scope="row" colspan="4" style="text-align: center;">бесплатно</td>
                         </tr>
                         <tr>
-                            <td scope="row" style="text-align: center;">PRO</td>
+                            <td scope="row">PRO (стандартная <a href="/support">техническая поддержка</a>)</td>
                             <td scope="row"><nobr>64 000 ₽</nobr></td>
                             <td scope="row"><nobr>128 000 ₽</nobr></td>
                             <td scope="row"><nobr>32 000 ₽</nobr></td>
@@ -38,7 +38,6 @@ layout: main
                 </table>
                 <ul>
                     <li>Неисключительное право использования продукта сроком на 1 календарный год (подписка)</li>
-                    <li>Стандартная <a href="/support">техническая поддержка</a> включена в стоимость</li>
                     <li>Стоимость за один рабочий экземпляр (инстанс)</li>
                     <li>НДС не облагается на основании пп. 26 п. 2 ст. 149 НК РФ</li>
                 </ul>
