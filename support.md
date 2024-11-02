@@ -32,13 +32,13 @@ layout: main
                             <td scope="row">Выпуск функциональных исправлений</td>
                             <td scope="row" style="text-align: center;">да</td>
                             <td scope="row" style="text-align: center;">да</td>
-                            <td scope="row" style="text-align: center;"><b>приоритет</b></td>
+                            <td scope="row" style="text-align: center;">приоритет</td>
                         </tr>
                         <tr>
                             <td scope="row">Выпуск исправлений безопасности</td>
                             <td scope="row" style="text-align: center;">да</td>
-                            <td scope="row" style="text-align: center;"><b>приоритет</b></td>
-                            <td scope="row" style="text-align: center;"><b>приоритет</b></td>
+                            <td scope="row" style="text-align: center;">приоритет</td>
+                            <td scope="row" style="text-align: center;">приоритет</td>
                         </tr>
                         <tr>
                             <td scope="row">Режим обслуживания</td>

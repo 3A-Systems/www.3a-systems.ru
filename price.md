@@ -15,7 +15,7 @@ layout: main
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col" style="">Лицензия/Продукт</th>
+                            <th scope="col" style="">Лицензия / Продукт</th>
                             <th scope="col"><a href="/opendj">OpenDJ</a></th>
                             <th scope="col"><a href="/openam">OpenAM</a></th>
                             <th scope="col"><a href="/openig">OpenIG</a></th>
@@ -49,7 +49,7 @@ layout: main
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col" style="">Тип/Продукт</th>
+                            <th scope="col" style="">Тип / Продукт</th>
                             <th scope="col"><a href="/opendj">OpenDJ</a></th>
                             <th scope="col"><a href="/openam">OpenAM</a></th>
                             <th scope="col"><a href="/openig">OpenIG</a></th>
@@ -87,7 +87,7 @@ layout: main
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col" style="">Курс/Продукт</th>
+                            <th scope="col" style="">Курс / Продукт</th>
                             <th scope="col"><a href="/opendj">OpenDJ</a></th>
                             <th scope="col"><a href="/openam">OpenAM</a></th>
                             <th scope="col"><a href="/openig">OpenIG</a></th>
@@ -134,7 +134,7 @@ layout: main
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col" style="">Услуга/Продукт</th>
+                            <th scope="col" style="">Услуга / Продукт</th>
                             <th scope="col"><a href="/opendj">OpenDJ</a></th>
                             <th scope="col"><a href="/openam">OpenAM</a></th>
                             <th scope="col"><a href="/openig">OpenIG</a></th>
