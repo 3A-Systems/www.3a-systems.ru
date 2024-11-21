@@ -28,7 +28,7 @@ layout: main
                             <td scope="row" colspan="4" style="text-align: center;">бесплатно</td>
                         </tr>
                         <tr>
-                            <td scope="row">PRO (+ стандартная <a href="/support">техническая поддержка</a>)</td>
+                            <td scope="row"><div class="pro-icon"></div>PRO (+ стандартная <a href="/support">техническая поддержка</a>)</td>
                             <td scope="row"><nobr>64 000 ₽</nobr></td>
                             <td scope="row"><nobr>128 000 ₽</nobr></td>
                             <td scope="row"><nobr>32 000 ₽</nobr></td>
