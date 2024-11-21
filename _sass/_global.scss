@@ -50,10 +50,11 @@ h2 {
 
 .pro-icon {
     background-image: url(../img/pro.svg);
-    display: inline-block;
-    width: 29px;
-    height: 20px;
     background-size: contain;
-    margin-bottom: -4px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 23px;
+    height: 16px;
+    margin-bottom: -3px;
     margin-right: 5px;
 }
