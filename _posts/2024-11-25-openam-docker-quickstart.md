@@ -3,10 +3,8 @@ layout: blog
 title: 'Совет: Быстрая конфигурация OpenAM в Docker контейнере из командной строки'
 description: ''
 tags: 
-  - openam'
-description: ''
-tags: 
   - openam
+
 ---
 
 Пусть имя хоста для OpenAM будет `openam.example.org`
