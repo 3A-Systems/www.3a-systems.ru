@@ -22,6 +22,9 @@ sass:
 highlighter: rouge
 gist:
   noscript: false
+
+markdown: kramdown
+
 kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
