@@ -19,5 +19,8 @@ product:
     
     documentation_link: https://doc.openidentityplatform.org/opendj
 
+    fips: https://fips.ru/EGD/920f1ea1-a780-4fbd-a47b-735dff80e59f
+    fips_id: 2024688921
+    fips_ts: 02.12.2024
 ---
 {% include product.html %}
