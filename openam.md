@@ -18,6 +18,9 @@ product:
         - 'Эволюция: Sun Access Manager, Oracle OpenSSO, Forgerock/Open Identity Platform OpenAM'
     
     documentation_link: https://doc.openidentityplatform.org/openam
-  
+    fips: https://fips.ru/EGD/6f35889b-20ae-4fff-81b4-a559f534435e
+    fips_id: 2024691683
+    fips_ts: 23.12.2024
+
 ---
 {% include product.html %}

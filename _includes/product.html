@@ -84,6 +84,11 @@
                         </tr>
                     </tbody>
                 </table>
+                {% if page.product.fips_id != null %}
+                <p>
+                   <b>{{page.product.reponame}} <div class="pro-icon"></div>PRO</b>: свидетельство о государственной регистрации программы для ЭВМ <a href="/fips/{{page.product.reponame}}/DOCUMENT.PDF">№ {{page.product.fips_id}} от {{page.product.fips_ts}}</a>
+                </p>
+                {% endif %}
                 <p>Расширение технической поддержки производится в соответствии с <a href="/support">соглашением об уровне обслуживания (SLA)</a>.</p>
             </div>
         </div>
