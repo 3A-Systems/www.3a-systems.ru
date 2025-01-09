@@ -61,4 +61,4 @@ tags:
 
 После согласия, вы будете перенаправлены обратно в OpenAM с учетными данными пользователя ВКонтакте.
 
-![OpenAM mail.ru user profile](%https://raw.githubusercontent.com/wiki/3A-Systems/OpenAM/images/oauth2-vk/4-openam-vk-profile.png)
+![OpenAM VK user profile](https://raw.githubusercontent.com/wiki/3A-Systems/OpenAM/images/oauth2-vk/4-openam-vk-profile.png)
