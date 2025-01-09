@@ -24,7 +24,7 @@ layout: main
                     </thead>
                     <tbody>
                         <tr>
-                            <td scope="row">Свободная CDDL</td>
+                            <td scope="row">Community Edition</td>
                             <td scope="row" colspan="4" style="text-align: center;">бесплатно</td>
                         </tr>
                         <tr>
