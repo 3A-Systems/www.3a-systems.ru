@@ -23,7 +23,7 @@
 
 1.1. Исключительное право на Продукт и Документацию принадлежит Правообладателю, с учетом положений п.1.2 Соглашения.
 
-1.2. Продукт разработан Правообладателем на основе свободно распространяемого программного обеспечения - OpenDJ Community Edition, которое распространяется открытым сообществом [Open Identity Platform](https://github.com/OpenIdentityPlatform) по лицензии COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL), условия которой приведены на сайте Правообладателя по адресу: [https://github.com/OpenIdentityPlatform/{{page.origin}}/blob/master/LICENSE.md](https://github.com/OpenIdentityPlatform/{{page.origin}}/blob/master/LICENSE.md), с дополнениями 3A Systems, LLC:
+1.2. Продукт разработан Правообладателем на основе свободно распространяемого программного обеспечения - [{{page.origin}} Community Edition](https://github.com/OpenIdentityPlatform/{{page.origin}}), которое распространяется открытым сообществом [Open Identity Platform](https://github.com/OpenIdentityPlatform) по лицензии COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL), условия которой приведены на сайте Правообладателя по адресу: [https://github.com/OpenIdentityPlatform/{{page.origin}}/blob/master/LICENSE.md](https://github.com/OpenIdentityPlatform/{{page.origin}}/blob/master/LICENSE.md), с дополнениями 3A Systems, LLC:
 
 - Portions Copyright (c) 2008-2024, 3A Systems, LLC.
 
