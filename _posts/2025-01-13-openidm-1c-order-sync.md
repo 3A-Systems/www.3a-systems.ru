@@ -173,9 +173,9 @@ tags:
 
 Как создавать HTTP сервисы 1С более подробно описано по ссылкам:
 
-https://infostart.ru/1c/articles/1293341/
+[https://infostart.ru/1c/articles/1293341/](https://infostart.ru/1c/articles/1293341/)
 
-https://infostart.ru/1c/articles/842751/
+[https://infostart.ru/1c/articles/842751/](https://infostart.ru/1c/articles/842751/)
 
 ## Настройка OpenIDM.
 
@@ -976,4 +976,8 @@ docker run -p 1080:1080 -p 1025:1025 maildev/maildev
 
 Дождитесь синхронизации. Пользователь `iivanov` будет удален из списка пользователей OpenIDM.
 
+<<<<<<< HEAD
 ![OpenIDM пользователь удален](https://raw.githubusercontent.com/wiki/3A-Systems/OpenIDM/images/openidm-1c-sync/12-openidm-user-deleted.png)
+=======
+![OpenIDM пользователь удален](https://raw.githubusercontent.com/wiki/3A-Systems/OpenIDM/images/openidm-1c-sync/12-openidm-user-deleted.png)
+>>>>>>> origin/master

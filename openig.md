@@ -18,5 +18,9 @@ product:
         - 'Эволюция: Forgerock/Open Identity Platform OpenIG'   
     
     documentation_link: https://doc.openidentityplatform.org/openig
+
+    fips: https://fips.ru/EGD/54d6f74d-f7ee-416a-9334-dc178b9b56d9
+    fips_id: 2025610422
+    fips_ts: 10.01.2025
 ---
 {% include product.html %}
