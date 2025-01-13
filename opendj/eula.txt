@@ -1,0 +1,8 @@
+---
+layout: none
+title: 'Лицензионное соглашение OpenDJ PRO'
+origin: 'OpenDJ'
+permalink: '/opendj/eula.md'
+---
+
+{% include eula-common.md %}

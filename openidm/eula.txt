@@ -1,0 +1,8 @@
+---
+layout: none
+title: 'Лицензионное соглашение OpenIDM PRO'
+origin: 'OpenIDM'
+permalink: '/openidm/eula.md'
+---
+
+{% include eula-common.md %}
