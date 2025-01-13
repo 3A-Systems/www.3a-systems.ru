@@ -77,6 +77,18 @@ layout: main
                             <td scope="row" style="text-align: center;">да</td>
                         </tr>
                         <tr>
+                            <td scope="row">Поддержка дистрибутива <b>Community Edition</b></td>
+                            <td scope="row" style="text-align: center;">да</td>
+                            <td scope="row" style="text-align: center;">да</td>
+                            <td scope="row" style="text-align: center;">да</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Поддержка дистрибутива <b><span class="pro-icon"></span>PRO</b></td>
+                            <td scope="row" style="text-align: center;">-</td>
+                            <td scope="row" style="text-align: center;">да</td>
+                            <td scope="row" style="text-align: center;">да</td>
+                        </tr>
+                        <tr>
                             <td scope="row">Поддержка дистрибутива Заказчика</td>
                             <td scope="row" style="text-align: center;">-</td>
                             <td scope="row" style="text-align: center;">-</td>
