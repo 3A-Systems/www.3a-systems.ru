@@ -1,0 +1,8 @@
+---
+layout: none
+title: 'Лицензионное соглашение OpenAM PRO'
+origin: 'OpenAM'
+permalink: '/openam/eula.md'
+---
+
+{% include eula-common.md %}

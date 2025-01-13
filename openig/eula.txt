@@ -1,0 +1,8 @@
+---
+layout: none
+title: 'Лицензионное соглашение OpenIG PRO'
+origin: 'OpenIG'
+permalink: '/openig/eula.md'
+---
+
+{% include eula-common.md %}
