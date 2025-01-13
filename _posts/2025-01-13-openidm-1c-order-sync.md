@@ -181,7 +181,7 @@ tags:
 
 Если OpenIDM у вас еще не установлен, установите его, как описано в [статье](https://www.3a-systems.ru/blog/2024-08-06-identity-management-and-openidm-intro#%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0-%D0%B8-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-openidm). 
 
-### Настройка подключения к 1С.iivanov
+### Настройка подключения к 1С.
 
 В каталог `conf` OpenIDM добавьте файл конфигурации коннектора к 1С
 <details>
