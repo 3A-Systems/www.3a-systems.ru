@@ -173,9 +173,9 @@ tags:
 
 Как создавать HTTP сервисы 1С более подробно описано по ссылкам:
 
-https://infostart.ru/1c/articles/1293341/
+[https://infostart.ru/1c/articles/1293341/](https://infostart.ru/1c/articles/1293341/)
 
-https://infostart.ru/1c/articles/842751/
+[https://infostart.ru/1c/articles/842751/](https://infostart.ru/1c/articles/842751/)
 
 ## Настройка OpenIDM.
 
