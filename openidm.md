@@ -18,5 +18,9 @@ product:
         - 'Эволюция: Sun Identity Management, Oracle OpenIDM, Forgerock/Open Identity Platform OpenIDM'        
     
     documentation_link: https://doc.openidentityplatform.org/openidm
+
+    fips: https://fips.ru/EGD/b0a1ab82-b901-411a-a37f-9f46ece9d2a7
+    fips_id: 2025612976
+    fips_ts: 06.02.2025
 ---
 {% include product.html %}
