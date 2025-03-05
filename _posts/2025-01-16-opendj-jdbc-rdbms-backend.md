@@ -16,11 +16,13 @@ tags:
 docker run -it -d -p 5432:5432 -e POSTGRES_DB=database_name -e POSTGRES_PASSWORD=password --name postgres postgres
 ```
 
-Скачайте дистрибутив OpenDJ по [ссылке](https://github.com/OpenIdentityPlatform/OpenDJ/releases). Версия OpenDJ должна быть не ниже 4.9.0.
-
+Скачайте последнюю версию OpenDJ выполнив команды
 ```
-wget https://github.com/OpenIdentityPlatform/OpenDJ/releases/download/4.9.0/opendj-4.9.0.zip
+export VERSION="$(curl -i -o - --silent https://api.github.com/repos/OpenIdentityPlatform/OpenDJ/releases/latest | grep -m1 "\"name\"" | cut -d\" -f4)" 
+echo "last release: $VERSION"
+curl -L https://github.com/OpenIdentityPlatform/OpenDJ/releases/download/$VERSION/opendj-$VERSION.zip --output opendj.zip
 ```
+Или вручную в браузере по [ссылке](https://github.com/OpenIdentityPlatform/OpenDJ/releases)
 
 Разархивируйте дистрибутив
 
