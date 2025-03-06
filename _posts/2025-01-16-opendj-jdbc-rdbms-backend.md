@@ -6,104 +6,65 @@ tags:
   - opendj
 ---
 
-В данной статье мы настроим OpenDJ таким образом, чтобы он использовал базу данных PostgreSQL в качестве хранилища данных.
+В данной статье мы настроим OpenDJ таким образом, чтобы он использовал базу данных PostgreSQL в качестве хранилища данных. 
 
-# Подготовка
+## Подготовка
 
-Для начала у вас должна быть установлена Java не ниже 1.8 и установлен Docker. В Docker мы развернем образ PostgreSQL командой
-
-```
-docker run -it -d -p 5432:5432 -e POSTGRES_DB=database_name -e POSTGRES_PASSWORD=password --name postgres postgres
-```
-
-Скачайте последнюю версию OpenDJ выполнив команды
-```
-export VERSION="$(curl -i -o - --silent https://api.github.com/repos/OpenIdentityPlatform/OpenDJ/releases/latest | grep -m1 "\"name\"" | cut -d\" -f4)" 
-echo "last release: $VERSION"
-curl -L https://github.com/OpenIdentityPlatform/OpenDJ/releases/download/$VERSION/opendj-$VERSION.zip --output opendj.zip
-```
-Или вручную в браузере по [ссылке](https://github.com/OpenIdentityPlatform/OpenDJ/releases)
-
-Разархивируйте дистрибутив
+Для начала у вас должен быть установлен Docker. Создадим в Docker сеть, по которой будут взаимодействовать PostgreSQL и OpenDJ.
 
 ```
-unzip opendj-4.9.0.zip
-```
-
-Запустите команду установки OpenDJ
+docker network create opendj-jdbc
 
 ```
-./opendj/setup -h localhost -p 1389 --ldapsPort 1636 --adminConnectorPort 4444 --enableStartTLS --generateSelfSignedCertificate --rootUserDN "cn=Directory Manager" --rootUserPassword password --cli --acceptLicense --no-prompt
 
-Configuring Directory Server ..... Done.
-Configuring Certificates ..... Done.
-Starting Directory Server ....... Done.
-
-To see basic server configuration status and configuration, you can launch
-/home/user/opendj-postgres/opendj/bin/status
-```
-
-Обратите внимание на параметры `rootUserDN` и `rootUserPassword`. Это параметры подключения к OpenDJ пользователя с административными правами.
-
-Проверьте статус OpenDJ
+В Docker развернем образ PostgreSQL командой
 
 ```
-./opendj/bin/status --bindDN "cn=Directory Manager" --bindPassword password
+docker run -it -d -p 5432:5432 --network opendj-jdbc -e POSTGRES_DB=database_name -e POSTGRES_PASSWORD=password --name postgres postgres
 
-          --- Server Status ---
+```
+
+Запустите контейнер OpenDJ.
+
+```
+docker run --rm -p 1389:1389 -p 1636:1636 -p 4444:4444 --name opendj --network opendj-jdbc \
+  -e "BASE_DN_JDBC=dc=acme,dc=org" \
+  openidentityplatform/opendj:latest
+.....
 Server Run Status:        Started
-Open Connections:         1
+OpenDJ is started
 
-          --- Server Details ---
-Host Name:                MacBook-Pro-Maxim.local
-Administrative Users:     cn=Directory Manager
-Installation Path:
-/home/user/opendj-postgres/opendj
-Version:                  OpenDJ Server 4.9.0
-Java Version:             21.0.2
-Administration Connector: Port 4444 (LDAPS)
-
-          --- Connection Handlers ---
-Address:Port : Protocol               : State
--------------:------------------------:---------
---           : LDIF                   : Disabled
-0.0.0.0:161  : SNMP                   : Disabled
-0.0.0.0:1389 : LDAP (allows StartTLS) : Enabled
-0.0.0.0:1636 : LDAPS                  : Enabled
-0.0.0.0:1689 : JMX                    : Disabled
-0.0.0.0:8080 : HTTP                   : Disabled
-
-          --- Data Sources ---
--No LDAP Databases Found-
 ```
 
-Как видно из вывода команды, база данных LDAP еще не создана.
+В переменной окружения `BASE_DN_JDBC`  указан Base DN для JDBC каталога.
 
-# Настройка OpenDJ
+Дождитесь запуска OpenDJ.
+
+## Настройка OpenDJ
 
 Создайте OpenDJ backend с использованием СУБД PostgreSQL
 
 ```
-./opendj/bin/dsconfig create-backend -h localhost -p 4444 --bindDN "cn=Directory Manager" --bindPassword password --backend-name=userRoot --type jdbc --set base-dn:dc=example,dc=com --set 'db-directory:jdbc:postgresql://localhost:5432/database_name?user=postgres&password=password' --set enabled:true --no-prompt --trustAll
+docker exec -it opendj sh -c '/opt/opendj/bin/dsconfig create-backend -h localhost -p $ADMIN_PORT --bindDN "$ROOT_USER_DN" --bindPassword "$ROOT_PASSWORD" --backend-name=userRootJdbc --type jdbc --set base-dn:$BASE_DN_JDBC --set "db-directory:jdbc:postgresql://postgres:5432/database_name?user=postgres&password=password" --set enabled:true --no-prompt --trustAll'  
+
 ```
 
 В этой команде интерес представляют аргументы `--type`, который должен быть равен `jdbc` для использования реляционной БД и `--set 'db-directory:jdbc:...` — строка подключения к JDBC совместимому источнику данных. 
 
-> СУБД может быть практически любой, для которой есть JDBC совместимый драйвер. Например, вы можете использовать MySQL, MS SQL Server и так далее. Для использования JDBC-совместимой базы данных нужно скачать соотвествующий драйвер, и скопировать его в директорию `./opendj/lib`  и поменять строку подключения к JDBC источнику в аргументе `--set`. Пример строки подключения для MySQL: `db-directory:jdbc:mysql://mysqlhost:3306/database_name?user=mysql&password=password`. Более подробно об этом написано в документации к соответствующему драйверу
-> 
+> СУБД может быть практически любой, для которой есть JDBC совместимый драйвер. По умолчанию поддерживается PostgreSQL, MySQL, MS SQL Server и Oracle.  Для использования любой другой JDBC-совместимой базы данных нужно скачать соотвествующий драйвер, и скопировать его или смонтировать  в директорию `/opt/opendj/lib`  и поменять строку подключения к JDBC источнику в аргументе `--set`. Пример строки подключения для MySQL: `db-directory:jdbc:mysql://mysqlhost:3306/database_name?user=mysql&password=password`. Более подробно об этом написано в документации к соответствующему драйверу
 
-Более подробно про параметры команды `dsconfig create-backend` вы можете прочитать по ссылке
+Более подробно про параметры команды `dsconfig create-backend` вы можете прочитать по ссылке:
 
 [https://doc.openidentityplatform.org/opendj/reference/dsconfig-subcommands-ref#dsconfig-create-backend](https://doc.openidentityplatform.org/opendj/reference/dsconfig-subcommands-ref#dsconfig-create-backend).
 
-# Проверка решения
+## Проверка решения
 
 Для демонстрационных целей создайте и загрузите тестовые данные в OpenDJ
 
-Создание ldif файла с тестовыми данными из шаблона:
+Создайте ldif файл с тестовыми данными из шаблона:
 
 ```
-./opendj/bin/makeldif -o /tmp/test.ldif -c suffix=dc=example,dc=com ./opendj/config/MakeLDIF/example.template                                                                   
+docker exec -it opendj sh -c '/opt/opendj/bin/makeldif -o /tmp/test.ldif -c suffix=$BASE_DN_JDBC /opt/opendj/data/config/MakeLDIF/example.template'
 Processed 1000 entries
 Processed 2000 entries
 Processed 3000 entries
@@ -120,43 +81,43 @@ LDIF processing complete. 10002 entries written
 Загрузка ldif файла в OpenDJ
 
 ```
-./opendj/bin/ldapmodify --hostname localhost --port 1636 --bindDN "cn=Directory Manager" --bindPassword password --useSsl --trustAll -f /tmp/test.ldif -a
-Processing ADD request for dc=example,dc=com
-ADD operation successful for DN dc=example,dc=com
-Processing ADD request for ou=People,dc=example,dc=com
-ADD operation successful for DN ou=People,dc=example,dc=com
-Processing ADD request for uid=user.0,ou=People,dc=example,dc=com
-ADD operation successful for DN uid=user.0,ou=People,dc=example,dc=com
-Processing ADD request for uid=user.1,ou=People,dc=example,dc=com
-ADD operation successful for DN uid=user.1,ou=People,dc=example,dc=com
-Processing ADD request for uid=user.2,ou=People,dc=example,dc=com
-ADD operation successful for DN uid=user.2,ou=People,dc=example,dc=com
+docker exec -it opendj sh -c '/opt/opendj/bin/ldapmodify --hostname localhost --port 1636 --bindDN "$ROOT_USER_DN" --bindPassword "$ROOT_PASSWORD" --useSsl --trustAll -f /tmp/test.ldif -a'
+Processing ADD request for dc=acme,dc=org
+ADD operation successful for DN dc=acme,dc=org
+Processing ADD request for ou=People,dc=acme,dc=org
+ADD operation successful for DN ou=People,dc=acme,dc=org
+Processing ADD request for uid=user.0,ou=People,dc=acme,dc=org
+ADD operation successful for DN uid=user.0,ou=People,dc=acme,dc=org
+Processing ADD request for uid=user.1,ou=People,dc=acme,dc=org
+ADD operation successful for DN uid=user.1,ou=People,dc=acme,dc=org
+Processing ADD request for uid=user.2,ou=People,dc=acme,dc=org
+ADD operation successful for DN uid=user.2,ou=People,dc=acme,dc=org
 ....
-Processing ADD request for uid=user.9998,ou=People,dc=example,dc=com
-ADD operation successful for DN uid=user.9998,ou=People,dc=example,dc=com
-Processing ADD request for uid=user.9999,ou=People,dc=example,dc=com
-ADD operation successful for DN uid=user.9999,ou=People,dc=example,dc=com
+Processing ADD request for uid=user.9998,ou=People,dc=acme,dc=org
+ADD operation successful for DN uid=user.9998,ou=People,dc=acme,dc=org
+Processing ADD request for uid=user.9999,ou=People,dc=acme,dc=org
+ADD operation successful for DN uid=user.9999,ou=People,dc=acme,dc=org
 ```
 
 Проверьте загруженные данные в OpenDJ:
 
 ```
-./opendj/bin/ldapsearch  --hostname localhost --port 1389 --bindDN "cn=Directory Manager" --bindPassword password --baseDN "ou=People,dc=example,dc=com" -s one -a always -z 3 "(objectClass=*)" "hasSubordinates" "objectClass"
-dn: uid=user.0,ou=People,dc=example,dc=com
+docker exec -it opendj sh -c '/opt/opendj/bin/ldapsearch --hostname localhost --port 1389 --bindDN "$ROOT_USER_DN" --bindPassword "$ROOT_PASSWORD" --baseDN "ou=People,$BASE_DN_JDBC" -s one -a always -z 3 "(objectClass=*)" "hasSubordinates" "objectClass"'
+dn: uid=user.0,ou=People,dc=acme,dc=org
 hasSubordinates: false
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
 
-dn: uid=user.1,ou=People,dc=example,dc=com
+dn: uid=user.1,ou=People,dc=acme,dc=org
 hasSubordinates: false
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
 
-dn: uid=user.10,ou=People,dc=example,dc=com
+dn: uid=user.10,ou=People,dc=acme,dc=org
 hasSubordinates: false
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
