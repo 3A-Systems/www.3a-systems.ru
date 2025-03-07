@@ -24,8 +24,8 @@ layout: main
                     <tbody>
                         <tr>
                             <td scope="row">Публичная поддержка и база знаний</td>
-                            <td scope="row" style="text-align: center;">да</td>
-                            <td scope="row" style="text-align: center;">да</td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
                             <td scope="row" style="text-align: center;">да</td>
                         </tr>
                         <tr>
