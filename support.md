@@ -26,73 +26,73 @@ layout: main
                             <td scope="row">Публичная поддержка и база знаний</td>
                             <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
                             <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
-                            <td scope="row" style="text-align: center;">да</td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
                         </tr>
                         <tr>
                             <td scope="row">Выпуск функциональных исправлений</td>
-                            <td scope="row" style="text-align: center;">да</td>
-                            <td scope="row" style="text-align: center;">да</td>
-                            <td scope="row" style="text-align: center;">приоритет</td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
                         </tr>
                         <tr>
                             <td scope="row">Выпуск исправлений безопасности</td>
-                            <td scope="row" style="text-align: center;">да</td>
-                            <td scope="row" style="text-align: center;">приоритет</td>
-                            <td scope="row" style="text-align: center;">приоритет</td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
                         </tr>
                         <tr>
                             <td scope="row">Режим обслуживания</td>
-                            <td scope="row" style="text-align: center;">-</td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon-x">-</span></td>
                             <td scope="row" style="text-align: center;">8х5</td>
                             <td scope="row" style="text-align: center;">24х7</td>
                         </tr>
                         <tr>
                             <td scope="row">Время реакции</td>
-                            <td scope="row" style="text-align: center;">-</td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon-x">-</span></td>
                             <td scope="row" style="text-align: center;">1 рабочий день</td>
                             <td scope="row" style="text-align: center;">до 3х часов</td>
                         </tr>
                         <tr>
                             <td scope="row">Консультация EMail</td>
-                            <td scope="row" style="text-align: center;">-</td>
-                            <td scope="row" style="text-align: center;">да</td>
-                            <td scope="row" style="text-align: center;">да</td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon-x">-</span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
                         </tr>
                         <tr>
                             <td scope="row">Конфиденциальная консультация в <a href="https://support.3a-systems.ru/">системе учета проблем</a></td>
-                            <td scope="row" style="text-align: center;">-</td>
-                            <td scope="row" style="text-align: center;">да</td>
-                            <td scope="row" style="text-align: center;">да</td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon-x">-</span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
                         </tr>
                         <tr>
                             <td scope="row">Консультация онлайн (телефон, видео)</td>
-                            <td scope="row" style="text-align: center;">-</td>
-                            <td scope="row" style="text-align: center;">-</td>
-                            <td scope="row" style="text-align: center;">да</td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon-x">-</span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon-x">-</span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
                         </tr>
                         <tr>
                             <td scope="row">Персональная база знаний</td>
-                            <td scope="row" style="text-align: center;">-</td>
-                            <td scope="row" style="text-align: center;">-</td>
-                            <td scope="row" style="text-align: center;">да</td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon-x">-</span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon-x">-</span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
                         </tr>
                         <tr>
                             <td scope="row">Поддержка дистрибутива <b>Community Edition</b></td>
-                            <td scope="row" style="text-align: center;">да</td>
-                            <td scope="row" style="text-align: center;">да</td>
-                            <td scope="row" style="text-align: center;">да</td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
                         </tr>
                         <tr>
                             <td scope="row">Поддержка дистрибутива <b><span class="pro-icon"></span>PRO</b></td>
-                            <td scope="row" style="text-align: center;">-</td>
-                            <td scope="row" style="text-align: center;">да</td>
-                            <td scope="row" style="text-align: center;">да</td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon-x">-</span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
                         </tr>
                         <tr>
                             <td scope="row">Поддержка дистрибутива Заказчика</td>
-                            <td scope="row" style="text-align: center;">-</td>
-                            <td scope="row" style="text-align: center;">-</td>
-                            <td scope="row" style="text-align: center;">да</td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon-x">-</span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon-x">-</span></td>
+                            <td scope="row" style="text-align: center;"><span class="checkmark-icon"></span></td>
                         </tr>
                         <tr>
                             <td scope="row">Стоимость</td>
