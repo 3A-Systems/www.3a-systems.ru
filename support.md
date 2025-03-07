@@ -43,14 +43,14 @@ layout: main
                         <tr>
                             <td scope="row">Режим обслуживания</td>
                             <td scope="row" style="text-align: center;"><span class="checkmark-icon-x">-</span></td>
-                            <td scope="row" style="text-align: center;">8х5</td>
-                            <td scope="row" style="text-align: center;">24х7</td>
+                            <td scope="row" style="text-align: center;" class="color-green">8х5</td>
+                            <td scope="row" style="text-align: center;" class="color-green">24х7</td>
                         </tr>
                         <tr>
                             <td scope="row">Время реакции</td>
                             <td scope="row" style="text-align: center;"><span class="checkmark-icon-x">-</span></td>
-                            <td scope="row" style="text-align: center;">1 рабочий день</td>
-                            <td scope="row" style="text-align: center;">до 3х часов</td>
+                            <td scope="row" style="text-align: center;" class="color-green">1 день</td>
+                            <td scope="row" style="text-align: center;" class="color-green">до 3х часов</td>
                         </tr>
                         <tr>
                             <td scope="row">Консультация EMail</td>

@@ -70,6 +70,10 @@ h2 {
     margin-right: 5px;
 }
 .checkmark-icon-x {
-    color: red;
+    color: $red;
     font-weight: bold;
+}
+
+.color-green {
+    color: $green;
 }
