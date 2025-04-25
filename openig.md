@@ -10,6 +10,7 @@ description: 'Управление учетными данными в разли
 product:
     name: openig
     reponame: OpenIG
+    video: ForgeRock+OpenIG
     logo: logo-ig-lg-long.png
     features:
         - 'Интернет шлюз (реверсивный прокси) контроля доступа к UI и API.'
