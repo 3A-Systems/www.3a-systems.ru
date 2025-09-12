@@ -1,13 +1,13 @@
 ---
 layout: blog
-title: Использование Microsoft Authenticator совместно с OpenAM
-description: 'Пошаговая инструкция по настройке двухфакторной аутентификации (2FA) в OpenAM с использованием Microsoft Authenticator и TOTP для повышения безопасности.'
-keywords: 'OpenAM, Microsoft Authenticator, двухфакторная аутентификация, 2FA, TOTP, одноразовые пароли, настройка OpenAM, интеграция OpenAM, безопасность учетных записей, модуль аутентификации, цепочка аутентификации, Microsoft Authenticator, OpenAM TOTP, аутентификация по QR-коду, настройка 2FA, Open Identity Platform, push-уведомления, защита доступа, мультифакторная аутентификация, Docker OpenAM'
+title: Использование Google Authenticator совместно с OpenAM
+description: 'Пошаговая инструкция по настройке двухфакторной аутентификации (2FA) в OpenAM с использованием Google Authenticator и TOTP для повышения безопасности.'
+keywords: 'OpenAM, Google Authenticator, двухфакторная аутентификация, 2FA, TOTP, одноразовые пароли, настройка OpenAM, интеграция OpenAM, безопасность учетных записей, модуль аутентификации, цепочка аутентификации, Google Authenticator, OpenAM TOTP, аутентификация по QR-коду, настройка 2FA, Open Identity Platform, push-уведомления, защита доступа, мультифакторная аутентификация, Docker OpenAM'
 tags: 
   - openam
 ---
 
-# Использование Microsoft Authenticator совместно с OpenAM
+# Использование Google Authenticator совместно с OpenAM
 
 Статья предназначена для технических специалистов или архитекторов систем безопасности, которые хотят внедрить второй фактор аутентификации (2FA) в систему управления доступом для повышения безопасности учетных записей пользователей.
 
@@ -17,9 +17,9 @@ tags:
 
 **OpenAM** - система управления доступом с открытым исходным кодом. Предназначена для централизованного управления аутентификацией, авторизацией и учетными записями пользователей. 
 
-**Microsoft Authenticator** - мобильное приложение, предназначенное для использования в качестве дополнительного фактора аутентификации. Поддерживает PUSH уведомления, одноразовые пароли (TOTP), биометрическую аутентификацию.
+**Google Authenticator** - мобильное приложение, предназначенное для использования в качестве дополнительного фактора аутентификации. Поддерживает  одноразовые пароли (TOTP) и биометрическую аутентификацию.
 
-В статье мы развернем OpenAM, настроим модули и цепочки аутентификации для использования совместно с Microsoft Authenticator и покажем как использовать.
+В статье мы развернем OpenAM, настроим модули и цепочки аутентификации для использования совместно с Google Authenticator и покажем как использовать.
 
 Будем использовать аутентификацию с помощью одноразовых паролей, сгенерированных по протоколу TOTP (time based one-time password). Такие пароли не нужно отправлять на клиентское устройство через SMS или PUSH уведомления. Они генерируются по определенному криптографическому алгоритму непосредственно на устройстве.
 
@@ -50,7 +50,7 @@ tags:
 
 ### Настройка цепочки регистрации устройства
 
-Цепочка регистрации нужна для того, чтобы аутентифицированный пользователь мог подключить себе аутентификацию при помощи Microsoft Authenticator.
+Цепочка регистрации нужна для того, чтобы аутентифицированный пользователь мог подключить себе аутентификацию при помощи Google Authenticator.
 
 В консоли администратора в настройках realm в меню слева выберите Authentication → Chains и в открывшемся списке нажмите кнопку `Add Chain`.
 
@@ -62,7 +62,7 @@ tags:
 
 ### Настройка цепочки аутентификации
 
-В этой цепочке мы уже настроим аутентификацию таким образом, чтобы после аутентификации с логином и паролем пользователь вводил одноразовый код из мобильного приложения Microsoft Authenticator.
+В этой цепочке мы уже настроим аутентификацию таким образом, чтобы после аутентификации с логином и паролем пользователь вводил одноразовый код из мобильного приложения Google Authenticator.
 
 В консоли администратора в настройках realm в меню слева выберите Authentication → Chains и в открывшемся списке нажмите кнопку `Add Chain`.
 
@@ -72,9 +72,9 @@ tags:
 
 ![OpenAM TOTP authentication chain](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/ms-authenticator/3-openam-totp-authentication-chain.png)
 
-## Настройка Microsoft Authenticator.
+## Настройка Google Authenticator.
 
-Скачайте приложение [Microsoft Authenticator](https://www.microsoft.com/en/security/mobile-authenticator-app) из магазина приложений, подходящего для вашего устройства.
+Скачайте приложение Google Authenticator из магазина приложений, подходящего для вашего устройства.
 
 ### Регистрация устройства
 
@@ -84,22 +84,13 @@ tags:
 
 ![OpenAM register a device](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/ms-authenticator/4-openam-register-device.png)
 
-Откройте приложение Microsoft Authenticator, нажмите кнопку `Add account`
+Откройте приложение Google Authenticator, нажмите кнопку `Add account`
 
-![Microsoft Authenticator Add account](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/ms-authenticator/5-ms-authenticator-add-account.png)
+![Google Authenticator Add Code](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/ms-authenticator/9-google-authenticator.png)
 
+Вам будет предложено сканировать QR код. Сканируйте его с экрана браузера с OpenAM. После сканирования в приложение Google Authenticator будет добавлена учетная запись OpenAM. 
 
-Выберите `Other account`
-
-![Microsoft Authenticator Other account](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/ms-authenticator/6-ms-authenticator-other-account.png)
-
-Вам будет предложено сканировать QR код. Сканируйте его с экрана браузера с OpenAM. После сканирования в приложение Microsoft Authenticator будет добавлена учетная запись OpenAM. 
-
-![Microsoft Authenticator Account List](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/ms-authenticator/7-ms-authenticator-account-list.png)
-
-Откройте добавленную учетную запись. Вам будет показан одноразовый пароль.
-
-![Microsoft Authenticator One-Time Password](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/ms-authenticator/8-ms-authenticator-otp.png)
+![Google Authenticator One-Time Password](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/ms-authenticator/10-google-authenticator-otp.png)
 
 В браузере нажмите кнопку `Login Using Verification Code`. 
 
