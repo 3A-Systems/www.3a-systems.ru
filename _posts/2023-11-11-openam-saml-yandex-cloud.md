@@ -6,195 +6,155 @@ tags:
   - openam
 ---
 
-## Введение
+## Подготовка
 
-В данном руководстве мы настроим федерацию между двумя инстансами OpenAM. Один инстанс будет Identity Provider (IdP), другой - Service Provider (SP). Таким образом вы можете аутентифицироваться в инстансе OpenAM (SP) используя учетные данные другого инстанса - OpenAM (IdP). 
+Для настройки SAML аутентификации требуется
 
-## Установка инстансов OpenAM
-
-Если у вас уже установлены инстансы OpenAM, можете пропустить этот раздел. Для демонстрационных целей мы установим OpenAM IdP и SP в Docker контейнерах.
-
-### Настройка сети
-
-Добавьте имена хостов и IP адрес в файл `hosts`, 
+1. Платформа Docker и запущенный Docker Engine
+2. Локально запущенный инстанс OpenAM. Для запуска OpenAM выполните команду:
 
 ```bash
-127.0.0.1 idp.acme.org sp.mycompany.org
+docker run -h openam.example.org -p 8080:8080 --name openam openidentityplatform/openam
 ```
 
-В Windows системах файл `hosts` находится по адресу `C:\Windows\System32\drivers\etc\hosts` , в Linux и Mac находится по адресу `/etc/hosts` 
+Подробное описание установки и первоначальной настройки OpenAM по [ссылке](https://github.com/OpenIdentityPlatform/OpenAM/wiki/Quick-Start-Guide) 
 
-Создайте в Docker сеть для OpenAM
+## Настройка федерации в OpenAM
+
+### Создание и настройка Identity Provider в OpenAM
+
+1. Откройте консоль администратора
+2. Перейдите в нужный realm
+3. Выберите в разделе Common Tasks **Configure SAMLv2 Provider**
+
+![OpenAM Realm Common Tasks](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/saml-yandex-cloud/realm-common-tasks.png)
+
+4. Далее **Create Hosted Identity Provider**
+
+![Configure SAML v2 Provider](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/saml-yandex-cloud/configure-saml-provider.png)
+
+5. Выберите ключ для подписи (для демонстрационных целей будем использовать **test**), введите имя круга доверия а также свяжите атрибуты пользователей Yandex Cloud Organization c OpenAM. Для демонстрационных целей пользователи будут связаны по email.
+
+![Configure SAML Identity Provider](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/saml-yandex-cloud/configure-saml-identity-provider.png)
+
+6. Нажмите кнопку Configure.
+
+### Настройка связи пользователей OpenAM
+
+1. Откройте консоль администратора
+2. Выберите требуемый  realm
+3. В меню слева выберите раздел Applications и перейдите в SAML 2.0
+4. В списке Entity Providers выберите провайдера `http://openam.example.org:8080/openam`
+5. На закладке Assertion Content в разделе **NameID Format** в список **NameID Value Map** добавьте элемент `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified=mail`
+6. Нажмите Save
+
+### Создание пользователей OpenAM
+
+1. Откройте консоль администратора
+2. Выберите требуемый realm
+3. Создайте пользователя и заполните у него атрибут Email Address
+
+## **Создание и настройка федерации в Yandex Cloud Organization**
+
+### Перейдите в сервис [Yandex Cloud Organization](https://org.cloud.yandex.ru/).
+
+1. На панели слева выберите раздел [Федерации](https://org.cloud.yandex.ru/federations) .
+2. Нажмите кнопку **Создать федерацию**.
+3. Задайте имя федерации. Имя должно быть уникальным в каталоге.
+4. При необходимости добавьте описание.
+5. В поле **Время жизни cookie** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
+6. В поле **IdP Issuer** вставьте ссылку: `http://openam.example.org:8080/openam`
+7. В поле **Ссылка на страницу для входа в IdP** вставьте ссылку: `http://openam.example.org:8080/openam/SSORedirect/metaAlias/idp`
+8. Включите опцию **Автоматически создавать пользователей**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](https://cloud.yandex.ru/docs/organization/operations/add-account#add-user-sso).
+    
+    Автоматически федеративный пользователь создается только при первом входе пользователя в облако. Если вы удалили пользователя из федерации, вернуть его туда можно будет только вручную.
+    
+9. Включите опцию **Принудительная повторная аутентификация (ForceAuthn) в IdP**, чтобы задать значение `true` для параметра [ForceAuthn](https://cloud.yandex.ru/docs/organization/api-ref/Federation/) в запросе аутентификации SAML. При включении этой опции IdP-провайдер запрашивает у пользователя аутентификацию по истечении сессии в Yandex Cloud.
+10. Нажмите кнопку **Создать федерацию**.
+
+![Yandex Cloud New Federation](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/saml-yandex-cloud/05-yandex-cloud-new-federation.png)
+
+## **Добавьте сертификаты**
+
+При аутентификации у сервиса Cloud Organization должна быть возможность проверить сертификат IdP-сервера. Для этого добавьте сертификат в федерацию:
+
+1. Откройте ссылку OpenAM `http://openam.example.org:8080/openam/saml2/jsp/exportmetadata.jsp`
+
+и скопируйте значение тега ds:X509Certificate
+
+2. Сохраните сертификат в текстовом файле с расширением `.cer` в следующем формате:
 
 ```bash
-docker network create openam-saml
+----BEGIN CERTIFICATE-----
+<значение ds:X509Certificate>
+----END CERTIFICATE-----
 ```
 
-### Установка OpenAM IdP
+3. На панели слева выберите раздел [Федерации](https://org.cloud.yandex.ru/federations) .
+4. Нажмите имя федерации, для которой нужно добавить сертификат.
+5. Внизу страницы нажмите кнопку **Добавить сертификат**.
+6. Введите название и описание сертификата.
+7. Выберите способ добавления сертификата:
+    - Чтобы добавить сертификат в виде файла, нажмите **Выбрать файл** и укажите путь к нему.
+    - Чтобы вставить скопированное содержимое сертификата, выберите способ **Текст** и вставьте содержимое.
+8. Нажмите кнопку **Добавить**.
 
-Запустите образ OpenAM
+# Создание и настройка Service Provider в OpenAM
 
-```bash
-docker run -h idp.acme.org -p 8080:8080 --network openam-saml --name openam-idp openidentityplatform/openam
+## Создайте файл метаданных для OpenAM
+
+Создайте файл `metadata.xml`со следующим содержимым, где ID_федерации - идентификатор федерации из консоли [Yandex Cloud Organization](https://org.cloud.yandex.ru), раздела [Федерации](https://org.cloud.yandex.ru/federations)
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?><md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://console.cloud.yandex.ru/federations/<ID_федерации>">
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://console.cloud.yandex.ru/federations/<ID_федерации>" index="1"/>
+    </md:SPSSODescriptor>
+</md:EntityDescriptor>
 ```
 
-После того, как сервер OpenAM запущен, выполните первоначальную настройку, запустив следующую команду и дождитесь окончания настройки.
+## Создание Service Provider в OpenAM
 
-```bash
-docker exec -w '/usr/openam/ssoconfiguratortools' openam-idp bash -c \
-'echo "ACCEPT_LICENSES=true
-SERVER_URL=http://idp.acme.org:8080
-DEPLOYMENT_URI=/$OPENAM_PATH
-BASE_DIR=$OPENAM_DATA_DIR
-locale=en_US
-PLATFORM_LOCALE=en_US
-AM_ENC_KEY=
-ADMIN_PWD=passw0rd
-AMLDAPUSERPASSWD=p@passw0rd
-COOKIE_DOMAIN=idp.acme.org
-ACCEPT_LICENSES=true
-DATA_STORE=embedded
-DIRECTORY_SSL=SIMPLE
-DIRECTORY_SERVER=idp.acme.org
-DIRECTORY_PORT=50389
-DIRECTORY_ADMIN_PORT=4444
-DIRECTORY_JMX_PORT=1689
-ROOT_SUFFIX=dc=openam,dc=example,dc=org
-DS_DIRMGRDN=cn=Directory Manager
-DS_DIRMGRPASSWD=passw0rd" > conf.file && java -jar openam-configurator-tool*.jar --file conf.file'
-```
+1. Откройте консоль администратора
+2. Перейдите в нужный realm
+3. Выберите в разделе Common Tasks **Configure SAMLv2 Provider**
+4. Далее **Configure Remote Service Provider**
 
-### Установка OpenAM SP
+![SAML Remote Service Provider](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/saml-yandex-cloud/saml-remote-service-provider.png)
 
-Запустите образ OpenAM
+1. В качестве метаданных загрузите созданный на предыдущем этапе файл `metadata.xml`
+2. Выберите существующий Circle Of Trust, созданный на этапе **Создание и настройка Identity Provider в OpenAM**
+3. Нажмите Configure
 
-```bash
-docker run -h sp.mycompany.org -p 8081:8080  --network openam-saml --name openam-sp openidentityplatform/openam
-```
+## **Добавление пользователей в Yandex Cloud Organization**
 
-После того, как сервер OpenAM запущен, выполните первоначальную настройку, запустив следующую команду и дождитесь окончания настройки.
+Если при [создании федерации](https://cloud.yandex.ru/docs/organization/tutorials/federations/integration-keycloak#yc-settings) вы не включили опцию **Автоматически создавать пользователей**, федеративных пользователей нужно добавить в организацию вручную.
 
-```bash
-docker exec -w '/usr/openam/ssoconfiguratortools' openam-sp bash -c \
-'echo "ACCEPT_LICENSES=true
-SERVER_URL=http://sp.mycompany.org:8080
-DEPLOYMENT_URI=/$OPENAM_PATH
-BASE_DIR=$OPENAM_DATA_DIR
-locale=en_US
-PLATFORM_LOCALE=en_US
-AM_ENC_KEY=
-ADMIN_PWD=passw0rd
-AMLDAPUSERPASSWD=p@passw0rd
-COOKIE_DOMAIN=sp.mycompany.org
-ACCEPT_LICENSES=true
-DATA_STORE=embedded
-DIRECTORY_SSL=SIMPLE
-DIRECTORY_SERVER=sp.mycompany.org
-DIRECTORY_PORT=50389
-DIRECTORY_ADMIN_PORT=4444
-DIRECTORY_JMX_PORT=1689
-ROOT_SUFFIX=dc=openam,dc=example,dc=org
-DS_DIRMGRDN=cn=Directory Manager
-DS_DIRMGRPASSWD=passw0rd" > conf.file && java -jar openam-configurator-tool*.jar --file conf.file'
-```
+Для этого вам понадобятся пользовательские Name ID. Их возвращает IdP-сервер вместе с ответом об успешной аутентификации.
 
-## Настройка Identity Provider и Service Provider
+При включенной опции **Автоматически создавать пользователей** в федерацию будут добавляться только пользователи, впервые аутентифицирующиеся в облаке. Повторное добавление федеративного пользователя после его удаления из федерации возможно только вручную.
 
-### Настройка Hosted Identity Provider
+1. [Войдите в аккаунт](https://passport.yandex.ru/) администратора или владельца организации.
+2. Перейдите в сервис [Yandex Cloud Organization](https://org.cloud.yandex.ru/).
+3. На панели слева выберите раздел [Пользователи](https://org.cloud.yandex.ru/users) .
+4. В правом верхнем углу нажмите  → **Добавить федеративных пользователей**.
+5. Выберите федерацию, из которой необходимо добавить пользователей.
+6. Введите email адреса пользователей из OpenAM
+7. Нажмите кнопку **Добавить**. Пользователи будут подключены к организации.
 
-Откройте консоль OpenAM, который будет в роли Identity Provider по адресу [http://idp.acme.org:8080/openam](http://idp.acme.org:8080/openam) . В поле логин введите значение `amadmin`, в поле пароль введите значение, указанное в настройке `ADMIN_PWD` , в данном случае `passw0rd`.
+![Yandex Cloud Add Users](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/saml-yandex-cloud/06-yandex-cloud-add-users.png)
 
-Перейдите в корневой realm и в разделе Dashboard выберите `Configure SAMLv2 Provider`.
+![Yandex Cloud Add Users List](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/saml-yandex-cloud/07-yandex-cloud-add-users-list.png)
 
-![OpenAM realm overview](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/0-openam-idp-realm-overview.png)
+# **Проверка аутентификации**
 
-Далее `Create Hosted Identity Provider` 
+Когда вы закончили настройку SSO, протестируйте, что все работает:
 
-![OpenAM Create Hosted Identity Provider](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/1-openam-create-hosted-idp.png)
+1. Откройте браузер в гостевом режиме или режиме инкогнито.
+2. Перейдите по URL для входа в консоль:
+    
+    `https://console.cloud.yandex.ru/federations/<ID_федерации>`
+    
+3. Учетные данные пользователя OpenAM аутентификации и нажмите кнопку Login.
 
-В настройке `Signing Key` для демонстрационных целей выберите `test` , введите значение круга доверия `Circle of Trust`  , оно может быть любым. И добавьте сопоставление атрибутов по атрибуту `uid` в настройку `Attribute Mapping` .
-
-![Hosted identity provider settings](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/2-openam-hosted-idp-settings.png)
-
-Нажмите кнопку `Configure` , далее OpenAM предложит настроить Remote Service Provider. Так как он у нас еще не настроен, нажмите кнопку `Finish` 
-
-### Настройка Hosted Service Provider
-
-Откройте новую вкладку браузера и откройте консоль OpenAM Service Provider по URL [http://sp.mycompany.org:8081/openam](http://sp.mycompany.org:8081/openam) . В поле логин введите значение `amadmin`. В поле пароль введите значение, указанное в настройке `ADMIN_PWD` , в данном случае `passw0rd`. Перейдите в корневой realm и в разделе Dashboard выберите `Configure SAMLv2 Provider`. Далее `Create Hosted Service Provider`.
-
-![OpenAM create hosted service provider](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/3-openam-create-hosted-sp.png)
-
-Введите имя круга доверия, остальные настройки можете оставить без изменений. 
-
-![OpenAM hosted service provider settings](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/4-openam-hosted-sp-settings.png)
-
-Нажмите кнопку `Configure`.
-
-![Create remote identity provider promts](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/4-remote-idp-prompt.png)
-
-Появится предложение настроить remote identity provider. Так как мы уже настроили Identity Provider на предыдущем шаге, то можно нажать `Yes` . Откроется окно настройки remote identity provider. 
-
-### Настройка Remote Identity Provider
-
-Выберите местоположение метаданных identity provider -  URL. В поле введите URL метаданных identity provider.
-
-[http://idp.acme.org:8080/openam/saml2/jsp/exportmetadata.jsp](http://idp.acme.org:8080/openam/saml2/jsp/exportmetadata.jsp)
-
-![OpenAM remote identity provider settings](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/6-openam-idp-settings.png)
-
-Нажмите `Configure` . Появится сообщение об успешной конфигурации remote identity provider.
-
-### Настройка сопоставления пользователей
-
-Откройте консоль администратора OpenAM SP, в разделе Dashboard в меню слева передите в раздел  `Applications` → `SAML 2.0`
-
-![OpenAM goto saml](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/7-openam-sp-goto-saml.png)
-
-Откроется окно настройки SAML федерации. Перейдите `Entity Providers` → [`http://sp.mycompany.org:8081/openam`](http://sp.mycompany.org:8081/openam)
-
-![OpenAM SP circle of trust configuration](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/8-openam-sp-circle-of-trunt.png)
-
-В открывшемся окне передите на закладку `Assertions Processing` . Включите автоматическую федерацию по атрибуту `uid`.
-
-![OpenAM SAML Auto Federation](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/9-openam-sp-auto-federation.png)
-
-Нажмите кнопку `Save`
-
-### Настройка Realm для Service Provider
-
-Перейдите в консоль администратора OpenAM SP. В меню слева перейдите `Authentication` → `Settings` . На закладке  `User Profile` выберите значение `Ignore` . Сохраните изменения.
-
-![OpenAM realm user profile settings](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/10-openam-realm-user-profile.png)
-
-
-### Настройка Remote Service Provider
-
-Передите в консоль администратора OpenAM IdP [`http://openam-idp.example.org:8080/openam`](http://openam-idp.example.org:8080/openam). Откройте корневой realm и в разделе Dashboard выберите   `Configure SAMLv2 Provider` , далее `Configure Remote Service Provider`
-
-![OpenAM configure remote service provider](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/11-openam-configure-remote-sp.png)
-
-Добавьте URL метаданных service provider [http://sp.mycompany.org:8080/openam/saml2/jsp/exportmetadata.jsp](http://openam-sp.example.org:8080/openam/saml2/jsp/exportmetadata.jsp) . Обратите внимание, что порт OpenAM Service Provider - `8080`, т.к. инстансы OpenAM находятся в одной сети OpenAM IdP соединяется с контейнером SP по порту 8080. 
-
-![OpenAM remote service provider settings](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/12-openam-remote-sp-settings.png)
-
-Нажмите кнопку `Configure` появится сообщение об успешном создании remote service provider.
-
-## Создание учетной записи
-
-Перейдите в консоль администратора OpenAM IdP, выберите realm, в разделе Dashboard в меню слева выберите `Subjects` .
-
-Откроется список пользователей. Создайте новую учетную запись `testIdp`
-
-![OpenAM new account creation](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/13-openam-new-account.png)
-
-## Проверка решения
-
-Выйдете из обеих консолей OpenAM и откройте в браузере ссылку инициализации аутентификации Service Provider. [http://sp.mycompany.org:8081/openam/spssoinit?metaAlias=/sp&idpEntityID=http%3A//idp.acme.org%3A8080/openam&RelayState=http%3A//sp.mycompany.org%3A8081/openam](http://sp.mycompany.org:8081/openam/spssoinit?metaAlias=/sp&idpEntityID=http%3A//idp.acme.org%3A8080/openam&RelayState=http%3A//sp.mycompany.org%3A8081/openam)
-
-Вас перенаправит на аутентификацию в Identitiy Provider. Введите учетные данные пользователя `testIdP`
-
-![OpenAM sign in](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/14-openam-sign-in.png)
-
-После успешной аутентификации откроется консоль SP с аутентифицированным пользователем  `testIdP` 
-
-![OpenAM authenticated](https://raw.githubusercontent.com/wiki/OpenIdentityPlatform/OpenAM/images/openam-saml/15-openam-authenticated.png)
+После успешной аутентификации IdP-сервер перенаправит вас по URL `https://console.cloud.yandex.ru/federations/<ID_федерации>`, который вы указали файле метаданных для Service Provider в настройках OpenAM, а после — на главную страницу [консоли управления](https://console.cloud.yandex.ru/). В правом верхнем углу вы сможете увидеть, что вошли в консоль от имени федеративного пользователя.
