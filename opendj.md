@@ -1,5 +1,6 @@
 ---
 layout: main
+permalink: /opendj
 title: 'OpenDJ: Directory Services'
 description: 'Сервис каталогов LDAP v3. Предоставляет высокую производительность
     (десятки тысяч запросов в секунду), доступность и масштабируемость для

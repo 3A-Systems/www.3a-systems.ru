@@ -1,5 +1,6 @@
 ---
 layout: main
+permalink: /openidm
 
 title: 'OpenIDM: Identity Management'
 description: 'Управление учетными данными в различных источниках. Позволяет

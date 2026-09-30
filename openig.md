@@ -1,5 +1,6 @@
 ---
 layout: main
+permalink: /openig
 title: 'OpenIG: Identity Gateway'
 description: 'Интернет шлюз (реверсивный прокси) контроля доступа к UI и API.
     Позволяет организовывать защищенный доступ к веб приложениям и API путем

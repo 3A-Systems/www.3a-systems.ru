@@ -1,5 +1,6 @@
 ---
 layout: main
+permalink: /openam
 title: 'OpenAM: Access Management'
 description: 'Контроль доступа: аутентификация, авторизация, single-sign-on, федерация.
     Предоставляет возможность подключения Web сайтов и мобильных приложений к

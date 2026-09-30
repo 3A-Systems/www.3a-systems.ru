@@ -1,7 +1,4 @@
-{% capture og_url %}{{ site.url }}{{ page.url | remove: "index.html" | remove: ".html" }}{% endcapture %}
-{% capture og_image %}{%- if page.imageurl -%}{{ site.url }}/assets/img/{{page.imageurl}}{% else %}https://avatars.githubusercontent.com/u/175615630?s=200&v=4{%- endif -%}{% endcapture %}
 {% capture page_title %} {%- if page.title -%} {{ page.title | smartify }} · {{ site.title | smartify }}{%- else -%}{{ site.title | smartify }} · {{ site.description | smartify }}{%- endif -%}{% endcapture %}
-{% capture page_description %}{{ page.description | default: site.description | smartify }}{% endcapture %}
 
 {% include ga.html %}
 
@@ -20,23 +17,8 @@
 <link href="/assets/css/styles.css" rel="stylesheet" />
 <link href="/assets/css/syntax.css" rel="stylesheet" />
 
-<meta name="description" content="{{ page_description }}">
 <meta name="keywords" content="{{ page.keywords | default: site.keywords }}">
-<meta name="author" content="{{ site.authors }}">
 
-<meta property="og:locale" content="{{ site.locale }}" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="{{ page_title }}" />
-<meta property="og:description" content="{{ page_description }}" />
-<meta property="og:url" content="{{ og_url }}" />
-<meta property="og:site_name" content="{{site.site_name}}" />
-<meta property="og:image" content="{{ og_image }}" />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="{{ og_url }}">
-<meta property="twitter:title" content="{{ page_title }}">
-<meta property="twitter:description" content="{{ page_description }}">
-<meta property="twitter:image" content="{{ og_image }}" />
-
-<meta name="google-site-verification" content="2StMVRK1SRD6C-jMdhCjD7r2Qotj5A4JN9Vwdq_QcAk" />
+{% seo title=false %}
+{% include jsonld.html %}
+{% feed_meta %}

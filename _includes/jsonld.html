@@ -1,0 +1,51 @@
+{%- assign publisher_url = site.url | append: "/" -%}
+{%- if page.url == "/" -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": {{ site.title | jsonify }},
+  "legalName": {{ site.author.name | jsonify }},
+  "url": {{ publisher_url | jsonify }},
+  "logo": {{ site.logo | absolute_url | jsonify }},
+  "description": {{ site.description | strip | jsonify }},
+  "email": "sales@3a-systems.ru",
+  "telephone": "+7-917-595-51-55",
+  "taxID": "7723880303",
+  "sameAs": [
+    "https://github.com/3A-Systems",
+    "https://github.com/OpenIdentityPlatform"
+  ]
+}
+</script>
+{%- endif -%}
+{%- if page.product -%}
+{%- assign repo_url = "https://github.com/OpenIdentityPlatform/" | append: page.product.reponame -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": {{ page.product.reponame | jsonify }},
+  "alternateName": {{ page.title | jsonify }},
+  "description": {{ page.description | strip | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "image": {{ page.product.logo | prepend: "/assets/img/" | absolute_url | jsonify }},
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "Linux, Windows, macOS",
+  "license": {{ repo_url | append: "/blob/master/LICENSE.md" | jsonify }},
+  "downloadUrl": {{ repo_url | append: "/releases" | jsonify }},
+  "softwareHelp": {{ page.product.documentation_link | jsonify }},
+  "offers": {
+    "@type": "Offer",
+    "name": {{ page.product.reponame | append: " Community Edition" | jsonify }},
+    "price": "0",
+    "priceCurrency": "RUB"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.author.name | jsonify }},
+    "url": {{ publisher_url | jsonify }}
+  }
+}
+</script>
+{%- endif -%}
