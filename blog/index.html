@@ -6,21 +6,12 @@ description: 'Новости компании и статьи по Access и Ide
 
 <p><a class="icon-link" href="{{ '/feed.xml' | relative_url }}"><i class="bi-rss px-1"></i>Подписаться через RSS</a></p>
 
+{% include blog-filter.html %}
+
+<div id="blog-posts">
+
 {% for post in paginator.posts %}
-
-
-<div class="card mb-3">
-  <div class="card-body">
-    <h4>
-      <a class="blogpost" href="{{post.url}}">
-        {{post.title}}
-      </a>
-    </h4>
-    <p>{{post.date |  date: "%d.%m.%Y" }}</p>
-    <p>{{post.description}}</p>
-  </div>
-</div>
-
+{% include post-card.html post=post %}
 {% endfor %}
 
 <nav class="paginator">
@@ -56,3 +47,7 @@ description: 'Новости компании и статьи по Access и Ide
     {% endif %}    
   </ul>
 </nav>
+
+</div>
+
+<script src="{{ '/assets/js/blog-search.js' | relative_url }}" defer></script>
