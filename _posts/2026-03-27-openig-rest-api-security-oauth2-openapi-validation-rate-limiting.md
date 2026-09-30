@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2026-03-27-openig-rest-api-security-oauth2-openapi-validation-rate-limiting.png
 title: 'Защита REST API: авторизация OAuth/OIDC, валидация соответствия OpenAPI/Swagger, контроль уровня обслуживания'
 description: 'Пошаговая инструкция по защите REST API с помощью шлюза OpenIG: настройка авторизации OAuth 2.0 через OpenAM, валидация запросов и ответов по спецификации OpenAPI, ограничение частоты запросов (throttling) в Docker Compose.'
 keywords: OpenIG, OpenAM, защита REST API, OAuth 2.0, API шлюз, валидация OpenAPI, валидация Swagger, throttling API, ограничение запросов, Spring Pet Clinic, Docker Compose, авторизация API, Bearer token, токен доступа, mass assignment, утечка данных, безопасность API, open source IAM, фильтр запросов, контроль пропускной способности

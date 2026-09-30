@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-06-30-llm-openam-analyzer.png
 title: Использование LLM в Access Management на примере OpenAM и Spring AI
 description: 'В статье мы развернем систему управления доступом, запросим у LLM проанализировать конфигурацию и вернуть рекомендации по ее улучшению.'
 keywords: 'OpenAM, LLM, AI, Spring AI, Spring Boot, анализ контроля доступа с помощью LLM, аудит безопасности OpenAM, анализ контроля доступа с помощью LLM, безопасность управления доступом, аудит конфигурации OpenAM'

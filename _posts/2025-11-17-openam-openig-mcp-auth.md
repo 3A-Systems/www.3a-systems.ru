@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-11-17-openam-openig-mcp-auth.png
 title: Настройка MCP с OpenAM и OpenIG для безопасного доступа
 description: 'Как защитить MCP-сервер с помощью сервиса аутенитфикации OpenAM и шлюза авторизации OpenIG с использованием протокола OAuth 2.1'
 keywords: 'mcp сервер oauth, защита mcp сервера, model context protocol oauth 2.1, spring ai mcp oauth, openam openig mcp, openam oauth2 mcp, openig oauth2resourceserverfilter, mcp сервер авторизация, spring ai mcp сервер docker, openidentityplatform mcp, как защитить mcp сервер oauth, mcp openam openig туториал, vscode copilot mcp oauth, github copilot mcp сервер, docker compose openam openig mcp, oauth 2.1 для llm агентов, модель контекст протокол безопасность, spring boot mcp oauth2, openig прокси mcp, openam динамическая регистрация клиента mcp, mcp сервер vs code, llm агент oauth защита, openam-openig-mcp-example'

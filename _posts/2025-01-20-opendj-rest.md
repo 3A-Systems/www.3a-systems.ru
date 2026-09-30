@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-01-20-opendj-rest.png
 title: 'OpenDJ: Доступ к LDAP каталогу через REST интерфейс'
 description: 'В данной статье мы настроим доступ к LDAP каталогу OpenDJ через REST интерфейс'
 tags: 

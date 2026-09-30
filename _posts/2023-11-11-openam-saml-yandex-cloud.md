@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2023-11-11-openam-saml-yandex-cloud.png
 title: 'Аутентификация по протоколу SAML с помощью OpenAM на примере Yandex Cloud'
 description: 'В данной статье описывается, как настроить вход по технологии единого входа (SSO) по протоколу SAML в Yandex Cloud через Access Management платформу с открытым исходным кодом OpenAM.'
 tags: 

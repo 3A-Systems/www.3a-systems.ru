@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-05-21-sso-seamless-authentication-enterprise-client-services.png
 title: 'Single Sign-On (SSO): Бесшовная аутентификация для корпоративных и клиентских сервисов'
 description: 'В этой статье мы разберем, что такое SSO, где применяется и посмотрим на пример технической реализации для веб-приложений.'
 keywords: Single Sign-On, SSO, единый вход, аутентификация, безопасность, Kerberos, шлюз авторизации, пользовательский опыт

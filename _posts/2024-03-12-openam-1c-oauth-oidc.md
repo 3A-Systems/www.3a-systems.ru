@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-03-12-openam-1c-oauth-oidc.png
 title: 'Аутентификация в 1С через OpenAM по протоколу OAuth2 OIDC'
 description: 'В данной статье мы настроим аутентификацию в 1C через OpenAM используя OAuth2/OIDC протокол.'
 tags: 

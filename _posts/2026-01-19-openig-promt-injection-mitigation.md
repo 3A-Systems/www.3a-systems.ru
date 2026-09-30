@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2026-01-19-openig-promt-injection-mitigation.png
 title: 'Защита от Prompt Injection в AI системах с использованием API шлюза'
 description: 'Практическое руководство: защита LLM от prompt injection через API-шлюз OpenIG.'
 keywords: '"Prompt Injection, LLM Security, OpenIG, API Gateway, AI Security, OWASP LLM, LLM Guardrails'

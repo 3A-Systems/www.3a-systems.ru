@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-04-18-openam-openig-for-zero-trust.png
 title: 'OpenAM и OpenIG: Внедрение принципов Zero Trust Security'
 description: 'В статье мы рассмотрим, как использовать связку решений с OpenAM и OpenIG для реализации этих принципов'
 tags: 

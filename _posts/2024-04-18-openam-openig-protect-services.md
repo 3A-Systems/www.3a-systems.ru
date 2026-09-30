@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-04-18-openam-openig-protect-services.png
 title: 'Настройка сервиса аутентификации OpenAM и шлюза авторизации OpenIG для защиты приложений'
 description: 'В этой статье мы настроим централизованную аутентификацию через сервис аутентификации на Open Access Manager (OpenAM) и настроим доступ к приложению через шлюз авторизации Open Identity Gateway (OpenIG), который будет использовать сессию аутентификации OpenAM. В качестве защищаемого приложения будем использовать приложение, разработанное с использованием Spring Boot и Spring Security.'
 tags: 

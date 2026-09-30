@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-07-01-embedded-opendj-in-spring-boot.png
 title: 'Запуск встроенного LDAP на базе OpenDJ в Spring Boot приложении'
 description: 'В этой статье мы настроим Spring Boot приложение со встроенным LDAP на базе LDAP сервера с открытым исходным кодом OpenDJ. Это может понадобиться как для тестов, так и для продуктивного использования. Например, для аутентификации через LDAP.'
 tags: 

@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-11-01-openidm-1c-user-sync.png
 title: 'OpenIDM: Синхронизация учетных записей 1С при помощи OpenIDM'
 description: 'В данной статье мы настроим синхронизацию учетных записей 1С'
 tags: 

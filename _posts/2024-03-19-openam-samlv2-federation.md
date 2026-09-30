@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-03-19-openam-samlv2-federation.png
 title: 'Настройка SAMLv2 федерации в OpenAM'
 description: 'В данном руководстве мы настроим федерацию между двумя инстансами OpenAM. Один инстанс будет Identity Provider (IdP), другой - Service Provider (SP). Таким образом вы можете аутентифицироваться в инстансе OpenAM (SP) используя учетные данные другого инстанса - OpenAM (IdP).'
 tags: 

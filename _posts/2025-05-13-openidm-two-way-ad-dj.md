@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-05-13-openidm-two-way-ad-dj.png
 title: 'Настройка OpenIDM для синхронизации между Active Directory и OpenDJ'
 description: 'В этой статье мы настроим синхронизацию между Active Directory и OpenDJ в обе стороны. Таким образом изменения, внесенные в Active Directory, будут синхронизированы в OpenDJ и наоборот, изменения в OpenDJ будут синхронизированы с Active Directory.'
 tags: 

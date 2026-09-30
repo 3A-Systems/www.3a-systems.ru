@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-03-26-openam-oauth2-oidc-federation.png
 title: 'Настройка OAuth2/OIDC федерации в OpenAM'
 description: 'В данном руководстве мы настроим федерацию между двумя инстансами OpenAM по протоколу OAuth2/OIDC. Один инстанс будет являться OAuth2/OIDC сервером (Identity Provider), другой - клиентом (Service Provider). Таким образом, вы можете аутентифицироваться в клиентском инстансе OpenAM (SP) используя учетные данные инстанса OpenAM (IdP) по протоколу OAuth2/OIDC.'
 tags: 

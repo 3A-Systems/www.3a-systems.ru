@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-06-25-openam-openig-websocket.png
 title: 'Как защитить WebSocket соединение при помощи OpenAM и OpenIG'
 description: 'В этой статье мы добавим авторизацию на WebSocket соединение через OpenIG, используя аутентификацию OpenAM. Для упрощения установки и развертывания сервисов, мы будем использовать Docker и Docker Compose.'
 tags: 

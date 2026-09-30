@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-06-02-openam-active-directory.png
 title: 'Настройка аутентификации в приложении через Active Directory с использованием OpenAM'
 description: 'В статье мы настроим аутентификацию в OpenAM используя учетные запии Microsoft Active Directory в Spring Boot приложение'
 tags: 

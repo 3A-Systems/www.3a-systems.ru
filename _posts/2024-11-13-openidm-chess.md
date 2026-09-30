@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-11-13-openidm-chess.png
 title: 'OpenIDM: А ваш IDM умеет играть в шахматы?'
 description: 'В данной статье мы настроим рабочий процесс игры в шахматы между пользователями'
 tags: 

@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-09-12-using-google-authenticator-with-openam.png
 title: Использование Google Authenticator совместно с OpenAM
 description: 'Пошаговая инструкция по настройке двухфакторной аутентификации (2FA) в OpenAM с использованием Google Authenticator и TOTP для повышения безопасности.'
 keywords: 'OpenAM, Google Authenticator, двухфакторная аутентификация, 2FA, TOTP, одноразовые пароли, настройка OpenAM, интеграция OpenAM, безопасность учетных записей, модуль аутентификации, цепочка аутентификации, Google Authenticator, OpenAM TOTP, аутентификация по QR-коду, настройка 2FA, Open Identity Platform, push-уведомления, защита доступа, мультифакторная аутентификация, Docker OpenAM'

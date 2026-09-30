@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-11-28-yandex-cloud-idp-with-openam.png
 title: 'Настройка аутентификации в OpenAM через Yandex Cloud по протоколу SAML'
 description: 'Пошаговая инструкция по настройке SAML 2.0 федерации: Yandex Cloud как Identity Provider (IdP) + OpenAM / Open Identity Platform как Service Provider (SP).'
 keywords: 'настройка SAML Yandex Cloud, OpenAM Yandex Cloud, Yandex Cloud IdP SAML, OpenAM как SP, Open Identity Platform SAML, единый вход Yandex Cloud OpenAM, SAML 2.0 Yandex Cloud, федерация OpenAM Yandex, OpenAM Docker установка, Yandex Cloud SSO интеграция, OpenAM внешний IdP, автоподвязка пользователей OpenAM, OpenAM SAML tutorial русский, Yandex Cloud пул пользователей SAML, OpenIG SSO Yandex, OpenAM realm настройка SAML, Yandex Cloud сертификат в OpenAM, OpenAM автофедерация'

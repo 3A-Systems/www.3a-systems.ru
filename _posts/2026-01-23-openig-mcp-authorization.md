@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2026-01-23-openig-mcp-authorization.png
 title: 'Настройка авторизации доступа к MCP серверу при помощи OpenIG'
 description: 'Пошаговая настройка авторизации и ограничения доступа к MCP серверу через OpenIG'
 keywords: 'MCP, Model Context Protocol, OpenIG, OpenAM, OpenIdentityPlatform, MCP security, MCP authorization, MCP tools filter, IAM, API security, JSON-RPC, DevOps, Zero Trust'

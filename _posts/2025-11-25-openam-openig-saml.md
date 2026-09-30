@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-11-25-openam-openig-saml.png
 title: 'Настройка SSO: OpenIG как SAML Service Provider для OpenAM'
 description: 'Пошаговое руководство по настройке OpenIG как Service Provider (SP) и прокси для OpenAM (IdP). Узнайте, как добавить корпоративную SAML-аутентификацию к любому приложению, используя Docker.'
 keywords: 'SAML 2.0, Single Sign-On, SSO, OpenIG, OpenAM, Identity Provider, Service Provider, IdP, SP, Fedlet, аутентификация, корпоративная безопасность, управление доступом, прокси, Docker, SAML настройка, OpenIG настройка, OpenAM настройка, защита приложений'

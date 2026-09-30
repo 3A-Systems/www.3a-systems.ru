@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-09-09-using-microsoft-authenticator-with-openam.png
 title: Использование Microsoft Authenticator совместно с OpenAM
 description: 'Пошаговая инструкция по настройке двухфакторной аутентификации (2FA) в OpenAM с использованием Microsoft Authenticator и TOTP для повышения безопасности.'
 keywords: 'OpenAM, Microsoft Authenticator, двухфакторная аутентификация, 2FA, TOTP, одноразовые пароли, настройка OpenAM, интеграция OpenAM, безопасность учетных записей, модуль аутентификации, цепочка аутентификации, Microsoft Authenticator, OpenAM TOTP, аутентификация по QR-коду, настройка 2FA, Open Identity Platform, push-уведомления, защита доступа, мультифакторная аутентификация, Docker OpenAM'
