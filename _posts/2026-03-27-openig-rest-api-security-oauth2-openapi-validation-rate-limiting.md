@@ -6,6 +6,8 @@ keywords: OpenIG, OpenAM, защита REST API, OAuth 2.0, API шлюз, вал
 tags: 
   - openig
   - openam
+redirect_from:
+  - /blog/2026-03-27-openig-rest-api-security-oauth2-openapi-validation-rate-limiting.md
 ---
 
 ## О чем эта статья
