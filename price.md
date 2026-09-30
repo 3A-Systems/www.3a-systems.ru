@@ -46,7 +46,7 @@ layout: main
         </div>
         <div class="row">
             <div class="col">
-                <h2><a href="/support">Техническая поддержка</a></h2>
+                <h2 id="support"><a href="/support">Техническая поддержка</a></h2>
                 <table class="table">
                     <thead>
                         <tr>
@@ -84,7 +84,7 @@ layout: main
         </div>
         <div class="row">
             <div class="col">
-                <h2><a href="/education">Обучение и сертификация</a></h2>
+                <h2 id="education"><a href="/education">Обучение и сертификация</a></h2>
                 <table class="table">
                     <thead>
                         <tr>
