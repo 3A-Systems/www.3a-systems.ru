@@ -4,6 +4,23 @@ layout: main
 <section class="page-section" id="blog">
     <div class="container px-4 px-lg-5 py-5">
         <h1>{{page.title}}</h1>
+        {%- if page.collection == "posts" %}
+        <div class="post-meta d-flex flex-wrap align-items-center gap-2 text-muted mb-4">
+            <span class="me-2"><i class="bi-calendar3 me-1"></i><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d.%m.%Y" }}</time></span>
+            {%- for tag in page.tags %}
+            {%- assign product_url = "/" | append: tag %}
+            {%- assign product = site.data.products | where: "url", product_url | first %}
+            {%- if product %}
+            <a class="badge text-bg-primary text-decoration-none" href="{{ product.url }}">{{ product.sname }}</a>
+            {%- else %}
+            <span class="badge text-bg-secondary">{{ tag }}</span>
+            {%- endif %}
+            {%- endfor %}
+        </div>
+        {%- endif %}
         {{content}}
+        {%- if page.collection == "posts" %}
+        {% include post-footer.html %}
+        {%- endif %}
     </div>
 </section>
