@@ -1,0 +1,61 @@
+{% comment %}
+  The contents of this file are subject to the terms of the Common Development and
+  Distribution License (the License). You may not use this file except in compliance with the
+  License.
+
+  You can obtain a copy of the License at legal/CDDLv1.0.txt. See the License for the
+  specific language governing permission and limitations under the License.
+
+  When distributing Covered Software, include this CDDL Header Notice in each file and include
+  the License file at legal/CDDLv1.0.txt. If applicable, add the following below the CDDL
+  Header, with the fields enclosed by brackets [] replaced by your own identifying
+  information: "Portions copyright [year] [name of copyright owner]".
+
+  Copyright 2026 3A Systems, LLC.
+{% endcomment %}
+<footer class="site-footer bg-light pt-5 pb-3">
+    <div class="container px-4 px-lg-5">
+        <div class="row gy-4">
+            <div class="col-6 col-lg-3">
+                <div class="h6 text-uppercase">Продукты</div>
+                <ul class="list-unstyled mb-0">
+                    {% for product in site.data.products %}
+                    <li><a href="{{ product.url }}">{{ product.sname }}: {{ product.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="h6 text-uppercase">Услуги</div>
+                <ul class="list-unstyled mb-0">
+                    <li><a href="/support">Техническая поддержка</a></li>
+                    <li><a href="/education">Обучение и сертификация</a></li>
+                    <li><a href="/services">Профессиональные услуги</a></li>
+                    <li><a href="/price">Прайс-лист</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="h6 text-uppercase">Компания</div>
+                <ul class="list-unstyled mb-0">
+                    <li><a href="/about">О компании</a></li>
+                    <li><a href="/experience">Опыт</a></li>
+                    <li><a href="/blog">Блог</a></li>
+                    <li><a href="/contacts">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="h6 text-uppercase">Контакты</div>
+                <ul class="list-unstyled mb-0">
+                    <li><i class="bi-envelope me-2"></i><a class="text-nowrap" href="mailto:sales@3a-systems.ru">sales@3a-systems.ru</a></li>
+                    <li><i class="bi-telephone me-2"></i><a class="text-nowrap" href="tel:+79175955155">+7-917-595-51-55</a></li>
+                    <li><i class="bi-whatsapp me-2"></i><a href="https://wa.me/79175955155" target="_blank" rel="noopener">WhatsApp</a></li>
+                    <li><i class="bi-github me-2"></i><a href="https://github.com/3A-Systems" target="_blank" rel="noopener">3A Systems</a></li>
+                    <li><i class="bi-github me-2"></i><a href="https://github.com/OpenIdentityPlatform" target="_blank" rel="noopener">Open Identity Platform</a></li>
+                    <li><i class="bi-rss me-2"></i><a href="/feed.xml">RSS-лента блога</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="my-4" />
+        {% assign current_year = 'now' | date: '%Y' %}
+        <div class="small text-muted">Copyright &copy; 2008 - {{current_year}} ООО «ТриА Системз»</div>
+    </div>
+</footer>

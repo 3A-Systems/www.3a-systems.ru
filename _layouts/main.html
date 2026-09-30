@@ -59,20 +59,7 @@
         {%if page.skipcarousel != true %}
             {% include partners-carousel.html %}
         {% endif %}
-        <!-- Footer-->
-        <footer class="bg-light py-3">
-            <div class="container px-4 px-lg-5">
-                <div class="row px-5">
-                    {% assign current_year = 'now' | date: '%Y' %}
-                    <div class="col-6 d-flex align-items-center"><div class="small text-muted">Copyright &copy; 2008 - {{current_year}} ООО «ТриА Системз»</div></div>
-                    <div class="col-6">
-                        <div class="small text-end">
-                            <a href="https://github.com/3A-Systems"><i class="bi-github fs-2 mb-3 text-muted"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        {% include footer.html %}
         <!--jquery-->
         <script src="https://cdn.jsdelivr.net/gh/jquery/jquery@3.7.1/dist/jquery.slim.min.js"></script>
         <!-- Bootstrap core JS-->
