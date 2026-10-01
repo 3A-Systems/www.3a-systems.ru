@@ -1,4 +1,18 @@
+{% comment %}
+  The contents of this file are subject to the terms of the Common Development and
+  Distribution License (the License). You may not use this file except in compliance with the
+  License.
 
+  You can obtain a copy of the License at legal/CDDLv1.0.txt. See the License for the
+  specific language governing permission and limitations under the License.
+
+  When distributing Covered Software, include this CDDL Header Notice in each file and include
+  the License file at legal/CDDLv1.0.txt. If applicable, add the following below the CDDL
+  Header, with the fields enclosed by brackets [] replaced by your own identifying
+  information: "Portions copyright [year] [name of copyright owner]".
+
+  Portions Copyright 2026 3A Systems, LLC.
+{% endcomment %}
 # {{page.origin}} <img alt="логотип PRO" src="https://www.3a-systems.ru/assets/img/pro.svg" height="24px"/> PRO: лицензионное соглашение с конечным пользователем
 
 ---
@@ -65,7 +79,7 @@
 
 2.5. Срок действия лицензии - право использования предоставляется на срок действия исключительного права на Продукт, если иное не предусмотрено отдельными договорами на основании которых Вы получили право использования Продукта или доступ к нему.
 
-2.6. Обновления к Продукту представляются в соответствии с условиями гарантийной технической поддержки Продукта, приведенными на сайте Правообладателя [https://www.3a-systems.ru/{{page.origin}}](https://www.3a-systems.ru/{{page.origin}}).
+2.6. Обновления к Продукту представляются в соответствии с условиями гарантийной технической поддержки Продукта, приведенными на сайте Правообладателя [https://www.3a-systems.ru/{{page.origin | downcase}}](https://www.3a-systems.ru/{{page.origin | downcase}}).
 
 2.7. Условия и порядок выплаты вознаграждения за предоставление права использования Продукта определяются в Договорах.
 
