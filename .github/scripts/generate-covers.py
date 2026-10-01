@@ -68,10 +68,11 @@ def font(name, size):
 
 def words_of(text):
     """Слова заголовка; короткие (предлоги, союзы) склеиваются со следующим словом,
-    чтобы не оставаться в конце строки."""
+    чтобы не оставаться в конце строки. Двухбуквенные аббревиатуры (AD) не склеиваются."""
     words = []
     for word in text.split():
-        if words and len(words[-1]) <= 2 and words[-1].isalpha():
+        last = words[-1].rsplit(" ", 1)[-1] if words else ""
+        if len(last) <= 2 and last.isalpha() and not (len(last) == 2 and last.isupper()):
             words[-1] = f"{words[-1]} {word}"
         else:
             words.append(word)
@@ -93,13 +94,16 @@ def wrap(draw, text, fnt, max_width):
 
 
 def fit_title(draw, title, max_width, max_height):
-    """Подбирает наибольший размер шрифта, при котором заголовок занимает не больше 4 строк."""
+    """Подбирает наибольший размер шрифта, при котором заголовок занимает не больше 4 строк
+    и ни одна строка не шире max_width."""
     for size in range(68, 34, -2):
         fnt = font("Roboto-Bold.ttf", size)
         lines = wrap(draw, title, fnt, max_width)
         line_height = int(size * 1.22)
-        if len(lines) <= 4 and len(lines) * line_height <= max_height:
+        too_wide = any(draw.textlength(line, font=fnt) > max_width for line in lines)
+        if not too_wide and len(lines) <= 4 and len(lines) * line_height <= max_height:
             return fnt, lines, line_height
+    print(f"заголовок не уместился в обложку и обрезан: {title}", file=sys.stderr)
     return fnt, lines[:4], line_height
 
 
@@ -132,10 +136,11 @@ def render(title, tags, target):
 
 
 def add_image_to_front_matter(path, text, url):
-    """Добавляет `image:` сразу после `layout:`, не трогая остальной front matter."""
+    """Добавляет `image:` сразу после `layout:` (если `layout:` не первый ключ — в начало
+    front matter), не трогая остальной front matter."""
     updated, count = re.subn(r"\A(---\s*\nlayout:[^\n]*\n)", rf"\1image: {url}\n", text, count=1)
     if count != 1:
-        raise ValueError("front matter не начинается с layout:")
+        updated = re.sub(r"\A(---\s*\n)", rf"\1image: {url}\n", text, count=1)
     path.write_text(updated, encoding="utf-8")
 
 
@@ -147,7 +152,7 @@ def main():
     COVERS_DIR.mkdir(parents=True, exist_ok=True)
     created = updated = 0
     for path in sorted(POSTS_DIR.glob("*.md")):
-        text = path.read_text(encoding="utf-8")
+        text = path.read_text(encoding="utf-8-sig")
         match = FRONT_MATTER.match(text)
         if not match:
             print(f"пропущен {path.name}: нет front matter", file=sys.stderr)
@@ -156,9 +161,12 @@ def main():
         stem = re.sub(r"(\.md)+$", "", path.name)
         target = COVERS_DIR / f"{stem}.png"
         url = f"{COVERS_URL}/{target.name}"
+        tags = data.get("tags") or []
+        if isinstance(tags, str):
+            tags = tags.split()       # как в Jekyll: строка тегов делится по пробелам
 
         if args.force or not target.exists():
-            render(str(data.get("title", "")).strip(), [str(t) for t in data.get("tags") or []], target)
+            render(str(data.get("title", "")).strip(), [str(t) for t in tags], target)
             created += 1
         if "image" not in data:
             add_image_to_front_matter(path, text, url)
