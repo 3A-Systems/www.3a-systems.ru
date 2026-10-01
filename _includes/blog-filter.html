@@ -1,0 +1,46 @@
+{% comment %}
+  The contents of this file are subject to the terms of the Common Development and
+  Distribution License (the License). You may not use this file except in compliance with the
+  License.
+
+  You can obtain a copy of the License at legal/CDDLv1.0.txt. See the License for the
+  specific language governing permission and limitations under the License.
+
+  When distributing Covered Software, include this CDDL Header Notice in each file and include
+  the License file at legal/CDDLv1.0.txt. If applicable, add the following below the CDDL
+  Header, with the fields enclosed by brackets [] replaced by your own identifying
+  information: "Portions copyright [year] [name of copyright owner]".
+
+  Copyright 2026 3A Systems, LLC.
+
+  Фильтр статей по продуктам и поиск. Используется в blog/index.html и на страницах
+  /blog/tag/<тег>/ (активный фильтр берётся из page.tag, на странице тега поиск идёт
+  только по статьям с этим тегом). jekyll-paginate рендерит blog/index.html и для
+  /blog/pageN/: там «Все статьи» — выбранный фильтр, но не текущая страница, поэтому
+  aria-current="true", а не "page". Поле поиска скрыто, пока
+  assets/js/blog-search.js его не покажет: без JavaScript поиск не работает.
+  Скринридеру объявляется только строка с числом найденных статей из #blog-search-status:
+  он всегда в дереве доступности (visually-hidden, а не d-none), а список карточек в
+  #blog-search-results не live region, чтобы не зачитывался целиком.
+{% endcomment %}
+<nav class="blog-filter mb-3" aria-label="Статьи по продуктам">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link{% unless page.tag %} active{% endunless %}" href="/blog/"{% unless page.tag %} aria-current="{% if paginator.page > 1 %}true{% else %}page{% endif %}"{% endunless %}>Все статьи</a>
+    </li>
+    {%- for product in site.data.products %}
+    {%- assign tag = product.url | remove_first: "/" %}
+    <li class="nav-item">
+      <a class="nav-link{% if page.tag == tag %} active{% endif %}" href="/blog/tag/{{ tag }}/"{% if page.tag == tag %} aria-current="page"{% endif %}>{{ product.sname }}</a>
+    </li>
+    {%- endfor %}
+  </ul>
+</nav>
+
+<div class="blog-search mb-4 d-none" id="blog-search">
+  <label class="visually-hidden" for="blog-search-input">Поиск по статьям</label>
+  <input class="form-control" type="search" id="blog-search-input" placeholder="Поиск по статьям: например, SAML, Kerberos, 1С" autocomplete="off" data-index="{{ '/search.json' | relative_url }}"{% if page.tag %} data-tag="{{ page.tag }}"{% endif %}>
+</div>
+
+<div id="blog-search-status" class="visually-hidden" role="status"></div>
+<div id="blog-search-results" class="d-none"></div>

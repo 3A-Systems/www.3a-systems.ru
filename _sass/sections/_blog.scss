@@ -1,4 +1,9 @@
 section#blog {
+    // В _global.scss у всех ul есть отступ слева
+    .blog-filter ul {
+        margin-left: 0;
+    }
+
     .paginator {
         display: flex;
         justify-content: center;

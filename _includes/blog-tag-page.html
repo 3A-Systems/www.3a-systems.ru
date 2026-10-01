@@ -1,0 +1,29 @@
+{% comment %}
+  The contents of this file are subject to the terms of the Common Development and
+  Distribution License (the License). You may not use this file except in compliance with the
+  License.
+
+  You can obtain a copy of the License at legal/CDDLv1.0.txt. See the License for the
+  specific language governing permission and limitations under the License.
+
+  When distributing Covered Software, include this CDDL Header Notice in each file and include
+  the License file at legal/CDDLv1.0.txt. If applicable, add the following below the CDDL
+  Header, with the fields enclosed by brackets [] replaced by your own identifying
+  information: "Portions copyright [year] [name of copyright owner]".
+
+  Copyright 2026 3A Systems, LLC.
+
+  Содержимое страницы /blog/tag/<тег>/: фильтр, поиск и все статьи с тегом page.tag
+  (без пагинации). Страницы тегов лежат в blog/tag/.
+{% endcomment %}
+{% include blog-filter.html %}
+
+<div id="blog-posts">
+{%- assign tag_posts = site.posts | where_exp: "post", "post.tags contains page.tag" %}
+<p class="text-muted">Статей: {{ tag_posts.size }}</p>
+{% for post in tag_posts %}
+{% include post-card.html post=post %}
+{% endfor %}
+</div>
+
+<script src="{{ '/assets/js/blog-search.js' | relative_url }}" defer></script>
