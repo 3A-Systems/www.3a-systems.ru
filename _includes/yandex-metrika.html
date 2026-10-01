@@ -1,0 +1,37 @@
+{% comment %}
+  The contents of this file are subject to the terms of the Common Development and
+  Distribution License (the License). You may not use this file except in compliance with the
+  License.
+
+  You can obtain a copy of the License at legal/CDDLv1.0.txt. See the License for the
+  specific language governing permission and limitations under the License.
+
+  When distributing Covered Software, include this CDDL Header Notice in each file and include
+  the License file at legal/CDDLv1.0.txt. If applicable, add the following below the CDDL
+  Header, with the fields enclosed by brackets [] replaced by your own identifying
+  information: "Portions copyright [year] [name of copyright owner]".
+
+  Copyright 2026 3A Systems, LLC.
+
+  Счётчик Яндекс.Метрики (код из настроек счётчика). Номер — site.yandex_metrika в _config.yml.
+  В <head> подключается без параметров (скрипт), в начале <body> — с noscript=true (пиксель
+  для посетителей без JavaScript: внутри <head> тег <div> недопустим).
+  Выводится только в production-сборке (GitHub Pages собирает с JEKYLL_ENV=production),
+  чтобы локальный jekyll serve не попадал в статистику.
+{% endcomment %}
+{%- if site.yandex_metrika and jekyll.environment == "production" -%}
+{%- if include.noscript -%}
+<noscript><div><img src="https://mc.yandex.ru/watch/{{ site.yandex_metrika }}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+{%- else -%}
+<script>
+  (function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+  })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id={{ site.yandex_metrika }}', 'ym');
+
+  ym({{ site.yandex_metrika }}, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+{%- endif -%}
+{%- endif -%}
