@@ -15,13 +15,15 @@
 
   Фильтр статей по продуктам и поиск. Используется в blog/index.html и на страницах
   /blog/tag/<тег>/ (активный фильтр берётся из page.tag, на странице тега поиск идёт
-  только по статьям с этим тегом). Поле поиска скрыто, пока
+  только по статьям с этим тегом). jekyll-paginate рендерит blog/index.html и для
+  /blog/pageN/: там «Все статьи» — выбранный фильтр, но не текущая страница, поэтому
+  aria-current="true", а не "page". Поле поиска скрыто, пока
   assets/js/blog-search.js его не покажет: без JavaScript поиск не работает.
 {% endcomment %}
 <nav class="blog-filter mb-3" aria-label="Статьи по продуктам">
   <ul class="nav nav-pills">
     <li class="nav-item">
-      <a class="nav-link{% unless page.tag %} active{% endunless %}" href="/blog/"{% unless page.tag %} aria-current="page"{% endunless %}>Все статьи</a>
+      <a class="nav-link{% unless page.tag %} active{% endunless %}" href="/blog/"{% unless page.tag %} aria-current="{% if paginator.page > 1 %}true{% else %}page{% endif %}"{% endunless %}>Все статьи</a>
     </li>
     {%- for product in site.data.products %}
     {%- assign tag = product.url | remove_first: "/" %}

@@ -38,8 +38,9 @@
     var loading = null;
     var timer = null;
 
+    // «ё» = «е»; «1C», набранное в латинской раскладке, = «1С»: в статьях встречаются оба написания
     function normalize(text) {
-        return (text || '').toString().toLowerCase().replace(/ё/g, 'е');
+        return (text || '').toString().toLowerCase().replace(/ё/g, 'е').replace(/\b1c\b/g, '1с');
     }
 
     function loadIndex() {
@@ -160,6 +161,9 @@
             posts.classList.add('d-none');
             results.classList.remove('d-none');
         }).catch(function () {
+            if (input.value.trim() !== query) {
+                return;
+            }
             results.textContent = '';
             results.appendChild(element('p', 'text-danger', 'Не удалось загрузить поиск. Обновите страницу.'));
             results.classList.remove('d-none');
