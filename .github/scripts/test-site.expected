@@ -1,0 +1,11 @@
+::error file=.github/scripts/test-site/bad-json.html::JSON-LD №2 не разбирается как JSON
+::error file=.github/scripts/test-site/foreign-canonical.html::canonical не на https://www.3a-systems.ru: https://example.org/foreign-canonical
+::error file=.github/scripts/test-site/html-suffix.html::canonical с .html: https://www.3a-systems.ru/html-suffix.html (проверьте permalink страницы и в _config.yml)
+::error file=.github/scripts/test-site/ld-no-type.html::JSON-LD №1: ожидается объект с @context и @type
+::error file=.github/scripts/test-site/missing-target.html::canonical ведёт на несуществующую страницу: https://www.3a-systems.ru/missing
+::error file=.github/scripts/test-site/no-canonical.html::ожидается один <link rel="canonical">, найдено 0
+::error file=.github/scripts/test-site/other-page.html::canonical ведёт на другую страницу: https://www.3a-systems.ru/ok (ok.html)
+::error file=.github/scripts/test-site/two-canonicals.html::ожидается один <link rel="canonical">, найдено 2
+::error file=.github/scripts/test-site/two-feeds.html::ссылок на ленту RSS: 2, ожидается не больше одной
+::error file=.github/scripts/test-site/two-titles.html::ожидается один <title>, найдено 2
+Страниц с ошибками: 10 из 15
