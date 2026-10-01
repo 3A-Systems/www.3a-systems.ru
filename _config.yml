@@ -1,6 +1,4 @@
 title: 3A Systems
-site_name: 3A Systems
-authors: ООО «ТриА Системз»
 locale: ru_RU
 email: support@3a-systems.ru
 description: >-
@@ -8,6 +6,23 @@ description: >-
 baseurl: ""
 url: "https://www.3a-systems.ru" 
 keywords: openam, opendj, openidm, openig, open identity platform, identity management, access management, iam, open source, directory services, identity gateway
+logo: /assets/img/logo-oip-lg.png
+author:
+  type: Organization
+  name: ООО «ТриА Системз»
+  url: https://www.3a-systems.ru
+webmaster_verifications:
+  google: 2StMVRK1SRD6C-jMdhCjD7r2Qotj5A4JN9Vwdq_QcAk
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: https://avatars.githubusercontent.com/u/175615630?s=200&v=4
+  - scope:
+      path: "fips"
+    values:
+      sitemap: false
 
 # Build settings
 # theme: minima
@@ -15,6 +30,8 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 permalink: /blog/:year-:month-:day-:title
 paginate_path: "/blog/page:num/"

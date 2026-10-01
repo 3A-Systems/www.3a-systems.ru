@@ -1,5 +1,6 @@
 ---
 layout: main
+permalink: /services
 ---
 <section id="services" class="page-section">
     <div class="container px-4 px-lg-5 py-5">

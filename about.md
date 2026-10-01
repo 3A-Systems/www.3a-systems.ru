@@ -1,5 +1,6 @@
 ---
 layout: main
+permalink: /about
 ---
 
 <section class="page-section">

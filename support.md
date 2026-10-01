@@ -1,5 +1,6 @@
 ---
 layout: main
+permalink: /support
 ---
 <section id="support" class="page-section">
     <div class="container px-4 px-lg-5 py-5">

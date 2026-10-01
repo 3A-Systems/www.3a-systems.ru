@@ -1,5 +1,6 @@
 ---
 layout: main
+permalink: /contacts
 ---
 <section class="page-section">
     <div class="container px-4 px-lg-5 py-5">
