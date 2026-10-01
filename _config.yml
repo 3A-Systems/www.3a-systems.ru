@@ -1,4 +1,7 @@
 title: 3A Systems
+site_name: 3A Systems
+authors: ООО «ТриА Системз»
+locale: ru_RU
 email: support@3a-systems.ru
 description: >-
   Разработка, внедрение и поддержка Open Identity Platform: OpenDJ, OpenAM, OpenIG, OpenIDM 
@@ -11,6 +14,7 @@ keywords: openam, opendj, openidm, openig, open identity platform, identity mana
 plugins:
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-redirect-from
 
 permalink: /blog/:year-:month-:day-:title
 paginate_path: "/blog/page:num/"

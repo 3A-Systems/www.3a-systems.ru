@@ -1,7 +1,8 @@
 ---
 layout: blog
 title: 'Совет: Быстрая конфигурация OpenAM в Docker контейнере из командной строки'
-description: ''
+description: 'Как за пару команд запустить OpenAM в Docker контейнере и выполнить его первоначальную конфигурацию из командной строки с помощью утилиты openam-configurator-tool, без ручной настройки через веб-интерфейс.'
+keywords: 'OpenAM, Docker, быстрый старт, установка OpenAM, конфигурация OpenAM из командной строки, openam-configurator-tool, ssoconfiguratortools, Open Identity Platform'
 tags: 
   - openam
 
