@@ -6,14 +6,20 @@ layout: main
         <h1>{{page.title}}</h1>
         {%- if page.collection == "posts" %}
         <div class="post-meta d-flex flex-wrap align-items-center gap-2 text-muted mb-4">
-            <span class="me-2"><i class="bi-calendar3 me-1"></i><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d.%m.%Y" }}</time></span>
+            {%- assign published = page.date | date: "%d.%m.%Y" %}
+            <span class="me-2"><i class="bi-calendar3 me-1"></i><time datetime="{{ page.date | date_to_xmlschema }}">{{ published }}</time></span>
+            {%- if page.last_modified_at %}
+            {%- assign updated = page.last_modified_at | date: "%d.%m.%Y" %}
+            {%- if updated != published %}
+            <span class="me-2"><i class="bi-arrow-repeat me-1"></i>Обновлено <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ updated }}</time></span>
+            {%- endif %}
+            {%- endif %}
+            <span class="me-2"><i class="bi-person me-1"></i>{{ page.author | default: "3A Systems" }}</span>
             {%- for tag in page.tags %}
             {%- assign product_url = "/" | append: tag %}
             {%- assign product = site.data.products | where: "url", product_url | first %}
             {%- if product %}
             <a class="badge text-bg-primary text-decoration-none" href="{{ product.url }}">{{ product.sname }}</a>
-            {%- else %}
-            <span class="badge text-bg-secondary">{{ tag }}</span>
             {%- endif %}
             {%- endfor %}
         </div>

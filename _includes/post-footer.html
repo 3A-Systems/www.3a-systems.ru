@@ -85,12 +85,17 @@
         if (!button || !navigator.clipboard) {
             return;
         }
+        var label = button.querySelector('span');
+        var resetTimer;
         button.classList.remove('d-none');
         button.addEventListener('click', function () {
-            var label = button.querySelector('span');
             navigator.clipboard.writeText(button.getAttribute('data-url')).then(function () {
                 label.textContent = 'Ссылка скопирована';
-                setTimeout(function () { label.textContent = 'Скопировать ссылку'; }, 2000);
+            }, function () {
+                label.textContent = 'Не удалось скопировать';
+            }).then(function () {
+                clearTimeout(resetTimer);
+                resetTimer = setTimeout(function () { label.textContent = 'Скопировать ссылку'; }, 2000);
             });
         });
     })();
