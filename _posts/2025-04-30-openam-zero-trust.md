@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-04-30-openam-zero-trust.png
 title: 'OpenAM и Zero Trust: Подтверждение критичных операций'
 description: 'В этой статье мы рассмотрим как реализовать соблюдение принципа Zero Trust Security "never trust, always verify" в системе аутентификации на примере OpenAM и OpenIG'
 tags: 

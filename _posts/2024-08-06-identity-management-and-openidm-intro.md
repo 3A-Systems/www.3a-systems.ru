@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-08-06-identity-management-and-openidm-intro.png
 title: 'Введение в Identity Management с OpenIDM'
 description: 'В этой статье мы рассмотрим, что такое Identity Management (IDM) и его основные задачи. А так же рассмотрим решение нескольких типовых задач Identity Management и использованием продукта с открытым исходным кодом OpenIDM. В конце статьи будет обзор основных возможностей OpenIDM.'
 tags: 

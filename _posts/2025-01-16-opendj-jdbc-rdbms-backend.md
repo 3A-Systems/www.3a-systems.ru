@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-01-16-opendj-jdbc-rdbms-backend.png
 title: 'OpenDJ: Использование реляционной СУБД в качестве LDAP каталога'
 description: 'В данной статье мы настроим OpenDJ таким образом, чтобы он использовал базу данных PostgreSQL в качестве хранилища данных.'
 tags: 

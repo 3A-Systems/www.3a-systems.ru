@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-05-26-sso-with-openam-and-openig-in-practice.png
 title: 'Single Sign-On c OpenAM и OpenIG: Практические примеры реализации'
 description: 'В статье рассмотрим основные подходы к реализации SSO на примере решений с открытым исходным кодом OpenAM и OpenIG.'
 keywords: Single Sign-On, SSO, единый вход, OpenAM, OpenIG, федеративный SSO, Kerberos, аутентификация

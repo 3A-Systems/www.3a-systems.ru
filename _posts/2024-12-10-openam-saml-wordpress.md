@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-12-10-openam-saml-wordpress.png
 title: 'Аутентификация в WordPress через OpenAM по протоколу SAMLv2'
 description: 'В этой статье мы настроим вход в WordPress по протоколу SAML используя аутентификацию OpenAM. То есть, при аутентификации в WordPress, пользователи будут перенаправлены в OpenAM и, после аутентификации в OpenAM будут автоматически аутентифицированы в WordPress'
 tags: 

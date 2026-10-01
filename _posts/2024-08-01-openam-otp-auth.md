@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-08-01-openam-otp-auth.png
 title: 'Настройка аутентификации с одноразовым паролем в OpenAM'
 description: 'В данной статье мы настроим аутентификацию в OpenAM с использованием одноразовых кодов, сгенерированных от времени - Time-based One-Time Password Algorithm (TOTP,  RFC 6238).'
 tags: 

@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-12-25-openam-auth-via-mailru.png
 title: 'Аутентификация в OpenAM через Mail.ru'
 description: 'В данной статье мы настроим вход в OpenAM, используя аутентификацию в Mail.ru по протоколу OAuth 2.0. Таким образом, ваши пользователи смогут входить в приложения, защищенные OpenAM, используя свои учетные записи Mail.ru.'
 tags: 

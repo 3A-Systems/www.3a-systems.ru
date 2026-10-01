@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-01-09-openam-auth-via-vk.png
 title: 'Аутентификация в OpenAM через ВКонтакте (VK)'
 description: 'ВКонтакте (VK) - одна из самых, если на самая, популярная социальная сеть в российском сегменте. И в этой статье мы настроим аутентификацию в OpenAM через VK по протоколу OAuth 2.0'
 tags: 

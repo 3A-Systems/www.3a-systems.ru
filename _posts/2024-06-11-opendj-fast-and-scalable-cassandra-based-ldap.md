@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-06-11-opendj-fast-and-scalable-cassandra-based-ldap.png
 title: 'OpenDJ: быстрый масштабируемый LDAP на базе Apache Cassandra'
 description: 'В одном из популярных open-source LDAP каталогов OpenDJ, начиная с версии 4.6.1 появилась возможность использовать Apache Cassandra или ScyllaDB в качестве хранилища данных. Это позволяет использовать преимущества производительности и масштабируемости колоночных NoSQL БД по сравнению с классическими LDAP каталогами. В данной статье мы развернем инстанс OpenDJ на базе Apache Cassandra.'
 tags: 

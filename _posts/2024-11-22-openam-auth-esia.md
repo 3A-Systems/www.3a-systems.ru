@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-11-22-openam-auth-esia.png
 title: 'Аутентификация в OpenAM через ЕСИА (Госуслуги)'
 description: 'В данной статье мы настроим аутентификацию в OpenAM через единую систему идентификации и аутентификации (ЕСИА)'
 tags: 

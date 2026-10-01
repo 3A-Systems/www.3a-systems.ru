@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-08-26-openidm-active-directory.png
 title: 'OpenIDM: Управление учетными записями Active Directory'
 description: 'В данной статье мы настроим управление учетными записями Active Directory из OpenIDM.'
 tags: 

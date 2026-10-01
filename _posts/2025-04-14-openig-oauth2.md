@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2025-04-14-openig-oauth2.png
 title: 'OpenIG: авторизация доступа через OAuth (на примере Яндекс ID)'
 description: 'В статье мы настроим авторизацию доступа в приложение через аутентификацию по протоколу OAuth 2.0 на шлюзе с открытым исходным кодом OpenIG'
 tags: 

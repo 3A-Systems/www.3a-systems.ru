@@ -1,5 +1,6 @@
 ---
 layout: blog
+image: /assets/img/covers/2024-12-04-openidm-ad-groups.png
 title: 'Управление членством в группах Active Directory в OpenIDM'
 description: 'Эта статья является продолжением статьи про управление учетными записями Active Directory через OpenIDM. В этой статье мы настроем IDM таким образом, чтобы добавлять и убирать пользователей из групп Active Directory. '
 tags: 
