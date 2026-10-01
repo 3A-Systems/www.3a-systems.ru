@@ -19,6 +19,9 @@
   /blog/pageN/: там «Все статьи» — выбранный фильтр, но не текущая страница, поэтому
   aria-current="true", а не "page". Поле поиска скрыто, пока
   assets/js/blog-search.js его не покажет: без JavaScript поиск не работает.
+  Скринридеру объявляется только строка с числом найденных статей из #blog-search-status:
+  он всегда в дереве доступности (visually-hidden, а не d-none), а список карточек в
+  #blog-search-results не live region, чтобы не зачитывался целиком.
 {% endcomment %}
 <nav class="blog-filter mb-3" aria-label="Статьи по продуктам">
   <ul class="nav nav-pills">
@@ -39,4 +42,5 @@
   <input class="form-control" type="search" id="blog-search-input" placeholder="Поиск по статьям: например, SAML, Kerberos, 1С" autocomplete="off" data-index="{{ '/search.json' | relative_url }}"{% if page.tag %} data-tag="{{ page.tag }}"{% endif %}>
 </div>
 
-<div id="blog-search-results" class="d-none" aria-live="polite"></div>
+<div id="blog-search-status" class="visually-hidden" role="status"></div>
+<div id="blog-search-results" class="d-none"></div>

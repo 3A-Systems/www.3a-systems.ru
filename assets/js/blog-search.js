@@ -23,7 +23,8 @@
     var input = document.getElementById('blog-search-input');
     var results = document.getElementById('blog-search-results');
     var posts = document.getElementById('blog-posts');
-    if (!container || !input || !results || !posts || !window.fetch) {
+    var statusLine = document.getElementById('blog-search-status');
+    if (!container || !input || !results || !posts || !statusLine || !window.fetch || !window.URLSearchParams) {
         return;
     }
     container.classList.remove('d-none');
@@ -94,10 +95,12 @@
     }
 
     function render(found) {
-        results.textContent = '';
-        results.appendChild(element('p', 'text-muted', found.length
+        var message = found.length
             ? 'Найдено статей: ' + found.length
-            : 'Ничего не найдено. Попробуйте другие слова.'));
+            : 'Ничего не найдено. Попробуйте другие слова.';
+        statusLine.textContent = message;
+        results.textContent = '';
+        results.appendChild(element('p', 'text-muted', message));
         found.forEach(function (post) {
             var card = element('div', 'card mb-3');
             var body = element('div', 'card-body');
@@ -125,16 +128,18 @@
     }
 
     function updateUrl(query) {
-        if (!window.history || !window.URL) {
+        if (!window.history) {
             return;
         }
-        var url = new URL(window.location.href);
+        var params = new URLSearchParams(window.location.search);
         if (query) {
-            url.searchParams.set('q', query);
+            params.set('q', query);
         } else {
-            url.searchParams.delete('q');
+            params.delete('q');
         }
-        window.history.replaceState(null, '', url.toString());
+        var queryString = params.toString();
+        window.history.replaceState(null, '',
+            window.location.pathname + (queryString ? '?' + queryString : '') + window.location.hash);
     }
 
     function search() {
@@ -142,6 +147,7 @@
         updateUrl(query);
         var words = normalize(query).split(/\s+/).filter(Boolean);
         if (!words.length) {
+            statusLine.textContent = '';
             results.classList.add('d-none');
             posts.classList.remove('d-none');
             return;
@@ -164,8 +170,10 @@
             if (input.value.trim() !== query) {
                 return;
             }
+            var message = 'Не удалось загрузить поиск. Обновите страницу.';
+            statusLine.textContent = message;
             results.textContent = '';
-            results.appendChild(element('p', 'text-danger', 'Не удалось загрузить поиск. Обновите страницу.'));
+            results.appendChild(element('p', 'text-danger', message));
             results.classList.remove('d-none');
         });
     }
