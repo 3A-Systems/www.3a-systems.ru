@@ -62,6 +62,24 @@ jobs:
           JEKYLL_ENV: production
         run: bundle exec jekyll build
 
+      # <head> страниц (#84): ровно один canonical, без .html и на саму страницу;
+      # каждый блок JSON-LD — валидный JSON; не больше одной ленты RSS; один <title>.
+      - name: Check page head
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: bundle exec ruby .github/scripts/check-head.rb
+
+      # Самотест проверки <head>: test-site содержит страницы с ошибками и корректные
+      # пограничные случаи (404.html, редирект jekyll-redirect-from, <title> во встроенном SVG).
+      - name: Self-test page head checker
+        if: ${{ !cancelled() }}
+        run: |
+          set +e
+          bundle exec ruby .github/scripts/check-head.rb .github/scripts/test-site > "$RUNNER_TEMP/test-site.out"
+          rc=$?
+          set -e
+          diff -u .github/scripts/test-site.expected "$RUNNER_TEMP/test-site.out"
+          test "$rc" -eq 1
+
       # Индекс поиска по блогу (#82): валидный JSON, по записи на каждую опубликованную статью.
       # Число статей берётся из _site, а не из _posts: статьи с датой в будущем Jekyll не публикует.
       - name: Check search index
