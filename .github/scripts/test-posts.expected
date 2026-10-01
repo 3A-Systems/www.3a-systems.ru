@@ -1,0 +1,6 @@
+::error file=.github/scripts/test-posts/2026-01-01-bad.md.md::имя файла должно быть вида YYYY-MM-DD-slug.md (строчные латинские буквы, цифры и дефисы)
+::error file=.github/scripts/test-posts/2026-01-02-unknown-tag.md::неизвестные tags: foo (допустимы openam, opendj, openig, openidm)
+::error file=.github/scripts/test-posts/2026-01-03-not-a-mapping.md::front matter не разбирается как YAML: ожидается набор полей, получено Array
+::error file=.github/scripts/test-posts/2026-02-30-bad-date.md::некорректная дата в имени файла: 2026-02-30
+::error file=.github/scripts/test-posts/nested/2026-01-04-missing-description.md::пустое поле description
+Статей с ошибками: 5 из 8

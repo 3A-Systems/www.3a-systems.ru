@@ -2,7 +2,7 @@
 
 Исходный код сайта [https://www.3a-systems.ru/](https://www.3a-systems.ru/) — ООО «ТриА Системз»: продукты Open Identity Platform (OpenDJ, OpenAM, OpenIG, OpenIDM), услуги, прайс-лист и блог.
 
-Сайт собирается [Jekyll](https://jekyllrb.com/) и публикуется через GitHub Pages из ветки `master`: после мержа в `master` сайт обновляется автоматически. На каждый push и pull request [GitHub Actions](.github/workflows/build.yml) собирает сайт и проверяет статьи и ссылки.
+Сайт собирается [Jekyll](https://jekyllrb.com/) и публикуется через GitHub Pages из ветки `master`: после мержа в `master` сайт обновляется автоматически. На каждый pull request и push в `master` [GitHub Actions](.github/workflows/build.yml) собирает сайт и проверяет статьи и ссылки.
 
 ## Локальный запуск
 
@@ -26,6 +26,7 @@ docker run --rm -it -p 4000:4000 -v "$PWD":/site -w /site ruby:3.3.4 \
 
 ```bash
 ruby .github/scripts/check-posts.rb
+ruby .github/scripts/check-posts.rb .github/scripts/test-posts | diff -u .github/scripts/test-posts.expected -
 bundle exec jekyll build
 gem install html-proofer -v '~> 5.0'
 htmlproofer _site --disable-external --no-enforce-https --allow-missing-href \
@@ -79,7 +80,7 @@ htmlproofer _site --disable-external --no-enforce-https --allow-missing-href \
    | `tags` | да | Продукты, к которым относится статья: `openam`, `opendj`, `openig`, `openidm`. По ним статья попадает в блок «О продукте» на странице продукта |
    | `keywords` | желательно | Ключевые слова для мета-тега `keywords` |
 
-   Обязательные поля и имя файла проверяет `.github/scripts/check-posts.rb`, в том числе в CI.
+   Обязательные поля и имя файла проверяет `.github/scripts/check-posts.rb`, в том числе в CI. Если меняете правила проверки, добавьте пример в `.github/scripts/test-posts/` и обновите ожидаемый вывод в `.github/scripts/test-posts.expected`.
 
 3. Изображения к статьям кладутся в wiki соответствующего репозитория [OpenIdentityPlatform](https://github.com/OpenIdentityPlatform) и подключаются по ссылке `https://raw.githubusercontent.com/wiki/...`.
 
@@ -101,3 +102,5 @@ htmlproofer _site --disable-external --no-enforce-https --allow-missing-href \
 ## Лицензия
 
 Контент сайта © ООО «ТриА Системз». Продукты Open Identity Platform распространяются под лицензией [CDDL](https://github.com/OpenIdentityPlatform/OpenAM/blob/master/LICENSE.md).
+
+Скрипты и настройки CI в `.github/` распространяются под лицензией CDDL v1.0, текст — [`legal/CDDLv1.0.txt`](legal/CDDLv1.0.txt).

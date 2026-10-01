@@ -12,13 +12,15 @@
 #
 # Copyright 2026 3A Systems, LLC.
 
-# Проверяет имена файлов и front matter статей в _posts.
+# Проверяет имена файлов и front matter статей в _posts (или в каталоге из первого аргумента).
 # Ошибки выводятся в формате аннотаций GitHub Actions.
 
 require "date"
+require "pathname"
 require "yaml"
 
-POSTS_DIR = File.expand_path("../../_posts", __dir__)
+ROOT = Pathname.new(File.expand_path("../..", __dir__))
+POSTS_DIR = File.expand_path(ARGV[0] || File.join(ROOT, "_posts"))
 FILE_NAME = /\A(\d{4}-\d{2}-\d{2})-[a-z0-9]+(?:-[a-z0-9]+)*\.md\z/
 ALLOWED_TAGS = %w[openam opendj openig openidm].freeze
 REQUIRED_TEXT = %w[title description].freeze
@@ -42,12 +44,14 @@ def check(path)
     end
   end
 
-  content = File.read(path, encoding: "utf-8")
-  front_matter = content[/\A---\s*\n(.*?)\n---\s*$/m, 1]
+  # Как Jekyll: BOM допускается, front matter закрывается строкой --- или ...
+  content = File.read(path, encoding: "bom|utf-8")
+  front_matter = content[/\A---\s*\n(.*?)^(?:---|\.\.\.)\s*$/m, 1]
   return errors << "нет front matter" if front_matter.nil?
 
   begin
-    data = YAML.safe_load(front_matter, permitted_classes: [Date, Time]) || {}
+    data = YAML.safe_load(front_matter, permitted_classes: [Date, Time], aliases: true) || {}
+    raise Psych::Exception, "ожидается набор полей, получено #{data.class}" unless data.is_a?(Hash)
   rescue Psych::Exception => e
     return errors << "front matter не разбирается как YAML: #{e.message}"
   end
@@ -66,19 +70,20 @@ def check(path)
   errors
 end
 
+# Как Jekyll: статьи читаются и из подкаталогов, файлы и каталоги на точку пропускаются.
+names = Dir.glob("**/*", base: POSTS_DIR).select { |name| File.file?(File.join(POSTS_DIR, name)) }.sort
 failed = 0
-Dir.children(POSTS_DIR).sort.each do |name|
+names.each do |name|
   path = File.join(POSTS_DIR, name)
-  next unless File.file?(path)
-
   errors = check(path)
   next if errors.empty?
 
   failed += 1
-  errors.each { |error| puts "::error file=_posts/#{name}::#{error}" }
+  file = Pathname.new(path).relative_path_from(ROOT)
+  errors.each { |error| puts "::error file=#{file}::#{error}" }
 end
 
-total = Dir.children(POSTS_DIR).count { |name| File.file?(File.join(POSTS_DIR, name)) }
+total = names.size
 if failed.zero?
   puts "Статьи в порядке: #{total}"
 else
