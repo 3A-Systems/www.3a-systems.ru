@@ -1,0 +1,92 @@
+# The contents of this file are subject to the terms of the Common Development and
+# Distribution License (the License). You may not use this file except in compliance with the
+# License.
+#
+# You can obtain a copy of the License at legal/CDDLv1.0.txt. See the License for the
+# specific language governing permission and limitations under the License.
+#
+# When distributing Covered Software, include this CDDL Header Notice in each file and include
+# the License file at legal/CDDLv1.0.txt. If applicable, add the following below the CDDL
+# Header, with the fields enclosed by brackets [] replaced by your own identifying
+# information: "Portions copyright [year] [name of copyright owner]".
+#
+# Copyright 2026 3A Systems, LLC.
+
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Та же версия Ruby, что у GitHub Pages: https://pages.github.com/versions.json
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.4'
+          bundler-cache: true
+
+      - name: Check posts front matter
+        id: posts
+        run: ruby .github/scripts/check-posts.rb
+
+      # Самотест проверки статей: test-posts содержит статьи с ошибками и корректные
+      # пограничные случаи (BOM, закрывающее ..., YAML-алиас, подкаталог, файл на точку).
+      - name: Self-test posts checker
+        if: ${{ !cancelled() }}
+        run: |
+          set +e
+          ruby .github/scripts/check-posts.rb .github/scripts/test-posts > "$RUNNER_TEMP/test-posts.out"
+          rc=$?
+          set -e
+          diff -u .github/scripts/test-posts.expected "$RUNNER_TEMP/test-posts.out"
+          test "$rc" -eq 1
+
+      - name: Build site
+        id: build
+        if: ${{ !cancelled() }}
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build
+
+      # Индекс поиска по блогу (#82): валидный JSON, по записи на каждую опубликованную статью.
+      # Число статей берётся из _site, а не из _posts: статьи с датой в будущем Jekyll не публикует.
+      - name: Check search index
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && hashFiles('search.json') != '' }}
+        run: |
+          posts=$(find _site/blog -maxdepth 1 -name '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]-*.html' | wc -l)
+          jq -e --argjson n "$posts" '
+            type == "array" and $n > 0 and length == $n
+            and all(.[]; (.title | type) == "string" and (.title | length) > 0
+                         and (.url | type) == "string" and (.url | startswith("/blog/"))
+                         and (.tags | type) == "array")
+            and ([.[].url] | unique | length) == $n
+          ' _site/search.json > /dev/null \
+            || { echo "::error file=search.json::индекс поиска невалиден или не совпадает со статьями ($posts)"; exit 1; }
+          echo "Индекс поиска в порядке: $posts статей"
+
+      # Внешние ссылки не проверяются: сторонние сайты недоступны нестабильно.
+      # http:// разрешён для примеров в статьях (openam.example.org и т.п.),
+      # ссылки без href — неактивные кнопки пагинации блога.
+      - name: Check links
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: |
+          gem install html-proofer -v '~> 5.0' --no-document
+          htmlproofer _site \
+            --disable-external \
+            --no-enforce-https \
+            --allow-missing-href \
+            --swap-urls '^https\://www\.3a-systems\.ru:'
