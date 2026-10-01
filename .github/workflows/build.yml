@@ -78,6 +78,24 @@ jobs:
             || { echo "::error file=search.json::индекс поиска невалиден или не совпадает со статьями ($posts)"; exit 1; }
           echo "Индекс поиска в порядке: $posts статей"
 
+      # Проверки собранных страниц (#85): блок «Похожие статьи» — не больше пяти ссылок,
+      # без самой статьи и соседних из навигации.
+      - name: Check built site
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: bundle exec ruby .github/scripts/check-site.rb
+
+      # Самотест проверки сайта: test-site содержит страницы с ошибками и корректные
+      # пограничные случаи (статья без похожих, страница блога, которая не статья).
+      - name: Self-test site checker
+        if: ${{ !cancelled() }}
+        run: |
+          set +e
+          bundle exec ruby .github/scripts/check-site.rb .github/scripts/test-site > "$RUNNER_TEMP/test-site.out"
+          rc=$?
+          set -e
+          diff -u .github/scripts/test-site.expected "$RUNNER_TEMP/test-site.out"
+          test "$rc" -eq 1
+
       # Внешние ссылки не проверяются: сторонние сайты недоступны нестабильно.
       # http:// разрешён для примеров в статьях (openam.example.org и т.п.),
       # ссылки без href — неактивные кнопки пагинации блога.
