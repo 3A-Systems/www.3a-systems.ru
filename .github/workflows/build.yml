@@ -68,16 +68,17 @@ jobs:
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: bundle exec ruby .github/scripts/check-head.rb
 
-      # Самотест проверки <head>: test-site содержит страницы с ошибками и корректные
-      # пограничные случаи (404.html, редирект jekyll-redirect-from, <title> во встроенном SVG).
+      # Самотест проверки <head>: test-head содержит страницы с ошибками и корректные
+      # пограничные случаи (404.html, редирект jekyll-redirect-from, <title> во встроенном SVG,
+      # кириллица в URL).
       - name: Self-test page head checker
         if: ${{ !cancelled() }}
         run: |
           set +e
-          bundle exec ruby .github/scripts/check-head.rb .github/scripts/test-site > "$RUNNER_TEMP/test-site.out"
+          bundle exec ruby .github/scripts/check-head.rb .github/scripts/test-head > "$RUNNER_TEMP/test-head.out"
           rc=$?
           set -e
-          diff -u .github/scripts/test-site.expected "$RUNNER_TEMP/test-site.out"
+          diff -u .github/scripts/test-head.expected "$RUNNER_TEMP/test-head.out"
           test "$rc" -eq 1
 
       # Индекс поиска по блогу (#82): валидный JSON, по записи на каждую опубликованную статью.

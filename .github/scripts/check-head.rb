@@ -20,6 +20,7 @@ require "date"
 require "json"
 require "nokogiri"
 require "pathname"
+require "uri"
 require "yaml"
 
 ROOT = Pathname.new(File.expand_path("../..", __dir__))
@@ -31,9 +32,10 @@ SITE_URL = YAML.safe_load_file(File.join(ROOT, "_config.yml"), permitted_classes
 HTML_SUFFIX_ALLOWED = %w[404.html].freeze
 
 # Файл в SITE_DIR, который GitHub Pages отдаёт по пути из canonical, или nil.
+# x/index.html по /x не отдаётся: на такой путь GitHub Pages отвечает редиректом 301 на /x/.
 def resolve(path)
   name = path.delete_prefix("/")
-  candidates = name.empty? || name.end_with?("/") ? ["#{name}index.html"] : [name, "#{name}.html", "#{name}/index.html"]
+  candidates = name.empty? || name.end_with?("/") ? ["#{name}index.html"] : [name, "#{name}.html"]
   candidates.find { |candidate| File.file?(File.join(SITE_DIR, candidate)) }
 end
 
@@ -45,7 +47,12 @@ def check_canonical(name, doc, errors)
   href = links.first["href"].to_s
   return errors << "canonical не на #{SITE_URL}: #{href}" unless href.start_with?("#{SITE_URL}/")
 
-  path = href.delete_prefix(SITE_URL)
+  # Не-ASCII в URL Jekyll кодирует (/%D1%82…), а файл пишет раскодированным.
+  begin
+    path = URI.decode_uri_component(href.delete_prefix(SITE_URL))
+  rescue ArgumentError
+    return errors << "canonical с неверным percent-encoding: #{href}"
+  end
   # Сейчас страницы без своего permalink тоже получают URL без .html: так их строит Jekyll
   # при стиле permalink из _config.yml. .html появится, если сменить этот стиль.
   if path.end_with?(".html") && !HTML_SUFFIX_ALLOWED.include?(name)
@@ -53,7 +60,9 @@ def check_canonical(name, doc, errors)
   end
 
   target = resolve(path)
-  if target.nil?
+  if target.nil? && !path.end_with?("/") && File.directory?(File.join(SITE_DIR, path))
+    errors << "canonical без / на конце: GitHub Pages отвечает на #{href} редиректом на #{href}/"
+  elsif target.nil?
     errors << "canonical ведёт на несуществующую страницу: #{href}"
   elsif target != name && doc.at_css('meta[http-equiv="refresh"]').nil?
     # Только страницы-редиректы jekyll-redirect-from указывают canonical на другую страницу.
