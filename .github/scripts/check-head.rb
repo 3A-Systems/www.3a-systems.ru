@@ -48,8 +48,10 @@ def check_canonical(name, doc, errors)
   return errors << "canonical не на #{SITE_URL}: #{href}" unless href.start_with?("#{SITE_URL}/")
 
   # Не-ASCII в URL Jekyll кодирует (/%D1%82…), а файл пишет раскодированным.
+  # %00 раскодируется без ошибки, но NUL в пути роняет File.join в resolve().
   begin
     path = URI.decode_uri_component(href.delete_prefix(SITE_URL))
+    raise ArgumentError if path.include?("\0")
   rescue ArgumentError
     return errors << "canonical с неверным percent-encoding: #{href}"
   end
