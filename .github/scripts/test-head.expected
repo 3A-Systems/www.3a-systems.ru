@@ -1,5 +1,6 @@
 ::error file=.github/scripts/test-head/bad-encoding.html::canonical с неверным percent-encoding: https://www.3a-systems.ru/bad-encoding%ZZ
 ::error file=.github/scripts/test-head/bad-json.html::JSON-LD №2 не разбирается как JSON
+::error file=.github/scripts/test-head/emptydir/page.html::canonical ведёт на несуществующую страницу: https://www.3a-systems.ru/emptydir/
 ::error file=.github/scripts/test-head/foreign-canonical.html::canonical не на https://www.3a-systems.ru: https://example.org/foreign-canonical
 ::error file=.github/scripts/test-head/glued-host.html::canonical не на https://www.3a-systems.ru: https://www.3a-systems.ruglued-host
 ::error file=.github/scripts/test-head/html-suffix.html::canonical с .html: https://www.3a-systems.ru/html-suffix.html (проверьте permalink страницы и в _config.yml)
@@ -9,9 +10,10 @@
 ::error file=.github/scripts/test-head/missing-target.html::canonical ведёт на несуществующую страницу: https://www.3a-systems.ru/missing
 ::error file=.github/scripts/test-head/no-canonical.html::ожидается один <link rel="canonical">, найдено 0
 ::error file=.github/scripts/test-head/no-title.html::ожидается один <title>, найдено 0
+::error file=.github/scripts/test-head/nul.html::canonical с неверным percent-encoding: https://www.3a-systems.ru/nul%00
 ::error file=.github/scripts/test-head/other-page.html::canonical ведёт на другую страницу: https://www.3a-systems.ru/ok (ok.html)
 ::error file=.github/scripts/test-head/slashless/index.html::canonical без / на конце: GitHub Pages отвечает на https://www.3a-systems.ru/slashless редиректом на https://www.3a-systems.ru/slashless/
 ::error file=.github/scripts/test-head/two-canonicals.html::ожидается один <link rel="canonical">, найдено 2
 ::error file=.github/scripts/test-head/two-feeds.html::ссылок на ленту RSS: 2, ожидается не больше одной
 ::error file=.github/scripts/test-head/two-titles.html::ожидается один <title>, найдено 2
-Страниц с ошибками: 16 из 22
+Страниц с ошибками: 18 из 25
