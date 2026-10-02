@@ -85,7 +85,8 @@ jobs:
         run: bundle exec ruby .github/scripts/check-site.rb
 
       # Самотест проверки сайта: test-site содержит страницы с ошибками и корректные
-      # пограничные случаи (статья без похожих, страница блога, которая не статья).
+      # пограничные случаи (статья без похожих, страница блога, которая не статья,
+      # заглушка redirect_from). Сайт без статей проверка тоже должна ронять.
       - name: Self-test site checker
         if: ${{ !cancelled() }}
         run: |
@@ -95,6 +96,15 @@ jobs:
           set -e
           diff -u .github/scripts/test-site.expected "$RUNNER_TEMP/test-site.out"
           test "$rc" -eq 1
+
+          mkdir -p "$RUNNER_TEMP/empty-site/blog"
+          set +e
+          bundle exec ruby .github/scripts/check-site.rb "$RUNNER_TEMP/empty-site" > "$RUNNER_TEMP/empty-site.out"
+          rc=$?
+          set -e
+          cat "$RUNNER_TEMP/empty-site.out"
+          test "$rc" -eq 1
+          grep -q 'нет статей' "$RUNNER_TEMP/empty-site.out"
 
       # Внешние ссылки не проверяются: сторонние сайты недоступны нестабильно.
       # http:// разрешён для примеров в статьях (openam.example.org и т.п.),

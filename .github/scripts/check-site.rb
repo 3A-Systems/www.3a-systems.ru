@@ -19,23 +19,39 @@
 # Статьи (blog/YYYY-MM-DD-*.html), блок «Похожие статьи» из _includes/post-footer.html:
 # - в .post-related не больше RELATED_MAX ссылок;
 # - среди них нет самой статьи и статей из навигации .post-nav.
+# Заглушки jekyll-redirect-from (redirect_from: /blog/<старое имя>) лежат там же
+# и называются как статьи, но статьями не являются и пропускаются.
 
 require "nokogiri"
 require "pathname"
+require "uri"
 
 ROOT = Pathname.new(File.expand_path("../..", __dir__))
 SITE_DIR = File.expand_path(ARGV[0] || File.join(ROOT, "_site"))
 POST_FILE = /\A\d{4}-\d{2}-\d{2}-.+\.html\z/
 RELATED_MAX = 5
 
-# /blog/x, /blog/x.html, /blog/x/ и https://www.3a-systems.ru/blog/x — одна и та же статья.
+def read_html(path)
+  Nokogiri::HTML(File.read(path, encoding: "utf-8"))
+end
+
+def redirect_stub?(path)
+  !read_html(path).at_css('meta[http-equiv="refresh"]').nil?
+end
+
+# /blog/x, /blog/x.html, /blog/x/, https://www.3a-systems.ru/blog/x — одна и та же статья.
+# Не-ASCII в post.url Jekyll кодирует (/blog/2026-05-01-%D1%82…), а файл пишет
+# раскодированным, поэтому ссылка раскодируется. nil — неверный percent-encoding.
 def normalize(href)
-  href.sub(%r{\Ahttps?://[^/]+}, "").sub(/[?#].*\z/, "").sub(/\.html\z/, "").chomp("/")
+  path = href.sub(%r{\Ahttps?://[^/]+}, "").sub(/[?#].*\z/, "").sub(/\.html\z/, "").chomp("/")
+  URI.decode_uri_component(path)
+rescue ArgumentError
+  nil
 end
 
 def check_post(path)
   errors = []
-  doc = Nokogiri::HTML(File.read(path, encoding: "utf-8"))
+  doc = read_html(path)
 
   nav = doc.at_css(".post-nav")
   # Без навигации проверка соседей ничего не проверяет: скорее всего, переименован класс.
@@ -46,11 +62,19 @@ def check_post(path)
     errors << "в .post-related #{related.size} ссылок, допустимо не больше #{RELATED_MAX}"
   end
 
-  self_url = "/blog/#{File.basename(path, '.html')}"
-  excluded = { normalize(self_url) => "сама статья" }
-  nav.css("a[href]").each { |a| excluded[normalize(a["href"])] ||= "статья из .post-nav" }
+  # Имя файла уже раскодировано: normalize к нему не применяется.
+  excluded = { "/blog/#{File.basename(path, '.html')}" => "сама статья" }
+  nav.css("a[href]").each do |a|
+    url = normalize(a["href"])
+    next errors << "в .post-nav ссылка #{a['href']} с неверным percent-encoding" if url.nil?
+
+    excluded[url] ||= "статья из .post-nav"
+  end
   related.each do |href|
-    reason = excluded[normalize(href)]
+    url = normalize(href)
+    next errors << "в .post-related ссылка #{href} с неверным percent-encoding" if url.nil?
+
+    reason = excluded[url]
     errors << "в .post-related ссылка на #{href} — #{reason}" if reason
   end
 
@@ -59,6 +83,7 @@ end
 
 blog_dir = File.join(SITE_DIR, "blog")
 posts = Dir.exist?(blog_dir) ? Dir.children(blog_dir).grep(POST_FILE).sort : []
+posts.reject! { |name| redirect_stub?(File.join(blog_dir, name)) }
 if posts.empty?
   puts "::error::в #{SITE_DIR}/blog нет статей: сайт не собран?"
   exit 1

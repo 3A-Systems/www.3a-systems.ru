@@ -1,6 +1,9 @@
 ::error::.github/scripts/test-site/blog/2026-01-02-too-many.html: в .post-related 6 ссылок, допустимо не больше 5
+::error::.github/scripts/test-site/blog/2026-01-02-too-many.html: в .post-nav ссылка /blog/2026-02-01-%ZZ с неверным percent-encoding
+::error::.github/scripts/test-site/blog/2026-01-02-too-many.html: в .post-related ссылка /blog/2025-01-06-%ZZ с неверным percent-encoding
 ::error::.github/scripts/test-site/blog/2026-01-03-self.html: в .post-related ссылка на /blog/2026-01-03-self — сама статья
-::error::.github/scripts/test-site/blog/2026-01-04-neighbours.html: в .post-related ссылка на /blog/2025-12-31-prev — статья из .post-nav
+::error::.github/scripts/test-site/blog/2026-01-04-neighbours.html: в .post-related ссылка на http://www.3a-systems.ru/blog/2025-12-31-prev/#top — статья из .post-nav
 ::error::.github/scripts/test-site/blog/2026-01-04-neighbours.html: в .post-related ссылка на https://www.3a-systems.ru/blog/2026-02-01-next.html — статья из .post-nav
 ::error::.github/scripts/test-site/blog/2026-01-06-no-nav.html: нет блока .post-nav
-Статей с ошибками: 4 из 6
+::error::.github/scripts/test-site/blog/2026-01-08-тест.html: в .post-related ссылка на /blog/2026-01-08-%D1%82%D0%B5%D1%81%D1%82 — сама статья
+Статей с ошибками: 5 из 7
