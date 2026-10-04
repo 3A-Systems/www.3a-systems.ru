@@ -28,6 +28,8 @@ docker run --rm -it -p 4000:4000 -v "$PWD":/site -w /site ruby:3.3.4 \
 ruby .github/scripts/check-posts.rb
 ruby .github/scripts/check-posts.rb .github/scripts/test-posts | diff -u .github/scripts/test-posts.expected -
 bundle exec jekyll build
+bundle exec ruby .github/scripts/check-site.rb
+bundle exec ruby .github/scripts/check-site.rb .github/scripts/test-site | diff -u .github/scripts/test-site.expected -
 gem install html-proofer -v '~> 5.0'
 htmlproofer _site --disable-external --no-enforce-https --allow-missing-href \
   --swap-urls '^https\://www\.3a-systems\.ru:'
