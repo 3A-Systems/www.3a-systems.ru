@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="3 -8.7 50 50">
+<!--
+  The contents of this file are subject to the terms of the Common Development and
+  Distribution License (the License). You may not use this file except in compliance with the
+  License.
+
+  You can obtain a copy of the License at legal/CDDLv1.0.txt. See the License for the
+  specific language governing permission and limitations under the License.
+
+  When distributing Covered Software, include this CDDL Header Notice in each file and include
+  the License file at legal/CDDLv1.0.txt. If applicable, add the following below the CDDL
+  Header, with the fields enclosed by brackets [] replaced by your own identifying
+  information: "Portions copyright [year] [name of copyright owner]".
+
+  Copyright 2026 3A Systems, LLC.
+-->
+<style>path{fill:#395781}@media (prefers-color-scheme:dark){path{fill:#8fb0e0}}</style>
+<path fill-rule="evenodd" d="m 51.271877,7.6068135 v -1.6121528 0 V 5.42948 l -1.788186,1.0117654 v 0 l -5.785223,3.2706293 v -6.274419 0 -2.2848132 L 41.091233,2.6350853 28.073559,9.997245 14.175708,2.1329052 v 0 L 12.376409,1.121144 v 0.5707377 0 1.6103013 0 6.4337819 L 6.55416,6.4412454 v 0 L 4.7603676,5.42948 v 0.5707395 0 1.606594 0 15.5359565 0 1.70295 l 15.7027544,8.889074 7.553011,-4.274984 7.552995,4.274984 15.702749,-8.883514 v -1.702952 0 z M 14.170132,4.4084527 16.601361,5.7852671 28.079134,12.270934 41.904725,4.4566318 v 13.3141502 0 1.547296 L 28.073559,27.147205 14.170132,19.281015 Z M 20.457518,31.462955 6.5596668,23.598619 v -1.508382 0 -13.3715949 l 2.425654,1.3786669 v 0 l 3.3892152,1.914199 v 6.82663 0 1.704803 l 7.580837,4.284248 v 0.06857 l 6.048353,3.424434 z m 29.020607,-9.372718 v 0 1.508382 l -13.897879,7.864336 -5.540597,-3.137211 6.037229,-3.429992 7.62159,-4.317603 v -1.740011 0 -6.856278 l 3.348466,-1.888257 v 0 l 2.431191,-1.3749609 z"/>
+</svg>
