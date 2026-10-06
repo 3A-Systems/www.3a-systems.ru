@@ -2,7 +2,7 @@
 
 Исходный код сайта [https://www.3a-systems.ru/](https://www.3a-systems.ru/) — ООО «ТриА Системз»: продукты Open Identity Platform (OpenDJ, OpenAM, OpenIG, OpenIDM), услуги, прайс-лист и блог.
 
-Сайт собирается [Jekyll](https://jekyllrb.com/) и публикуется через GitHub Pages из ветки `master`: после мержа в `master` сайт обновляется автоматически. На каждый pull request и push в `master` [GitHub Actions](.github/workflows/build.yml) собирает сайт и проверяет статьи и ссылки.
+Сайт собирается [Jekyll](https://jekyllrb.com/) и публикуется через GitHub Pages из ветки `master`: после мержа в `master` сайт обновляется автоматически. На каждый pull request и push в `master` [GitHub Actions](.github/workflows/build.yml) собирает сайт и проверяет статьи, `<head>` страниц (canonical, JSON-LD) и ссылки.
 
 ## Локальный запуск
 
@@ -30,6 +30,8 @@ ruby .github/scripts/check-posts.rb .github/scripts/test-posts | diff -u .github
 bundle exec jekyll build
 bundle exec ruby .github/scripts/check-site.rb
 bundle exec ruby .github/scripts/check-site.rb .github/scripts/test-site | diff -u .github/scripts/test-site.expected -
+bundle exec ruby .github/scripts/check-head.rb
+LC_ALL=C bundle exec ruby .github/scripts/check-head.rb .github/scripts/test-head | diff -u .github/scripts/test-head.expected -
 gem install html-proofer -v '~> 5.0'
 htmlproofer _site --disable-external --no-enforce-https --allow-missing-href \
   --swap-urls '^https\://www\.3a-systems\.ru:'
