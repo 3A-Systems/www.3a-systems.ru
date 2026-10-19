@@ -29,7 +29,8 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Pinned: ruby/setup-ruby has no Ruby 3.3.4 build for ubuntu-26.04, which ubuntu-latest now points to
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
