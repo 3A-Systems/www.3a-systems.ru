@@ -29,7 +29,9 @@ concurrency:
 
 jobs:
   build:
-    # Pinned: ruby/setup-ruby has no Ruby 3.3.4 build for ubuntu-26.04, which ubuntu-latest now points to
+    # Закреплено на ubuntu-24.04: ubuntu-latest теперь ubuntu-26.04, а под неё в ruby/ruby-builder
+    # нет Ruby 3.3.4 (сборки под 26.04 есть только с 3.3.11 и 3.4.9). Снять, когда GitHub Pages
+    # перейдёт на такую версию Ruby (https://pages.github.com/versions.json).
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
